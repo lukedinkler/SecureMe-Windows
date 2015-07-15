@@ -1,8 +1,8 @@
 
 """
-LucaTech Interactive Program
 Graphical User Interface
-
+for
+SecureMe
 
 """
 
@@ -33,19 +33,16 @@ __all__ = ['ynbox'
     , 'EgStore'
     ]
 
-import sys, os, winmod
+import sys, os
 import string
 import pickle
 import traceback
-from LIPEncrypt import *
+
 
 
 from tkinter import ttk
 
-if os.path.exists("UserData.dat"):
-    rawuserdata = decrypt("UserData.dat")
-    userdata = rawuserdata.split("\n")
-    gender = userdata[3]
+
 #--------------------------------------------------
 # check python version and take appropriate action
 #--------------------------------------------------
@@ -129,12 +126,9 @@ TEXT_ENTRY_FONT_SIZE    = 12  # a little larger makes it easier to see
 #STANDARD_SELECTION_EVENTS = ["Return", "Button-1"]
 STANDARD_SELECTION_EVENTS = ["Return", "Button-1", "space"]
 
-root = Tk()
-root.iconbitmap(default="LIP Source Files/Cube.ico")
-root.withdraw()
+
 
 def x_button_function():
-    winmod.ExitTasks(gender)
     os._exit(1)
     
 # Initialize some global variables that will be reset later
