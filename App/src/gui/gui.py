@@ -1,16 +1,15 @@
 # Made by Luke Dinkler and Peter Toth
 
-import Tkinter, tkMessageBox
-from Tkinter import *
-import ttk
-from ttk import Style
-from getrtpwd import RootPasswordWindow
+import tkinter, tkinter.messagebox
+from tkinter import *
+import tkinter.ttk
+from tkinter.ttk import Style
 import os, sys, time
 import threading
 from threading import Thread
-from text import CustomText
-from toolbar import ToolBar
-from users import AddUser, DelUser
+from src.gui.text import CustomText
+from src.gui.toolbar import ToolBar
+from src.gui.users import AddUser, DelUser
 os.system('cd ..')
 from src.securityfunctions.admin import *
 from src.securityfunctions.firewall import *
@@ -29,8 +28,6 @@ class InitGUI():
 	liberation_font_15 = ("Liberation Sans", 15)
 
 	def __init__(self):
-		self.enc = Encryption()
-		self.grp = RootPasswordWindow(self.enc)
 		self.build()
 
 	def build(self):
@@ -53,7 +50,7 @@ class InitGUI():
 
 		mFrame = Frame(self.root, bg="slate gray", padx=25, pady=25)
 		mFrame.pack(fill=BOTH)
-		self.notebook = ttk.Notebook(mFrame, height=500, style="BW.TLabel")
+		self.notebook = tkinter.ttk.Notebook(mFrame, height=500, style="BW.TLabel")
 		primaryFrame = Frame(self.notebook, padx=25, pady=25)
 		usersFrame = Frame(self.notebook, padx=25, pady=25)
 		firewallFrame = Frame(self.notebook, padx=25, pady=25)
@@ -255,7 +252,7 @@ class InitGUI():
 		return retstr
 
 	def basicUpdate(self):
-		if tkMessageBox.askyesno("SecureMe - Update", "Proceed with update?") == True:
+		if tkinter.messagebox.askyesno("SecureMe - Update", "Proceed with update?") == True:
 			self.setLeftLabel("Updating Machine...")
 			ud = Update()
 			ud.update(self.enc)
@@ -264,7 +261,7 @@ class InitGUI():
 			pass
 
 	def basicUpgrade(self):
-		if tkMessageBox.askyesno("SecureMe - Upgrade", "Proceed with upgrade?") == True:
+		if tkinter.messagebox.askyesno("SecureMe - Upgrade", "Proceed with upgrade?") == True:
 			self.setLeftLabel("Upgrading Machine...")
 			ud = Update()
 			ud.upgrade(self.enc)
@@ -273,7 +270,7 @@ class InitGUI():
 			pass
 
 	def packageUpdate(self):
-		if tkMessageBox.askyesno("SecureMe - Package Update", "Proceed with package update?") == True:
+		if tkinter.messagebox.askyesno("SecureMe - Package Update", "Proceed with package update?") == True:
 			self.setLeftLabel("Updating Packages...")
 			ud = Update()
 			ud.updateall(self.enc)
@@ -282,7 +279,7 @@ class InitGUI():
 			pass
 
 	def enableFirewall(self):
-		if tkMessageBox.askyesno("SecureMe - Firewall", "Are you sure you want to enable the firewall?") == True:
+		if tkinter.messagebox.askyesno("SecureMe - Firewall", "Are you sure you want to enable the firewall?") == True:
 			self.setLeftLabel("Enabling Firewall...")
 			f = Firewall()
 			f.enable(self.getPassword())
@@ -292,7 +289,7 @@ class InitGUI():
 			pass
 
 	def disableFirewall(self):
-		if tkMessageBox.askyesno("SecureMe - Firewall", "Are you sure you want to disable the firewall?") == True:
+		if tkinter.messagebox.askyesno("SecureMe - Firewall", "Are you sure you want to disable the firewall?") == True:
 			self.setLeftLabel("Disabling Firewall...")
 			f = Firewall()
 			f.disable(self.getPassword())
@@ -313,7 +310,7 @@ class InitGUI():
 		self.resetLeftLabel()
 
 	def shutdown(self):
-		if tkMessageBox.askyesno("SecureMe - Power", "Are you sure you would like to power off?") == True:
+		if tkinter.messagebox.askyesno("SecureMe - Power", "Are you sure you would like to power off?") == True:
 			self.setLeftLabel("Shutting Down...")
 			s = Linux()
 			s.shutdown(2)
@@ -322,7 +319,7 @@ class InitGUI():
 			pass
 
 	def reboot(self):
-		if tkMessageBox.askyesno("SecureMe - Power", "Are you sure you would like to reboot?") == True:
+		if tkinter.messagebox.askyesno("SecureMe - Power", "Are you sure you would like to reboot?") == True:
 			self.setLeftLabel("Rebooting...")
 			s = Linux()
 			s.reboot()
@@ -339,7 +336,7 @@ class InitGUI():
 		self.setLeftLabel("Deleting user...")
 
 	def quitMenu(self):
-		if tkMessageBox.askyesno("Secure Me - Quit?", "Are you sure you want to quit?") == True:
+		if tkinter.messagebox.askyesno("Secure Me - Quit?", "Are you sure you want to quit?") == True:
 			sys.exit(0)
 		else:
 			pass

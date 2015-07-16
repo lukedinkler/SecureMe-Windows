@@ -1,6 +1,9 @@
-import os, time, subprocess, GUI
-print("Welcome to SecureMe!")
-MainMenu = GUI.buttonbox("Main Menu:", choices=["Secure", "Exit"])
-if MainMenu == "Exit":
-    os._exit(1)
-    
+# Made by Luke Dinkler and Peter Toth
+
+from src.gui.gui import InitGUI
+
+def start():
+        gui = InitGUI()
+
+if __name__ == '__main__':
+        start()

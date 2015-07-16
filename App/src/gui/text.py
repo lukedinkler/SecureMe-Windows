@@ -1,7 +1,7 @@
 # Peter Toth
 
-import Tkinter
-from Tkinter import Text
+import tkinter
+from tkinter import Text
 
 class CustomText(Text):
 
@@ -9,11 +9,11 @@ class CustomText(Text):
 		Text.__init__(self, root, **kwargs)
 
 	def clear(self):
-		self.delete("1.0", Tkinter.END)
+		self.delete("1.0", tkinter.END)
 
 	def resetText(self, text):
 		self.clear()
-		self.insert(Tkinter.END, text)
+		self.insert(tkinter.END, text)
 
-	def type(self, type=Tkinter.NORMAL):
+	def type(self, type=tkinter.NORMAL):
 		self.configure(state=type)

@@ -1,8 +1,8 @@
 # Made by Luke Dinkler and Peter Toth
 
-import Tkinter
-from Tkinter import *
-import tkMessageBox
+import tkinter
+from tkinter import *
+import tkinter.messagebox
 import os
 os.system("cd ..")
 from src.securityfunctions.users import *
@@ -46,7 +46,7 @@ class AddUser():
 
 		self.root.destroy()
 
-		tkMessageBox.showinfo("SecureMe - User Created", "Successfully Created User: '" + username + "'!")
+		tkinter.messagebox.showinfo("SecureMe - User Created", "Successfully Created User: '" + username + "'!")
 
 
 
