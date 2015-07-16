@@ -6,3 +6,7 @@ import winshell
 
 def AdminEx(command):
     win32shell.ShellExecuteEx(lpVerb='runas', lpFile='cmd.exe', lpParameters='/c ' + command)
+
+def DisableGuest():
+    AdminExe("net user guest /active:no >NUL")
+
