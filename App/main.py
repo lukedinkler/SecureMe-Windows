@@ -11,13 +11,17 @@ def MainMenu():
 Developed by Luke Dinkler and Peter Toth 2015""", choices=["Back"], image="data/about-icon.gif")
                MainMenu()
        elif menu == "Choose Security Option":
-               securitypieces = GUI.choicebox("Choose a system security action to preform:", choices=["Firewall: Enable", "Firewall: Disable"])
+               securitypieces = GUI.choicebox("Choose a system security action to perform:", choices=["Firewall: Enable", "Firewall: Disable"])
                if securitypieces == None:
                        MainMenu()
+               elif securitypieces == "Firewall: Enable":
+                        funclib.EnableFirewall()
+                        GUI.msgbox("Active successfully performed!")
+                        MainMenu()
                 
        elif menu == "Full Lockdown":
                 funclib.DisableGuest()
-
+                funclib.EnableFirewall()
 
                 
                 GUI.buttonbox("SecureMe has fully locked down and secured your computer!", choices=["OK!"], image="data/check.gif")
