@@ -3,7 +3,6 @@
 Graphical User Interface
 for
 SecureMe
-
 """
 
 egversion = "0.1 BETA"
