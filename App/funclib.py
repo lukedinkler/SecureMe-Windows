@@ -15,3 +15,9 @@ def EnableFirewall():
 def EnableUAC():
     AdminEx("C:\Windows\System32\reg.exe ADD HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v EnableLUA /t REG_DWORD /d 2 /f")
     #Requires reboot
+
+def SetPasswordPolicies():
+    pol1 = "net accounts /minpwlen:08"
+    pol2 = "net accounts /maxpwage:90"
+    pol3 = "net accounts /uniquepw:05"
+
