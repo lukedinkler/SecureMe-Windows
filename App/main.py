@@ -1,5 +1,5 @@
 # Made by Luke Dinkler and Peter Toth
-import GUI, funclib, os, sys
+import GUI, funclib, os, sys, threading
 
 def Init():
         MainMenu()
@@ -11,7 +11,7 @@ def MainMenu():
 Developed by Luke Dinkler and Peter Toth 2015""", choices=["Back"], image="data/about-icon.gif")
                MainMenu()
        elif menu == "Choose Security Option":
-               securitypieces = GUI.choicebox("Choose a system security action to perform:", choices=["Firewall: Enable", "Firewall: Disable", "Set Password Policies"])
+               securitypieces = GUI.choicebox("Choose a system security action to perform:", choices=["Firewall: Enable", "Firewall: Disable", "Set Password Policies", "Enable Automatic Windows Updates"])
                if securitypieces == None:
                        MainMenu()
                elif securitypieces == "Firewall: Enable":
@@ -22,13 +22,13 @@ Developed by Luke Dinkler and Peter Toth 2015""", choices=["Back"], image="data/
                        funclib.SetPasswordPolicies()
                        GUI.msgbox("Action successfully performed!")
                        MainMenu()
-                
+               elif securitypieces == "Enable Automatic Windows Updates":
+                       funclib.EnableAutoUpdates()
+                       GUI.msgbox("Action successfully performed!")
+                       MainMenu()
+                       
        elif menu == "Full Lockdown":
-                funclib.DisableGuest()
-                funclib.EnableFirewall()
-                funclib.SetPasswordPolicies()
-                funclib.SetAuditPolicies()
-                funclib.EnableAutoUpdates()
+                funclib.FullLockdown()
                 
                 GUI.buttonbox("SecureMe has fully locked down and secured your computer!", choices=["OK!"], image="data/check.gif")
                 MainMenu()

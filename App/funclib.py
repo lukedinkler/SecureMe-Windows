@@ -44,3 +44,9 @@ def EnableAutoUpdates():
     reg_command = "reg add HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU /v AUOptions /t REG_DWORD /d 5"
     AdminEx(reg_command)
     
+def FullLockdown():
+    DisableGuest()
+    EnableFirewall()
+    SetPasswordPolicies()
+    SetAuditPolicies()
+    EnableAutoUpdates()
