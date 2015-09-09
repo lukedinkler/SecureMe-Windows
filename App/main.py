@@ -5,7 +5,7 @@ def Init():
         MainMenu()
         
 def MainMenu():
-       menu = GUI.buttonbox("Welcome to SecureMe! Please select an option to begin:", choices=["Full Secure", "Partial Secure", "Choose Security Option", "About"], image="data/SecureMe-icon-d1.gif")
+       menu = GUI.buttonbox("Welcome to SecureMe! Please select an option to begin:", choices=["Full Lockdown", "Secure", "Choose Security Option", "About"], image="data/SecureMe-icon-d1.gif")
        if menu == "About":
                about = GUI.buttonbox("""SecureMe Version 0.1 Beta 0
 Developed by Luke Dinkler and Peter Toth 2015""", choices=["Back"], image="data/about-icon.gif")
@@ -15,10 +15,15 @@ Developed by Luke Dinkler and Peter Toth 2015""", choices=["Back"], image="data/
                if securitypieces == None:
                        MainMenu()
                 
-       elif menu == "Full Secure":
+       elif menu == "Full Lockdown":
+                funclib.DisableGuest()
+
+
+                
+                GUI.msgbox("SecureMe has fully locked down and secured your computer!")
                 MainMenu()
 
-       elif menu == "Partial Secure":
+       elif menu == "Secure":
                 MainMenu()
                                                                                                
                
