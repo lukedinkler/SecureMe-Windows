@@ -20,4 +20,23 @@ def SetPasswordPolicies():
     pol1 = "net accounts /minpwlen:08"
     pol2 = "net accounts /maxpwage:90"
     pol3 = "net accounts /uniquepw:05"
+    AdminEx(pol1)
+    AdminEx(pol2)
+    AdminEx(pol3)
 
+def SetAuditPolicies():
+    pol1 = """auditpol /set /category:"Account Logon" /success:enable /failure:enable"""
+    pol2 = """auditpol /set /category:"Account Management" /success:enable /failure:enable"""
+    pol3 = """auditpol /set /category:"DS Access" /success:enable /failure:enable"""
+    pol4 = """auditpol /set /category:"Logon/Logoff" /success:enable /failure:enable"""
+    pol5 = """auditpol /set /category:"Object Access" /success:enable /failure:enable"""
+    pol6 = """auditpol /set /category:"Policy Change" /success:enable /failure:enable"""
+    pol7 = """auditpol /set /category:"Privilege Use" /success:enable /failure:enable"""
+    AdminEx(pol1)
+    AdminEx(pol2)
+    AdminEx(pol3)
+    AdminEx(pol4)
+    AdminEx(pol5)
+    AdminEx(pol6)
+    AdminEx(pol7)
+    

@@ -27,6 +27,7 @@ Developed by Luke Dinkler and Peter Toth 2015""", choices=["Back"], image="data/
                 funclib.DisableGuest()
                 funclib.EnableFirewall()
                 funclib.SetPasswordPolicies()
+                funclib.SetAuditPolicies()
                 
                 GUI.buttonbox("SecureMe has fully locked down and secured your computer!", choices=["OK!"], image="data/check.gif")
                 MainMenu()
