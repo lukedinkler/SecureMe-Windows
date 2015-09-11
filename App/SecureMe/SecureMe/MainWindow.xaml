@@ -23,7 +23,7 @@
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
             <TabItem x:Name="About" Header="About" Margin="71,0,-76,0">
-                <Grid Background="#FFE5E5E5">
+                <Grid Background="#FFE5E5E5" Margin="0,-1,0,1">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="116*"/>
                         <ColumnDefinition Width="901*"/>
@@ -31,9 +31,11 @@
                     <Label x:Name="AboutMainLabel" Content="SecureMe:" HorizontalAlignment="Left" Margin="48,74,0,0" VerticalAlignment="Top" FontSize="26.667" Grid.ColumnSpan="2" Width="143"/>
                     <Label x:Name="AboutVerLabel" Content="Version 1.0 (Beta 1)" HorizontalAlignment="Left" Margin="73,124,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="150" FontSize="16" FontStyle="Italic"/>
                     <Image x:Name="image" Grid.Column="1" HorizontalAlignment="Left" Height="269" Margin="153,20,0,0" VerticalAlignment="Top" Width="273" Source="Images/SecureMeLogo-D1.png"/>
+                    <Label x:Name="AboutCreditLabel" Content="Developed by Luke Dinkler" Margin="48,195,754,0" VerticalAlignment="Top" Grid.ColumnSpan="2" FontSize="16"/>
+                    <Label x:Name="AboutYearLabel" Content="" HorizontalAlignment="Left" Margin="100,231,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" FontSize="21.333"/>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="Processes" Header="Processes" Margin="-49,0,37,1" RenderTransformOrigin="0.896,0.682">
+            <TabItem x:Name="Processes" Header="Processes" Margin="-49,0,37,-1" RenderTransformOrigin="0.896,0.682">
                 <Grid Background="#FFE5E5E5">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="169*"/>
