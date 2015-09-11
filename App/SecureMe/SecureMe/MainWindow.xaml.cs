@@ -23,6 +23,8 @@ namespace SecureMe
     {
         public List<string> Users = new List<string>();
         public string SelectedUser = "";
+        public string username = "";
+        
 
         public MainWindow()
         {
@@ -38,7 +40,7 @@ namespace SecureMe
             {
                 AddUser(usr);
             }
-
+            username = Environment.UserName;
             
         }
 
@@ -109,6 +111,7 @@ namespace SecureMe
                 int index = UsersBox.SelectedIndex;
                 SelectedUser = Users[index];
                 SelectedUserLabel.Content = "Selected User: " + SelectedUser;
+                
             }
         }
 
@@ -134,6 +137,29 @@ namespace SecureMe
         {
             Uri RUBtnIMG = new Uri(@"pack://application:,,,/Images/Remove-Icon-D1.png");
             RemoveUserBtn.Source = new BitmapImage(RUBtnIMG);
+        }
+
+        private void RemoveUserBtn_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if(UsersBox.SelectedIndex > -1)
+            {
+                if(SelectedUser != "DefaultAccount" && SelectedUser != "Administrator" && SelectedUser != username)
+                {
+                    string usrname = SelectedUser;
+                    funclib.AdminEx("net user " + usrname + " /DELETE");
+                    UsersBox.Items.RemoveAt(UsersBox.SelectedIndex);
+                    MessageBox.Show("User successfully removed!");
+                    UsersBox.SelectedIndex = -1;
+                }
+                else
+                {
+                    MessageBox.Show("Sorry, but you can't remove this user!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a user to remove!");
+            }
         }
     }
 }

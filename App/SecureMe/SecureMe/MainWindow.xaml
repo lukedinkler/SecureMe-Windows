@@ -29,7 +29,7 @@
                     <Label x:Name="UsersLabel" Content="Users:" Margin="467,20,466,0" VerticalAlignment="Top" FontSize="24" FontFamily="Segoe UI Semilight"/>
                     <Label x:Name="SelectedUserLabel" Content="Selected User: " HorizontalAlignment="Left" Margin="220,544,0,0" VerticalAlignment="Top" FontSize="16"/>
                     <Image x:Name="AddUserBtn" HorizontalAlignment="Left" Height="68" Margin="504,518,0,0" VerticalAlignment="Top" Width="72" Source="Images/Add-Icon-D1.png" Cursor="Hand" MouseEnter="AddUserBtn_MouseEnter" MouseLeave="AddUserBtn_MouseLeave"/>
-                    <Image x:Name="RemoveUserBtn" HorizontalAlignment="Left" Height="68" Margin="607,518,0,0" VerticalAlignment="Top" Width="72" Source="Images/Remove-Icon-D1.png" Cursor="Hand" MouseEnter="RemoveUserBtn_MouseEnter" MouseLeave="RemoveUserBtn_MouseLeave"/>
+                    <Image x:Name="RemoveUserBtn" HorizontalAlignment="Left" Height="68" Margin="607,518,0,0" VerticalAlignment="Top" Width="72" Source="Images/Remove-Icon-D1.png" Cursor="Hand" MouseEnter="RemoveUserBtn_MouseEnter" MouseLeave="RemoveUserBtn_MouseLeave" MouseDown="RemoveUserBtn_MouseDown"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="Services" Header="Services" Margin="-2,0,3,0">
