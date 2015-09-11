@@ -99,6 +99,24 @@
   <ItemGroup>
     <Resource Include="Images\SecureMeLogo-D1.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Basic-Secure-D1-Glow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Basic-Secure-D1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Full-Secure-D1-Glow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Full-Secure-D1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ManualSelect-D1-Glow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ManualSelect-D1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
