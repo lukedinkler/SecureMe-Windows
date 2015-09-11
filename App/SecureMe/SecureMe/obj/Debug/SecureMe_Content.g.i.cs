@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("securemeicon-d1.ico")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/remove-icon-d1.png")]
 
 

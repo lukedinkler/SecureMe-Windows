@@ -22,6 +22,7 @@ namespace SecureMe
     public partial class MainWindow : Window
     {
         public List<string> Users = new List<string>();
+        public string SelectedUser = "";
 
         public MainWindow()
         {
@@ -45,7 +46,7 @@ namespace SecureMe
         {
             ListBoxItem usr = new ListBoxItem();
             usr.Content = name;
-            usr.FontSize = 12;
+            usr.FontSize = 16;
             usr.Foreground = Brushes.White;
             UsersBox.Items.Add(usr);
         }
@@ -99,6 +100,40 @@ namespace SecureMe
         private void ManualSelectButton_MouseDown(object sender, MouseButtonEventArgs e)
         {
             //Manual Select code here
+        }
+
+        private void UsersBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(UsersBox.SelectedIndex > -1)
+            {
+                int index = UsersBox.SelectedIndex;
+                SelectedUser = Users[index];
+                SelectedUserLabel.Content = "Selected User: " + SelectedUser;
+            }
+        }
+
+        private void AddUserBtn_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Uri AUBtnIMG = new Uri(@"pack://application:,,,/Images/Add-Icon-D1-Glow.png");
+            AddUserBtn.Source = new BitmapImage(AUBtnIMG);
+        }
+
+        private void AddUserBtn_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Uri AUBtnIMG = new Uri(@"pack://application:,,,/Images/Add-Icon-D1.png");
+            AddUserBtn.Source = new BitmapImage(AUBtnIMG);
+        }
+
+        private void RemoveUserBtn_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Uri RUBtnIMG = new Uri(@"pack://application:,,,/Images/Remove-Icon-D1-Glow.png");
+            RemoveUserBtn.Source = new BitmapImage(RUBtnIMG);
+        }
+
+        private void RemoveUserBtn_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Uri RUBtnIMG = new Uri(@"pack://application:,,,/Images/Remove-Icon-D1.png");
+            RemoveUserBtn.Source = new BitmapImage(RUBtnIMG);
         }
     }
 }
