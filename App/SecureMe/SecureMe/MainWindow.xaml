@@ -30,7 +30,7 @@
                     </Grid.ColumnDefinitions>
                     <Label x:Name="AboutMainLabel" Content="SecureMe:" HorizontalAlignment="Left" Margin="48,74,0,0" VerticalAlignment="Top" FontSize="26.667" Grid.ColumnSpan="2" Width="143"/>
                     <Label x:Name="AboutVerLabel" Content="Version 1.0 (Beta 1)" HorizontalAlignment="Left" Margin="73,124,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="150" FontSize="16" FontStyle="Italic"/>
-                    <Image x:Name="image" Grid.Column="1" HorizontalAlignment="Left" Height="244" Margin="153,45,0,0" VerticalAlignment="Top" Width="243" Source="Images/SecureMeLogo-D1.png"/>
+                    <Image x:Name="image" Grid.Column="1" HorizontalAlignment="Left" Height="269" Margin="153,20,0,0" VerticalAlignment="Top" Width="273" Source="Images/SecureMeLogo-D1.png"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="Processes" Header="Processes" Margin="-49,0,37,1" RenderTransformOrigin="0.896,0.682">
