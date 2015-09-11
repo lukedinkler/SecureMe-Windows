@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/manualselect-d1.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("securemeicon-d1.ico")]
 
 

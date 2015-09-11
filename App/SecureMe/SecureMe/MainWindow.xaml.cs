@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Management;
 
 namespace SecureMe
 {
@@ -20,9 +21,33 @@ namespace SecureMe
     /// </summary>
     public partial class MainWindow : Window
     {
+        public List<string> Users = new List<string>();
+
         public MainWindow()
         {
             InitializeComponent();
+            SelectQuery query = new SelectQuery("Win32_UserAccount");
+            ManagementObjectSearcher searcher = new ManagementObjectSearcher(query);
+            foreach (ManagementObject envVar in searcher.Get())
+            {
+                Users.Add(envVar["name"].ToString());
+            }
+
+            foreach(string usr in Users)
+            {
+                AddUser(usr);
+            }
+
+            
+        }
+
+        public void AddUser(string name)
+        {
+            ListBoxItem usr = new ListBoxItem();
+            usr.Content = name;
+            usr.FontSize = 12;
+            usr.Foreground = Brushes.White;
+            UsersBox.Items.Add(usr);
         }
 
         private void FullSecureButton_MouseEnter(object sender, MouseEventArgs e)
