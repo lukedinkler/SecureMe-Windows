@@ -14,6 +14,7 @@
                         <ColumnDefinition Width="22*"/>
                         <ColumnDefinition Width="995*"/>
                     </Grid.ColumnDefinitions>
+                    <Label x:Name="WelcomeLabel" HorizontalContentAlignment="Center" Content="Welcome to SecureMe! Please select a security option to begin:" HorizontalAlignment="Left" Margin="0,50,0,0" VerticalAlignment="Top" FontSize="26.667" FontFamily="Liberation Serif" Width="1006" Grid.ColumnSpan="2"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Users">
