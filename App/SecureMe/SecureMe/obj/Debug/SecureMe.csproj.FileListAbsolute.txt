@@ -1,1 +1,14 @@
 C:\Users\Luke\Documents\SecureMe-Windows\App\SecureMe\SecureMe\bin\Debug\SecureMe.exe.config
+C:\Users\Luke\Documents\SecureMe-Windows\App\SecureMe\SecureMe\bin\Debug\SecureMe.exe
+C:\Users\Luke\Documents\SecureMe-Windows\App\SecureMe\SecureMe\bin\Debug\SecureMe.pdb
+C:\Users\Luke\Documents\SecureMe-Windows\App\SecureMe\SecureMe\obj\Debug\SecureMe.csprojResolveAssemblyReference.cache
+C:\Users\Luke\Documents\SecureMe-Windows\App\SecureMe\SecureMe\obj\Debug\MainWindow.g.cs
+C:\Users\Luke\Documents\SecureMe-Windows\App\SecureMe\SecureMe\obj\Debug\App.g.cs
+C:\Users\Luke\Documents\SecureMe-Windows\App\SecureMe\SecureMe\obj\Debug\SecureMe_MarkupCompile.cache
+C:\Users\Luke\Documents\SecureMe-Windows\App\SecureMe\SecureMe\obj\Debug\SecureMe_MarkupCompile.lref
+C:\Users\Luke\Documents\SecureMe-Windows\App\SecureMe\SecureMe\obj\Debug\MainWindow.baml
+C:\Users\Luke\Documents\SecureMe-Windows\App\SecureMe\SecureMe\obj\Debug\SecureMe.g.resources
+C:\Users\Luke\Documents\SecureMe-Windows\App\SecureMe\SecureMe\obj\Debug\SecureMe.Properties.Resources.resources
+C:\Users\Luke\Documents\SecureMe-Windows\App\SecureMe\SecureMe\obj\Debug\SecureMe.csproj.GenerateResource.Cache
+C:\Users\Luke\Documents\SecureMe-Windows\App\SecureMe\SecureMe\obj\Debug\SecureMe.exe
+C:\Users\Luke\Documents\SecureMe-Windows\App\SecureMe\SecureMe\obj\Debug\SecureMe.pdb
