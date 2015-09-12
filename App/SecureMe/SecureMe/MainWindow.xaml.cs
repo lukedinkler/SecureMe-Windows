@@ -152,7 +152,7 @@ namespace SecureMe
             var ProcessTimer = new System.Windows.Threading.DispatcherTimer();
             ProcessTimer.Tick += ProcessTimer_Tick;
             ProcessTimer.Interval = new TimeSpan(0, 0, 10);
-            //ProcessTimer.Start();
+            ProcessTimer.Start();
 
             UpdateProcesses();
 
