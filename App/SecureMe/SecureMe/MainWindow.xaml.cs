@@ -48,13 +48,17 @@ namespace SecureMe
                 Config = funclib.ReadFile("config.dat");
                 string[] conflines = Config.Split('\n');
                 ServiceSettingValue = conflines[0].Substring(18);
+                ServiceSettingValue = ServiceSettingValue.TrimEnd('\r', '\n');
+                MessageBox.Show("\"" + ServiceSettingValue + "\"");
                 if(ServiceSettingValue == "Standard")
                 {
                     ServicesSettingsSafeBtn.IsChecked = true;
+                    
                 }
-                else
+                else if(ServiceSettingValue == "Admin")
                 {
                     ServicesSettingAdminBtn.IsChecked = true;
+                    
                 }
             }
 
@@ -289,15 +293,24 @@ namespace SecureMe
                 }
                 else
                 {
-                    try
+                    if(ServiceSettingValue == "Admin")
                     {
-                        svctointerface.Start();
-                        MessageBox.Show("Service is starting!");
+                        funclib.AdminEx("sc start \"" + SelectedService + "\"");
+                        MessageBox.Show("Administrative command sent!");
                     }
-                    catch (Exception eerr)
+                    else
                     {
-                        MessageBox.Show("Unable to start service!\n" + eerr.Message);
+                        try
+                        {
+                            svctointerface.Start();
+                            MessageBox.Show("Service is starting!");
+                        }
+                        catch (Exception eerr)
+                        {
+                            MessageBox.Show("Unable to start service!\n" + eerr.Message);
+                        }
                     }
+                    
                     ServiceStatusLabel.Content = "Status: ";
                 }
                 
@@ -320,14 +333,23 @@ namespace SecureMe
                 }
                 else
                 {
-                    try
+                    if(ServiceSettingValue == "Admin")
                     {
-                        svctointerface.Stop();
-                        MessageBox.Show("Stopping service...");
+                        funclib.AdminEx("sc stop \"" + SelectedService + "\"");
+                        MessageBox.Show("Administrative command sent!");
                     }
-                    catch (Exception er)
+                    else
                     {
-                        MessageBox.Show("Unable to stop service!\n" + er.Message);
+                        try
+                        {
+                            svctointerface.Stop();
+                            MessageBox.Show("Stopping service...");
+                        }
+                        catch (Exception er)
+                        {
+                            MessageBox.Show("Unable to stop service!\n" + er.Message);
+                        }
+                        
                     }
                     ServiceStatusLabel.Content = "Status: ";
                 }
