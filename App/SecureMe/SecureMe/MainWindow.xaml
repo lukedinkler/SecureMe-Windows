@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SecureMe"
         mc:Ignorable="d"
-        Title="SecureMe" Height="763.345" Width="1048.622" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="Images/SecureMeIcon-D1.ico">
+        Title="SecureMe" Height="763.345" Width="1048.622" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" Icon="Images/SecureMeIcon-D1.ico">
     <Grid>
         <TabControl x:Name="MenuTabControl" HorizontalAlignment="Left" Height="624" Margin="10,100,0,0" VerticalAlignment="Top" Width="1012">
             <TabItem x:Name="MainTab" Header="Main" Margin="-2,0,0,0">

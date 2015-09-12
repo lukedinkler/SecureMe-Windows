@@ -99,7 +99,7 @@ namespace SecureMe
         {
             ListBoxItem usr = new ListBoxItem();
             usr.Content = name;
-            usr.FontSize = 16;
+            usr.FontSize = 18;
             usr.Foreground = Brushes.White;
             UsersBox.Items.Add(usr);
         }
@@ -108,7 +108,7 @@ namespace SecureMe
         {
             ListBoxItem svc = new ListBoxItem();
             svc.Content = svcname;
-            svc.FontSize = 16;
+            svc.FontSize = 17;
             svc.Foreground = Brushes.White;
             ServicesBox.Items.Add(svc);
         }
