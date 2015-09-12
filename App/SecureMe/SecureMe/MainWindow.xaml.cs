@@ -346,5 +346,22 @@ namespace SecureMe
                 MessageBox.Show("Please select a service to disable!");
             }
         }
+
+        private void SettingsSaveBtn_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Uri SSBtnIMG = new Uri(@"pack://application:,,,/Images/Save-Icon-D1-Glow.png");
+            SettingsSaveBtn.Source = new BitmapImage(SSBtnIMG);
+        }
+
+        private void SettingsSaveBtn_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Uri SSBtnIMG = new Uri(@"pack://application:,,,/Images/Save-Icon-D1.png");
+            SettingsSaveBtn.Source = new BitmapImage(SSBtnIMG);
+        }
+
+        private void SettingsSaveBtn_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            //Settings Save Code here
+        }
     }
 }

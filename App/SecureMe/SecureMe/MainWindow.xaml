@@ -42,7 +42,7 @@
                     <Image x:Name="DisableServiceBtn" HorizontalAlignment="Left" Height="91" Margin="617,495,0,0" VerticalAlignment="Top" Width="100" Source="Images/Disable-Icon-D1.png" MouseEnter="DisableServiceBtn_MouseEnter" MouseLeave="DisableServiceBtn_MouseLeave" Cursor="Hand" MouseDown="DisableServiceBtn_MouseDown"/>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="About" Header="About" Margin="71,0,-76,0">
+            <TabItem x:Name="About" Header="About" Margin="129,0,-134,-1" RenderTransformOrigin="3.14,0.571">
                 <Grid Background="#FFE5E5E5" Margin="0,-1,0,1">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="116*"/>
@@ -63,12 +63,14 @@
                     </Grid.ColumnDefinitions>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="Settings" Header="Settings" Margin="13,0,-17,-2">
+            <TabItem x:Name="Settings" Header="Settings" Margin="-38,0,0,-2" HorizontalAlignment="Left" Width="59">
                 <Grid Background="#FFE5E5E5">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="221*"/>
                         <ColumnDefinition Width="785*"/>
                     </Grid.ColumnDefinitions>
+                    <Label x:Name="MainSettingsLabel" HorizontalContentAlignment="Center" Content="Settings:" HorizontalAlignment="Left" Margin="0,30,0,0" VerticalAlignment="Top" FontSize="21.333" Width="1006" Grid.ColumnSpan="2"/>
+                    <Image x:Name="SettingsSaveBtn" Grid.Column="1" HorizontalAlignment="Left" Height="147" Margin="202,439,0,0" VerticalAlignment="Top" Width="148" Source="Images/Save-Icon-D1.png" MouseEnter="SettingsSaveBtn_MouseEnter" MouseLeave="SettingsSaveBtn_MouseLeave" Cursor="Hand" MouseDown="SettingsSaveBtn_MouseDown"/>
                 </Grid>
             </TabItem>
         </TabControl>
