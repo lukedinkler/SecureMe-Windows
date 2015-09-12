@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
+using System.IO;
 
 namespace SecureMe
 {
@@ -81,6 +82,21 @@ namespace SecureMe
             string cmd = "for / f \"tokens=2*\" % a in ('sc query audiosrv ^| findstr STATE') do echo % b";
             string statusraw = GetCmdOutput(cmd);
             return statusraw;
+        }
+
+        public static void WriteFile(string file, string stufftowrite)
+        {
+            StreamWriter SW = new StreamWriter(file);
+            SW.WriteLine(stufftowrite);
+            SW.Close();
+        }
+
+        public static string ReadFile(string file)
+        {
+            StreamReader SR = new StreamReader(file);
+            string retval = SR.ReadToEnd();
+            SR.Close();
+            return retval;
         }
 
         

@@ -28,11 +28,36 @@ namespace SecureMe
         public List<string> ServiceList = new List<string>();
         public Dictionary<string, ServiceController> ServiceDict = new Dictionary<string, ServiceController>();
         public string SelectedService = "";
+        public string Config = "";
+        public string ServiceSettingValue = "";
 
         public MainWindow()
         {
             InitializeComponent();
-            
+
+            if (!System.IO.File.Exists("config.dat"))
+            {
+                funclib.WriteFile("config.dat", "Services Setting: Standard");
+                Config = funclib.ReadFile("config.dat");
+                string[] conflines = Config.Split('\n');
+                ServiceSettingValue = conflines[0].Substring(18);
+                ServicesSettingsSafeBtn.IsChecked = true;
+            }
+            else
+            {
+                Config = funclib.ReadFile("config.dat");
+                string[] conflines = Config.Split('\n');
+                ServiceSettingValue = conflines[0].Substring(18);
+                if(ServiceSettingValue == "Standard")
+                {
+                    ServicesSettingsSafeBtn.IsChecked = true;
+                }
+                else
+                {
+                    ServicesSettingAdminBtn.IsChecked = true;
+                }
+            }
+
             SelectQuery query = new SelectQuery("Win32_UserAccount");
             ManagementObjectSearcher searcher = new ManagementObjectSearcher(query);
             foreach (ManagementObject envVar in searcher.Get())
@@ -361,7 +386,28 @@ namespace SecureMe
 
         private void SettingsSaveBtn_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            //Settings Save Code here
+            if(ServicesSettingAdminBtn.IsChecked == true || ServicesSettingsSafeBtn.IsChecked == true)
+            {
+                if(ServicesSettingsSafeBtn.IsChecked == true)
+                {
+                    ServiceSettingValue = "Standard";
+                }
+                else
+                {
+                    ServiceSettingValue = "Admin";
+                }
+
+                string conftowrite = "Services Setting: " + ServiceSettingValue;
+                funclib.WriteFile("config.dat", conftowrite);
+                Config = conftowrite;
+                MessageBox.Show("Settings successfully saved!");
+
+
+            }
+            else
+            {
+                MessageBox.Show("Error! Missing required info!");
+            }
         }
     }
 }

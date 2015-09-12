@@ -71,6 +71,9 @@
                     </Grid.ColumnDefinitions>
                     <Label x:Name="MainSettingsLabel" HorizontalContentAlignment="Center" Content="Settings:" HorizontalAlignment="Left" Margin="0,30,0,0" VerticalAlignment="Top" FontSize="21.333" Width="1006" Grid.ColumnSpan="2"/>
                     <Image x:Name="SettingsSaveBtn" Grid.Column="1" HorizontalAlignment="Left" Height="147" Margin="202,439,0,0" VerticalAlignment="Top" Width="148" Source="Images/Save-Icon-D1.png" MouseEnter="SettingsSaveBtn_MouseEnter" MouseLeave="SettingsSaveBtn_MouseLeave" Cursor="Hand" MouseDown="SettingsSaveBtn_MouseDown"/>
+                    <Label x:Name="ServicesSettingLabel" Content="Services Start/Stop/Disable Mode:" HorizontalAlignment="Left" Margin="58,88,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="289" FontSize="18.667"/>
+                    <RadioButton x:Name="ServicesSettingsSafeBtn" VerticalContentAlignment="Center" Content="Standard (Safe)" Grid.Column="1" HorizontalAlignment="Left" Margin="168,97,0,0" VerticalAlignment="Top" Width="133" FontSize="16"/>
+                    <RadioButton x:Name="ServicesSettingAdminBtn" VerticalContentAlignment="Center" Content="Admin" Grid.Column="1" HorizontalAlignment="Left" Margin="347,97,0,0" VerticalAlignment="Top" Width="70" FontSize="16" RenderTransformOrigin="0.243,0.9"/>
                 </Grid>
             </TabItem>
         </TabControl>
