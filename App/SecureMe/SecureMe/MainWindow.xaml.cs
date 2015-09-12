@@ -241,8 +241,9 @@ namespace SecureMe
             SelectedService = ((ListBoxItem)ServicesBox.SelectedValue).Content.ToString();
             ServiceController SelectedController = ServiceDict[SelectedService];
             string status = SelectedController.Status.ToString();
+            string startuptype = funclib.GetServiceStartupType(SelectedService);
 
-            ServiceStatusLabel.Content = "Status: " + status;
+            ServiceStatusLabel.Content = "Status: " + status + " - " + startuptype;
         }
 
         private void StartServiceBtn_MouseEnter(object sender, MouseEventArgs e)
@@ -338,7 +339,7 @@ namespace SecureMe
                     {
                         funclib.AdminEx("net stop " + SelectedService);
                         SwapServiceController(SelectedService);
-                        MessageBox.Show("Administrative command sent!");
+                        MessageBox.Show("Administrative service change status request sent!");
                     }
                     else
                     {
@@ -371,20 +372,32 @@ namespace SecureMe
                 string svcstatus = svctointerface.Status.ToString();
                 if (svcstatus == "Running")
                 {
-                    try
+                    if(ServiceSettingValue == "Admin")
                     {
-                        svctointerface.Stop();
+                        funclib.AdminEx("net stop " + SelectedService);
                         funclib.AdminEx("sc config \"" + SelectedService + "\" start= disabled");
-                        MessageBox.Show("Service disabled!");
+                        SwapServiceController(SelectedService);
+                        MessageBox.Show("Admin Service disable request sent!");
                     }
-                    catch (Exception)
+                    else
                     {
-                        MessageBox.Show("Unable to stop service to disable it!");
+                        try
+                        {
+                            svctointerface.Stop();
+                            funclib.AdminEx("sc config \"" + SelectedService + "\" start= disabled");
+                            MessageBox.Show("Service disabled!");
+                        }
+                        catch (Exception)
+                        {
+                            MessageBox.Show("Unable to stop service to disable it!");
+                        }
                     }
+                    
                 }
                 else
                 {
                     funclib.AdminEx("sc config \"" + SelectedService + "\" start= disabled");
+                    SwapServiceController(SelectedService);
                     MessageBox.Show("Service disabled!");
                 }
 

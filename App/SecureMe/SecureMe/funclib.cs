@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
 using System.IO;
+using Microsoft.Win32;
 
 namespace SecureMe
 {
@@ -97,6 +98,45 @@ namespace SecureMe
             string retval = SR.ReadToEnd();
             SR.Close();
             return retval;
+        }
+
+        public static string GetServiceStartupType(string svcname)
+        {
+            var reg = Registry.LocalMachine.OpenSubKey(@"SYSTEM\CurrentControlSet\services\" + svcname);
+
+            int startupTypeValue = (int)reg.GetValue("Start");
+
+            string startupType = string.Empty;
+
+            switch (startupTypeValue)
+            {
+                case 0:
+                    startupType = "BOOT";
+                    break;
+
+                case 1:
+                    startupType = "SYSTEM";
+                    break;
+
+                case 2:
+                    startupType = "AUTOMATIC";
+                    break;
+
+                case 3:
+                    startupType = "MANUAL";
+                    break;
+
+                case 4:
+                    startupType = "DISABLED";
+                    break;
+
+                default:
+                    startupType = "UNKNOWN";
+                    break;
+
+            }
+
+            return startupType;
         }
 
         
