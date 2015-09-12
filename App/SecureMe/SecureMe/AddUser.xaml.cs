@@ -66,11 +66,11 @@ namespace SecureMe
                     string cmd;
                     if (NoPass)
                     {
-                        cmd = "net user " + usrname + " /ADD PASSWORDCHG:No";
+                        cmd = "net user " + usrname + " " + usrpasswd + " /ADD PASSWORDCHG:No";
                     }
                     else
                     {
-                        cmd = "net user " + usrname + "/ADD";
+                        cmd = "net user " + usrname + " " + usrpasswd + " /ADD";
                     }
                     funclib.AdminEx(cmd);
                     if(account_type == "Admin")
