@@ -139,6 +139,13 @@ namespace SecureMe
             return startupType;
         }
 
-        
+        public static string RandomChoice(string[] cmds) //Pulls a random string from array
+        {
+            Random rnd = new Random();
+            string choosen = cmds[rnd.Next(cmds.Length)];
+            return choosen;
+        }
+
+
     }
 }

@@ -14,13 +14,14 @@
                         <ColumnDefinition Width="22*"/>
                         <ColumnDefinition Width="995*"/>
                     </Grid.ColumnDefinitions>
-                    <Label x:Name="WelcomeLabel" HorizontalContentAlignment="Center" Content="Welcome to SecureMe! Please select a security option to begin:" HorizontalAlignment="Left" Margin="0,50,0,0" VerticalAlignment="Top" FontSize="26.667" FontFamily="Liberation Serif" Width="1006" Grid.ColumnSpan="2"/>
+                    <Label x:Name="WelcomeLabel" HorizontalContentAlignment="Center" Content="Welcome to SecureMe! Please select a security option to begin:" HorizontalAlignment="Left" Margin="0,66,0,0" VerticalAlignment="Top" FontSize="26.667" FontFamily="Liberation Serif" Width="1006" Grid.ColumnSpan="2"/>
                     <Image x:Name="FullSecureButton" Grid.Column="1" HorizontalAlignment="Left" Height="176" Margin="89,236,0,0" VerticalAlignment="Top" Width="175" Source="Images/Full-Secure-D1.png" Cursor="Hand" MouseEnter="FullSecureButton_MouseEnter" MouseLeave="FullSecureButton_MouseLeave" MouseDown="FullSecureButton_MouseDown"/>
                     <Image x:Name="BasicSecureButton" Grid.Column="1" HorizontalAlignment="Left" Height="167" Margin="412,245,0,0" VerticalAlignment="Top" Width="158" Source="Images/Basic-Secure-D1.png" Cursor="Hand" MouseEnter="BasicSecureButton_MouseEnter" MouseLeave="BasicSecureButton_MouseLeave" MouseDown="BasicSecureButton_MouseDown"/>
                     <Image x:Name="ManualSelectButton" Grid.Column="1" HorizontalAlignment="Left" Height="151" Margin="736,261,0,0" VerticalAlignment="Top" Width="154" Source="Images/ManualSelect-D1.png" Cursor="Hand" MouseEnter="ManualSelectButton_MouseEnter" MouseLeave="ManualSelectButton_MouseLeave" MouseDown="ManualSelectButton_MouseDown"/>
                     <Label x:Name="FullSecureLabel" Content="Full Secure" Grid.Column="1" HorizontalAlignment="Left" Margin="117,417,0,0" VerticalAlignment="Top" FontSize="24"/>
                     <Label x:Name="BasicSecureLabel" HorizontalContentAlignment="Center" Content="Basic Secure" Grid.Column="1" HorizontalAlignment="Left" Margin="412,417,0,0" VerticalAlignment="Top" FontSize="24" Width="158"/>
                     <Label x:Name="MaualSelectLabel" Content="Manual Secure" Grid.Column="1" HorizontalAlignment="Left" Margin="736,417,0,0" VerticalAlignment="Top" FontSize="24"/>
+                    <Label x:Name="HeyYouLabel" HorizontalContentAlignment="Center" Content="Hey, Dominic!" HorizontalAlignment="Left" Margin="0,23,0,0" VerticalAlignment="Top" FontSize="24" Width="1006" Grid.ColumnSpan="2" FontFamily="Segoe UI Emoji"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Users">

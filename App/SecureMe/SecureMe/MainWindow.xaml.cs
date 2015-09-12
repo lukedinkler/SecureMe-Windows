@@ -35,6 +35,11 @@ namespace SecureMe
         {
             InitializeComponent();
 
+            username = Environment.UserName;
+
+            string[] frontlabelchoices = { "Hey, " + username + "!", "What's up, " + username + "?", "Yo, " + username + "!" };
+            HeyYouLabel.Content = funclib.RandomChoice(frontlabelchoices);
+
             if (!System.IO.File.Exists("config.dat"))
             {
                 funclib.WriteFile("config.dat", "Services Setting: Standard");
@@ -75,7 +80,7 @@ namespace SecureMe
             }
 
             Public.UserNames = Users;
-            username = Environment.UserName;
+            
 
             System.ServiceProcess.ServiceController[] services;
             services = System.ServiceProcess.ServiceController.GetServices();
