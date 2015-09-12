@@ -14,3 +14,10 @@ C:\Users\Luke\Documents\SecureMe-Windows\App\SecureMe\SecureMe\obj\Debug\SecureM
 C:\Users\Luke\Documents\SecureMe-Windows\App\SecureMe\SecureMe\obj\Debug\SecureMe.pdb
 C:\Users\Luke\Documents\SecureMe-Windows\App\SecureMe\SecureMe\obj\Debug\AddUser.g.cs
 C:\Users\Luke\Documents\SecureMe-Windows\App\SecureMe\SecureMe\obj\Debug\AddUser.baml
+C:\Users\Luke\Documents\SecureMe-Windows\App\SecureMe\SecureMe\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Caching.dll
+C:\Users\Luke\Documents\SecureMe-Windows\App\SecureMe\SecureMe\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+C:\Users\Luke\Documents\SecureMe-Windows\App\SecureMe\SecureMe\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+C:\Users\Luke\Documents\SecureMe-Windows\App\SecureMe\SecureMe\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll
+C:\Users\Luke\Documents\SecureMe-Windows\App\SecureMe\SecureMe\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging.dll
+C:\Users\Luke\Documents\SecureMe-Windows\App\SecureMe\SecureMe\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.dll
+C:\Users\Luke\Documents\SecureMe-Windows\App\SecureMe\SecureMe\bin\Debug\Microsoft.Practices.ObjectBuilder.dll

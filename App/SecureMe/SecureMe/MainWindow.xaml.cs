@@ -26,7 +26,8 @@ namespace SecureMe
         public string SelectedUser = "";
         public string username = "";
         public List<string> ServiceList = new List<string>();
-        
+        public Dictionary<string, ServiceController> ServiceDict = new Dictionary<string, ServiceController>();
+        public string SelectedService = "";
 
         public MainWindow()
         {
@@ -52,6 +53,7 @@ namespace SecureMe
             foreach(ServiceController SC in services)
             {
                 ServiceList.Add(SC.ServiceName);
+                ServiceDict.Add(SC.ServiceName, SC);
             }
 
             foreach(string svc in ServiceList)
@@ -203,6 +205,146 @@ namespace SecureMe
                 AddUser(Public.NewUserName);
             }
             Public.UserAdded = false;
+        }
+
+        private void ServicesBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            SelectedService = ((ListBoxItem)ServicesBox.SelectedValue).Content.ToString();
+            ServiceController SelectedController = ServiceDict[SelectedService];
+            string status = SelectedController.Status.ToString();
+            
+            ServiceStatusLabel.Content = "Status: " + status;
+        }
+
+        private void StartServiceBtn_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Uri SSBtnIMG = new Uri(@"pack://application:,,,/Images/Start-Icon-D1-Glow.png");
+            StartServiceBtn.Source = new BitmapImage(SSBtnIMG);
+        }
+
+        private void StartServiceBtn_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Uri SSBtnIMG = new Uri(@"pack://application:,,,/Images/Start-Icon-D1.png");
+            StartServiceBtn.Source = new BitmapImage(SSBtnIMG);
+        }
+
+        private void StopServiceBtn_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Uri SSBtnIMG = new Uri(@"pack://application:,,,/Images/Stop-Icon-D1-Glow.png");
+            StopServiceBtn.Source = new BitmapImage(SSBtnIMG);
+        }
+
+        private void StopServiceBtn_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Uri SSBtnIMG = new Uri(@"pack://application:,,,/Images/Stop-Icon-D1.png");
+            StopServiceBtn.Source = new BitmapImage(SSBtnIMG);
+        }
+
+        private void DisableServiceBtn_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Uri DSBtnIMG = new Uri(@"pack://application:,,,/Images/Disable-Icon-D1-Glow.png");
+            DisableServiceBtn.Source = new BitmapImage(DSBtnIMG);
+        }
+
+        private void DisableServiceBtn_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Uri DSBtnIMG = new Uri(@"pack://application:,,,/Images/Disable-Icon-D1.png");
+            DisableServiceBtn.Source = new BitmapImage(DSBtnIMG);
+        }
+
+        private void StartServiceBtn_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if(ServicesBox.SelectedIndex > -1)
+            {
+                var svctointerface = ServiceDict[SelectedService];
+                string currstatus = svctointerface.Status.ToString();
+                if(currstatus == "Running")
+                {
+                    MessageBox.Show("Service is already started, silly!");
+                }
+                else
+                {
+                    try
+                    {
+                        svctointerface.Start();
+                        MessageBox.Show("Service is starting!");
+                    }
+                    catch (Exception eerr)
+                    {
+                        MessageBox.Show("Unable to start service!\n" + eerr.Message);
+                    }
+                    ServiceStatusLabel.Content = "Status: ";
+                }
+                
+            }
+            else
+            {
+                MessageBox.Show("Please select a service to start!");
+            }
+        }
+
+        private void StopServiceBtn_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if(ServicesBox.SelectedIndex > -1)
+            {
+                var svctointerface = ServiceDict[SelectedService];
+                string svcstatus = svctointerface.Status.ToString();
+                if(svcstatus == "Stopped")
+                {
+                    MessageBox.Show("The service is already stopped, silly!");
+                }
+                else
+                {
+                    try
+                    {
+                        svctointerface.Stop();
+                        MessageBox.Show("Stopping service...");
+                    }
+                    catch (Exception er)
+                    {
+                        MessageBox.Show("Unable to stop service!\n" + er.Message);
+                    }
+                    ServiceStatusLabel.Content = "Status: ";
+                }
+                
+            }
+            else
+            {
+                MessageBox.Show("Please select a service to stop!");
+            }
+        }
+
+        private void DisableServiceBtn_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if(ServicesBox.SelectedIndex > -1)
+            {
+                var svctointerface = ServiceDict[SelectedService];
+                string svcstatus = svctointerface.Status.ToString();
+                if(svcstatus == "Running")
+                {
+                    try
+                    {
+                        svctointerface.Stop();
+                        funclib.AdminEx("sc config \"" + SelectedService + "\" start= disabled");
+                        MessageBox.Show("Service disabled!");
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Unable to stop service to disable it!");
+                    }
+                }
+                else
+                {
+                    funclib.AdminEx("sc config \"" + SelectedService + "\" start= disabled");
+                    MessageBox.Show("Service disabled!");
+                }
+
+                ServiceStatusLabel.Content = "Status: ";
+            }
+            else
+            {
+                MessageBox.Show("Please select a service to disable!");
+            }
         }
     }
 }
