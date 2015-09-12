@@ -12,3 +12,5 @@ C:\Users\Luke\Documents\SecureMe-Windows\App\SecureMe\SecureMe\obj\Debug\SecureM
 C:\Users\Luke\Documents\SecureMe-Windows\App\SecureMe\SecureMe\obj\Debug\SecureMe.csproj.GenerateResource.Cache
 C:\Users\Luke\Documents\SecureMe-Windows\App\SecureMe\SecureMe\obj\Debug\SecureMe.exe
 C:\Users\Luke\Documents\SecureMe-Windows\App\SecureMe\SecureMe\obj\Debug\SecureMe.pdb
+C:\Users\Luke\Documents\SecureMe-Windows\App\SecureMe\SecureMe\obj\Debug\AddUser.g.cs
+C:\Users\Luke\Documents\SecureMe-Windows\App\SecureMe\SecureMe\obj\Debug\AddUser.baml

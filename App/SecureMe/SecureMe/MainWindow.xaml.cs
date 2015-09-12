@@ -40,6 +40,8 @@ namespace SecureMe
             {
                 AddUser(usr);
             }
+
+            Public.UserNames = Users;
             username = Environment.UserName;
             
         }
@@ -108,8 +110,8 @@ namespace SecureMe
         {
             if(UsersBox.SelectedIndex > -1)
             {
-                int index = UsersBox.SelectedIndex;
-                SelectedUser = Users[index];
+                
+                SelectedUser = ((ListBoxItem)UsersBox.SelectedValue).Content.ToString();
                 SelectedUserLabel.Content = "Selected User: " + SelectedUser;
                 
             }
@@ -150,6 +152,8 @@ namespace SecureMe
                     UsersBox.Items.RemoveAt(UsersBox.SelectedIndex);
                     MessageBox.Show("User successfully removed!");
                     UsersBox.SelectedIndex = -1;
+                    Public.UserNames.Remove(usrname);
+                    Users.Remove(usrname);
                 }
                 else
                 {
@@ -160,6 +164,18 @@ namespace SecureMe
             {
                 MessageBox.Show("Please select a user to remove!");
             }
+        }
+
+        private void AddUserBtn_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            AddUser AU = new AddUser();
+            AU.ShowDialog();
+            if (Public.UserAdded)
+            {
+                MessageBox.Show("User added successfully!");
+                AddUser(Public.NewUserName);
+            }
+            Public.UserAdded = false;
         }
     }
 }
