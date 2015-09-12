@@ -56,6 +56,33 @@ namespace SecureMe
 
         }
 
+        public static string GetCmdOutput(string cmd)
+        {
+            // Start the child process.
+            Process p = new Process();
+            // Redirect the output stream of the child process.
+            p.StartInfo.UseShellExecute = false;
+            p.StartInfo.RedirectStandardOutput = true;
+            p.StartInfo.FileName = "cmd.exe";
+            p.StartInfo.Arguments = cmd;
+            p.StartInfo.CreateNoWindow = true;
+            p.Start();
+            // Do not wait for the child process to exit before
+            // reading to the end of its redirected stream.
+            // p.WaitForExit();
+            // Read the output stream first and then wait.
+            string output = p.StandardOutput.ReadToEnd();
+            p.WaitForExit();
+            return output;
+        }
+
+        public static string ServiceStatus(string svcname)
+        {
+            string cmd = "for / f \"tokens=2*\" % a in ('sc query audiosrv ^| findstr STATE') do echo % b";
+            string statusraw = GetCmdOutput(cmd);
+            return statusraw;
+        }
+
         
     }
 }

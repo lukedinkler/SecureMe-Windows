@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Management;
+using System.ServiceProcess;
 
 namespace SecureMe
 {
@@ -24,11 +25,13 @@ namespace SecureMe
         public List<string> Users = new List<string>();
         public string SelectedUser = "";
         public string username = "";
+        public List<string> ServiceList = new List<string>();
         
 
         public MainWindow()
         {
             InitializeComponent();
+            
             SelectQuery query = new SelectQuery("Win32_UserAccount");
             ManagementObjectSearcher searcher = new ManagementObjectSearcher(query);
             foreach (ManagementObject envVar in searcher.Get())
@@ -43,7 +46,22 @@ namespace SecureMe
 
             Public.UserNames = Users;
             username = Environment.UserName;
-            
+
+            System.ServiceProcess.ServiceController[] services;
+            services = System.ServiceProcess.ServiceController.GetServices();
+            foreach(ServiceController SC in services)
+            {
+                ServiceList.Add(SC.ServiceName);
+            }
+
+            foreach(string svc in ServiceList)
+            {
+                AddService(svc);
+            }
+
+            //string fsd = funclib.ServiceStatus("CDPSvc");
+            //MessageBox.Show(fsd);
+
         }
 
         public void AddUser(string name)
@@ -53,6 +71,15 @@ namespace SecureMe
             usr.FontSize = 16;
             usr.Foreground = Brushes.White;
             UsersBox.Items.Add(usr);
+        }
+
+        public void AddService(string svcname)
+        {
+            ListBoxItem svc = new ListBoxItem();
+            svc.Content = svcname;
+            svc.FontSize = 16;
+            svc.Foreground = Brushes.White;
+            ServicesBox.Items.Add(svc);
         }
 
         private void FullSecureButton_MouseEnter(object sender, MouseEventArgs e)

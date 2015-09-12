@@ -33,7 +33,10 @@
                 </Grid>
             </TabItem>
             <TabItem x:Name="Services" Header="Services" Margin="-2,0,3,0">
-                <Grid Background="#FFE5E5E5"/>
+                <Grid Background="#FFE5E5E5">
+                    <Label x:Name="label" Content="Services:" Margin="452,29,459,0" VerticalAlignment="Top" RenderTransformOrigin="1.237,0.769" FontSize="24"/>
+                    <ListBox x:Name="ServicesBox" HorizontalAlignment="Left" Height="424" Margin="0,86,0,0" VerticalAlignment="Top" Width="1006" Opacity="0.805" Background="Black" Foreground="#FFFFFEFE"/>
+                </Grid>
             </TabItem>
             <TabItem x:Name="About" Header="About" Margin="71,0,-76,0">
                 <Grid Background="#FFE5E5E5" Margin="0,-1,0,1">
