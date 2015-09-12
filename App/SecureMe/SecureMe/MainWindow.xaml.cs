@@ -35,6 +35,7 @@ namespace SecureMe
         public string AbbWinVer = "";
         public List<string> ProcessList = new List<string>();
         public Dictionary<Process, string> ProcessFileDict = new Dictionary<Process, string>();
+        public string SelectedProcess = "";
 
         public MainWindow()
         {
@@ -150,7 +151,7 @@ namespace SecureMe
             var ProcessTimer = new System.Windows.Threading.DispatcherTimer();
             ProcessTimer.Tick += ProcessTimer_Tick;
             ProcessTimer.Interval = new TimeSpan(0, 0, 10);
-            ProcessTimer.Start();
+            //ProcessTimer.Start();
 
             UpdateProcesses();
 
@@ -573,6 +574,46 @@ namespace SecureMe
         {
             Uri RPBTNURI = new Uri(@"pack://application:,,,/Images/Refresh-Icon-D1.png");
             RefreshProcessBtn.Source = new BitmapImage(RPBTNURI);
+        }
+
+        private void RefreshProcessBtn_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            UpdateProcesses();
+        }
+
+        private void KillProcessBtn_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if(ProcessBox.SelectedIndex > -1)
+            {
+                Process[] ptokill = Process.GetProcessesByName(SelectedProcess);
+                foreach(Process proc in ptokill)
+                {
+                    try
+                    {
+                        proc.Kill();
+                        MessageBox.Show("Process Terminated!");
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Unable to terminate process. Access Denied!");
+                        break;
+                    }
+                    
+                }
+                
+                UpdateProcesses();
+            }
+        }
+
+        private void ProcessBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (ProcessBox.SelectedIndex > -1)
+            {
+
+                SelectedProcess = ((ListBoxItem)ProcessBox.SelectedValue).Content.ToString();
+                
+
+            }
         }
     }
     
