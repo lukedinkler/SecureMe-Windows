@@ -49,16 +49,16 @@ namespace SecureMe
                 string[] conflines = Config.Split('\n');
                 ServiceSettingValue = conflines[0].Substring(18);
                 ServiceSettingValue = ServiceSettingValue.TrimEnd('\r', '\n');
-                MessageBox.Show("\"" + ServiceSettingValue + "\"");
-                if(ServiceSettingValue == "Standard")
+
+                if (ServiceSettingValue == "Standard")
                 {
                     ServicesSettingsSafeBtn.IsChecked = true;
-                    
+
                 }
-                else if(ServiceSettingValue == "Admin")
+                else if (ServiceSettingValue == "Admin")
                 {
                     ServicesSettingAdminBtn.IsChecked = true;
-                    
+
                 }
             }
 
@@ -69,7 +69,7 @@ namespace SecureMe
                 Users.Add(envVar["name"].ToString());
             }
 
-            foreach(string usr in Users)
+            foreach (string usr in Users)
             {
                 AddUser(usr);
             }
@@ -79,13 +79,13 @@ namespace SecureMe
 
             System.ServiceProcess.ServiceController[] services;
             services = System.ServiceProcess.ServiceController.GetServices();
-            foreach(ServiceController SC in services)
+            foreach (ServiceController SC in services)
             {
                 ServiceList.Add(SC.ServiceName);
                 ServiceDict.Add(SC.ServiceName, SC);
             }
 
-            foreach(string svc in ServiceList)
+            foreach (string svc in ServiceList)
             {
                 AddService(svc);
             }
@@ -166,12 +166,12 @@ namespace SecureMe
 
         private void UsersBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if(UsersBox.SelectedIndex > -1)
+            if (UsersBox.SelectedIndex > -1)
             {
-                
+
                 SelectedUser = ((ListBoxItem)UsersBox.SelectedValue).Content.ToString();
                 SelectedUserLabel.Content = "Selected User: " + SelectedUser;
-                
+
             }
         }
 
@@ -201,9 +201,9 @@ namespace SecureMe
 
         private void RemoveUserBtn_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            if(UsersBox.SelectedIndex > -1)
+            if (UsersBox.SelectedIndex > -1)
             {
-                if(SelectedUser != "DefaultAccount" && SelectedUser != "Administrator" && SelectedUser != username)
+                if (SelectedUser != "DefaultAccount" && SelectedUser != "Administrator" && SelectedUser != username)
                 {
                     string usrname = SelectedUser;
                     funclib.AdminEx("net user " + usrname + " /DELETE");
@@ -241,7 +241,7 @@ namespace SecureMe
             SelectedService = ((ListBoxItem)ServicesBox.SelectedValue).Content.ToString();
             ServiceController SelectedController = ServiceDict[SelectedService];
             string status = SelectedController.Status.ToString();
-            
+
             ServiceStatusLabel.Content = "Status: " + status;
         }
 
@@ -283,19 +283,20 @@ namespace SecureMe
 
         private void StartServiceBtn_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            if(ServicesBox.SelectedIndex > -1)
+            if (ServicesBox.SelectedIndex > -1)
             {
                 var svctointerface = ServiceDict[SelectedService];
                 string currstatus = svctointerface.Status.ToString();
-                if(currstatus == "Running")
+                if (currstatus == "Running")
                 {
                     MessageBox.Show("Service is already started, silly!");
                 }
                 else
                 {
-                    if(ServiceSettingValue == "Admin")
+                    if (ServiceSettingValue == "Admin")
                     {
-                        funclib.AdminEx("sc start \"" + SelectedService + "\"");
+                        funclib.AdminEx("net start " + SelectedService);
+                        SwapServiceController(SelectedService);
                         MessageBox.Show("Administrative command sent!");
                     }
                     else
@@ -310,10 +311,10 @@ namespace SecureMe
                             MessageBox.Show("Unable to start service!\n" + eerr.Message);
                         }
                     }
-                    
+
                     ServiceStatusLabel.Content = "Status: ";
                 }
-                
+
             }
             else
             {
@@ -323,19 +324,20 @@ namespace SecureMe
 
         private void StopServiceBtn_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            if(ServicesBox.SelectedIndex > -1)
+            if (ServicesBox.SelectedIndex > -1)
             {
                 var svctointerface = ServiceDict[SelectedService];
                 string svcstatus = svctointerface.Status.ToString();
-                if(svcstatus == "Stopped")
+                if (svcstatus == "Stopped")
                 {
                     MessageBox.Show("The service is already stopped, silly!");
                 }
                 else
                 {
-                    if(ServiceSettingValue == "Admin")
+                    if (ServiceSettingValue == "Admin")
                     {
-                        funclib.AdminEx("sc stop \"" + SelectedService + "\"");
+                        funclib.AdminEx("net stop " + SelectedService);
+                        SwapServiceController(SelectedService);
                         MessageBox.Show("Administrative command sent!");
                     }
                     else
@@ -349,11 +351,11 @@ namespace SecureMe
                         {
                             MessageBox.Show("Unable to stop service!\n" + er.Message);
                         }
-                        
+
                     }
                     ServiceStatusLabel.Content = "Status: ";
                 }
-                
+
             }
             else
             {
@@ -363,11 +365,11 @@ namespace SecureMe
 
         private void DisableServiceBtn_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            if(ServicesBox.SelectedIndex > -1)
+            if (ServicesBox.SelectedIndex > -1)
             {
                 var svctointerface = ServiceDict[SelectedService];
                 string svcstatus = svctointerface.Status.ToString();
-                if(svcstatus == "Running")
+                if (svcstatus == "Running")
                 {
                     try
                     {
@@ -408,9 +410,9 @@ namespace SecureMe
 
         private void SettingsSaveBtn_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            if(ServicesSettingAdminBtn.IsChecked == true || ServicesSettingsSafeBtn.IsChecked == true)
+            if (ServicesSettingAdminBtn.IsChecked == true || ServicesSettingsSafeBtn.IsChecked == true)
             {
-                if(ServicesSettingsSafeBtn.IsChecked == true)
+                if (ServicesSettingsSafeBtn.IsChecked == true)
                 {
                     ServiceSettingValue = "Standard";
                 }
@@ -431,5 +433,12 @@ namespace SecureMe
                 MessageBox.Show("Error! Missing required info!");
             }
         }
+        public void SwapServiceController(string servicename)
+        {
+            ServiceDict.Remove(servicename);
+            ServiceController svc_controller = new ServiceController(servicename);
+            ServiceDict.Add(servicename, svc_controller);
+        }
     }
+    
 }
