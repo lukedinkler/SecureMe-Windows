@@ -64,10 +64,12 @@
                     </Grid.ColumnDefinitions>
                     <Label x:Name="ProcessesLabel" HorizontalContentAlignment="Center" Content="Processes:" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="24" Grid.ColumnSpan="2" Width="1006"/>
                     <ListBox x:Name="ProcessBox" HorizontalAlignment="Left" Height="366" Margin="0,57,0,0" VerticalAlignment="Top" Width="1006" Grid.ColumnSpan="2" Background="Black" Foreground="White" Opacity="0.68" SelectionChanged="ProcessBox_SelectionChanged"/>
-                    <Image x:Name="RefreshProcessBtn" Grid.Column="1" HorizontalAlignment="Left" Height="103" Margin="525,446,0,0" VerticalAlignment="Top" Width="104" Source="Images/Refresh-Icon-D1.png" RenderTransformOrigin="3.365,0.563" Cursor="Hand" MouseEnter="RefreshProcessBtn_MouseEnter" MouseLeave="RefreshProcessBtn_MouseLeave" MouseDown="RefreshProcessBtn_MouseDown"/>
-                    <Image x:Name="KillProcessBtn" Grid.Column="1" HorizontalAlignment="Left" Height="112" Margin="230,437,0,0" VerticalAlignment="Top" Width="122" Source="Images/Kill-Icon-D1.png" MouseEnter="KillProcessBtn_MouseEnter" MouseLeave="KillProcessBtn_MouseLeave" Cursor="Hand" MouseDown="KillProcessBtn_MouseDown"/>
-                    <Label x:Name="KillProcessLabel" Content="Kill Process" Grid.Column="1" HorizontalAlignment="Left" Margin="244,555,0,0" VerticalAlignment="Top" FontSize="16"/>
-                    <Label x:Name="RefreshProcessLabel" Content="Refresh Processes" Grid.Column="1" HorizontalAlignment="Left" Margin="512,555,0,0" VerticalAlignment="Top" FontSize="16"/>
+                    <Image x:Name="RefreshProcessBtn" Grid.Column="1" HorizontalAlignment="Left" Height="103" Margin="632,446,0,0" VerticalAlignment="Top" Width="104" Source="Images/Refresh-Icon-D1.png" RenderTransformOrigin="3.365,0.563" Cursor="Hand" MouseEnter="RefreshProcessBtn_MouseEnter" MouseLeave="RefreshProcessBtn_MouseLeave" MouseDown="RefreshProcessBtn_MouseDown"/>
+                    <Image x:Name="KillProcessBtn" Grid.Column="1" HorizontalAlignment="Left" Height="112" Margin="411,437,0,0" VerticalAlignment="Top" Width="122" Source="Images/Kill-Icon-D1.png" MouseEnter="KillProcessBtn_MouseEnter" MouseLeave="KillProcessBtn_MouseLeave" Cursor="Hand" MouseDown="KillProcessBtn_MouseDown"/>
+                    <Label x:Name="KillProcessLabel" Content="Kill Process" Grid.Column="1" HorizontalAlignment="Left" Margin="423,555,0,0" VerticalAlignment="Top" FontSize="16"/>
+                    <Label x:Name="RefreshProcessLabel" Content="Refresh Processes" Grid.Column="1" HorizontalAlignment="Left" Margin="615,554,0,0" VerticalAlignment="Top" FontSize="16"/>
+                    <Label x:Name="ProcessFileLabel" Content="File: " HorizontalAlignment="Left" Margin="10,437,0,0" VerticalAlignment="Top" FontSize="16" Grid.ColumnSpan="2" Width="541"/>
+                    <Label x:Name="PIDLabel" Content="PID: " HorizontalAlignment="Left" Margin="10,503,0,0" VerticalAlignment="Top" FontSize="16"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="SysInfo" Header="System Info" Margin="-37,0,33,-2">

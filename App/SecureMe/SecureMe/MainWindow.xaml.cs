@@ -34,8 +34,9 @@ namespace SecureMe
         public string WinVer = "";
         public string AbbWinVer = "";
         public List<string> ProcessList = new List<string>();
-        public Dictionary<Process, string> ProcessFileDict = new Dictionary<Process, string>();
+        public Dictionary<string, string> ProcessFileDict = new Dictionary<string, string>();
         public string SelectedProcess = "";
+        public Dictionary<string, Process> ProcessDict = new Dictionary<string, Process>();
 
         public MainWindow()
         {
@@ -156,8 +157,7 @@ namespace SecureMe
             UpdateProcesses();
 
 
-            //string fsd = funclib.ServiceStatus("CDPSvc");
-            //MessageBox.Show(fsd);
+            
 
         }
 
@@ -197,7 +197,8 @@ namespace SecureMe
         {
             ProcessList = new List<string>();
             Process[] processes = Process.GetProcesses();
-
+            ProcessFileDict = new Dictionary<string, string>();
+            ProcessDict = new Dictionary<string, Process>();
 
             foreach (Process proc in processes)
             {
@@ -611,8 +612,21 @@ namespace SecureMe
             {
 
                 SelectedProcess = ((ListBoxItem)ProcessBox.SelectedValue).Content.ToString();
-                
-
+                Process[] selecproc = Process.GetProcessesByName(SelectedProcess);
+                Process myproc = selecproc[0];
+                string fileloc;
+                string pid;
+                pid = myproc.Id.ToString();
+                try
+                {
+                    fileloc = myproc.Modules[0].FileName;
+                }
+                catch
+                {
+                    fileloc = "Unavailable";
+                }
+                ProcessFileLabel.Content = "File: " + fileloc;
+                PIDLabel.Content = "PID: " + pid;
             }
         }
     }
