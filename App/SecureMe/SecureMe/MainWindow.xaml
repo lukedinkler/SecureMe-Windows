@@ -35,12 +35,15 @@
             </TabItem>
             <TabItem x:Name="Services" Header="Services" Margin="-2,0,3,0">
                 <Grid Background="#FFE5E5E5">
-                    <Label x:Name="label" Content="Services:" Margin="452,29,459,0" VerticalAlignment="Top" RenderTransformOrigin="1.237,0.769" FontSize="24"/>
-                    <ListBox x:Name="ServicesBox" HorizontalAlignment="Left" Height="387" Margin="0,86,0,0" VerticalAlignment="Top" Width="1006" Opacity="0.805" Background="Black" Foreground="#FFFFFEFE" SelectionChanged="ServicesBox_SelectionChanged"/>
+                    <Label x:Name="label" Content="Services:" Margin="452,10,459,0" VerticalAlignment="Top" RenderTransformOrigin="1.237,0.769" FontSize="24"/>
+                    <ListBox x:Name="ServicesBox" HorizontalAlignment="Left" Height="365" Margin="0,57,0,0" VerticalAlignment="Top" Width="1006" Opacity="0.805" Background="Black" Foreground="#FFFFFEFE" SelectionChanged="ServicesBox_SelectionChanged"/>
                     <Label x:Name="ServiceStatusLabel" Content="Status: " HorizontalAlignment="Left" Margin="23,511,0,0" VerticalAlignment="Top" FontSize="21.333"/>
-                    <Image x:Name="StartServiceBtn" HorizontalAlignment="Left" Height="91" Margin="414,495,0,0" VerticalAlignment="Top" Width="93" Source="Images/Start-Icon-D1.png" MouseEnter="StartServiceBtn_MouseEnter" MouseLeave="StartServiceBtn_MouseLeave" Cursor="Hand" MouseDown="StartServiceBtn_MouseDown"/>
-                    <Image x:Name="StopServiceBtn" HorizontalAlignment="Left" Height="91" Margin="564,495,0,0" VerticalAlignment="Top" Width="100" Source="Images/Stop-Icon-D1.png" MouseEnter="StopServiceBtn_MouseEnter" MouseLeave="StopServiceBtn_MouseLeave" Cursor="Hand" MouseDown="StopServiceBtn_MouseDown"/>
-                    <Image x:Name="DisableServiceBtn" HorizontalAlignment="Left" Height="91" Margin="727,495,0,0" VerticalAlignment="Top" Width="100" Source="Images/Disable-Icon-D1.png" MouseEnter="DisableServiceBtn_MouseEnter" MouseLeave="DisableServiceBtn_MouseLeave" Cursor="Hand" MouseDown="DisableServiceBtn_MouseDown"/>
+                    <Image x:Name="StartServiceBtn" HorizontalAlignment="Left" Height="91" Margin="413,441,0,0" VerticalAlignment="Top" Width="93" Source="Images/Start-Icon-D1.png" MouseEnter="StartServiceBtn_MouseEnter" MouseLeave="StartServiceBtn_MouseLeave" Cursor="Hand" MouseDown="StartServiceBtn_MouseDown"/>
+                    <Image x:Name="StopServiceBtn" HorizontalAlignment="Left" Height="91" Margin="563,441,0,0" VerticalAlignment="Top" Width="100" Source="Images/Stop-Icon-D1.png" MouseEnter="StopServiceBtn_MouseEnter" MouseLeave="StopServiceBtn_MouseLeave" Cursor="Hand" MouseDown="StopServiceBtn_MouseDown"/>
+                    <Image x:Name="DisableServiceBtn" HorizontalAlignment="Left" Height="91" Margin="723,441,0,0" VerticalAlignment="Top" Width="100" Source="Images/Disable-Icon-D1.png" MouseEnter="DisableServiceBtn_MouseEnter" MouseLeave="DisableServiceBtn_MouseLeave" Cursor="Hand" MouseDown="DisableServiceBtn_MouseDown"/>
+                    <Label x:Name="StartServiceLabel" Content="Start" HorizontalAlignment="Left" Margin="434,546,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.921,0.615" FontSize="18.667"/>
+                    <Label x:Name="StopServiceLabel" Content="Stop" HorizontalAlignment="Left" Margin="586,546,0,0" VerticalAlignment="Top" FontSize="18.667"/>
+                    <Label x:Name="DisableServiceLabel" Content="Disable" HorizontalAlignment="Left" Margin="741,550,0,0" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="0.839,0.516"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="About" Header="About" Margin="203,0,-208,-1" RenderTransformOrigin="3.14,0.571">
@@ -68,8 +71,8 @@
                     <Image x:Name="KillProcessBtn" Grid.Column="1" HorizontalAlignment="Left" Height="112" Margin="411,437,0,0" VerticalAlignment="Top" Width="122" Source="Images/Kill-Icon-D1.png" MouseEnter="KillProcessBtn_MouseEnter" MouseLeave="KillProcessBtn_MouseLeave" Cursor="Hand" MouseDown="KillProcessBtn_MouseDown"/>
                     <Label x:Name="KillProcessLabel" Content="Kill Process" Grid.Column="1" HorizontalAlignment="Left" Margin="423,555,0,0" VerticalAlignment="Top" FontSize="16"/>
                     <Label x:Name="RefreshProcessLabel" Content="Refresh Processes" Grid.Column="1" HorizontalAlignment="Left" Margin="615,554,0,0" VerticalAlignment="Top" FontSize="16"/>
-                    <Label x:Name="ProcessFileLabel" Content="File: " HorizontalAlignment="Left" Margin="10,437,0,0" VerticalAlignment="Top" FontSize="16" Grid.ColumnSpan="2" Width="541"/>
                     <Label x:Name="PIDLabel" Content="PID: " HorizontalAlignment="Left" Margin="10,503,0,0" VerticalAlignment="Top" FontSize="16"/>
+                    <TextBlock x:Name="ProcessFileLabel" HorizontalAlignment="Left" Margin="10,446,0,0" TextWrapping="Wrap" Text="File:" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="0.822,0.517" Grid.ColumnSpan="2" Width="547" Height="52"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="SysInfo" Header="System Info" Margin="-37,0,33,-2">

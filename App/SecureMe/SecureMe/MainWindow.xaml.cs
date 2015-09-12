@@ -625,7 +625,7 @@ namespace SecureMe
                 {
                     fileloc = "Unavailable";
                 }
-                ProcessFileLabel.Content = "File: " + fileloc;
+                ProcessFileLabel.Text = "File: " + fileloc;
                 PIDLabel.Content = "PID: " + pid;
             }
         }
