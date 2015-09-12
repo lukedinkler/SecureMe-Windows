@@ -149,6 +149,12 @@ namespace SecureMe
                 AddService(svc);
             }
 
+            string[] startupmodes = { "Automatic", "Manual" };
+            foreach(string m in startupmodes)
+            {
+                AddStartupMode(m);
+            }
+
             var ProcessTimer = new System.Windows.Threading.DispatcherTimer();
             ProcessTimer.Tick += ProcessTimer_Tick;
             ProcessTimer.Interval = new TimeSpan(0, 0, 10);
@@ -182,6 +188,13 @@ namespace SecureMe
             svc.FontSize = 17;
             svc.Foreground = Brushes.White;
             ServicesBox.Items.Add(svc);
+        }
+
+        public void AddStartupMode(string mode)
+        {
+            ComboBoxItem itm = new ComboBoxItem();
+            itm.Content = mode;
+            ServiceStartupModeBox.Items.Add(itm);
         }
 
         public void AddProcess(string procname)
@@ -342,6 +355,18 @@ namespace SecureMe
             ServiceController SelectedController = ServiceDict[SelectedService];
             string status = SelectedController.Status.ToString();
             string startuptype = funclib.GetServiceStartupType(SelectedService);
+            if(startuptype == "MANUAL")
+            {
+                ServiceStartupModeBox.SelectedIndex = 1;
+            }
+            else if(startuptype == "AUTOMATIC")
+            {
+                ServiceStartupModeBox.SelectedIndex = 0;
+            }
+            else if(startuptype == "DISABLED")
+            {
+                ServiceStartupModeBox.SelectedIndex = -1;
+            }
 
             ServiceStatusLabel.Content = "Status: " + status + " - " + startuptype;
         }
@@ -627,6 +652,47 @@ namespace SecureMe
                 }
                 ProcessFileLabel.Text = "File: " + fileloc;
                 PIDLabel.Content = "PID: " + pid;
+            }
+        }
+
+        private void EnableServiceBtn_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Uri ESBTNURI = new Uri(@"pack://application:,,,/Images/Enable-Icon-D1-Glow.png");
+            EnableServiceBtn.Source = new BitmapImage(ESBTNURI);
+        }
+
+        private void EnableServiceBtn_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Uri ESBTNURI = new Uri(@"pack://application:,,,/Images/Enable-Icon-D1.png");
+            EnableServiceBtn.Source = new BitmapImage(ESBTNURI);
+        }
+
+        private void EnableServiceBtn_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if(ServicesBox.SelectedIndex > -1)
+            {
+                if(ServiceStartupModeBox.SelectedIndex > -1)
+                {
+                    int mode = ServiceStartupModeBox.SelectedIndex;
+                    if(mode == 0)
+                    {
+                        funclib.AdminEx("sc config " + SelectedService + " start=auto");
+                    }
+                    else if(mode == 1)
+                    {
+                        funclib.AdminEx("sc config " + SelectedService + " start=demand");
+                    }
+                    SwapServiceController(SelectedService);
+                    MessageBox.Show("Service enabled!");
+                }
+                else
+                {
+                    MessageBox.Show("Please select a startup mode for this service!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a service to enable a startup mode for.");
             }
         }
     }
