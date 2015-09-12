@@ -166,6 +166,12 @@ namespace SecureMe
             return (string)cpu["name"];
         }
 
+        public static string GetCPUArch()
+        {
+            var s = System.Environment.GetEnvironmentVariable("PROCESSOR_ARCHITECTURE");
+            return s;
+        }
+
 
     }
 }

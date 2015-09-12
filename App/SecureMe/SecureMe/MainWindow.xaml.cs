@@ -87,6 +87,7 @@ namespace SecureMe
             OSPic.Source = new BitmapImage(OSPicURI);
             CPULabel.Content = "CPU: " + funclib.GetCPUName();
             RAMLabel.Content = "Total RAM: " + funclib.GetRAM();
+            ArchLabel.Content = "Architecture: " + funclib.GetCPUArch();
 
             if (!System.IO.File.Exists("config.dat"))
             {

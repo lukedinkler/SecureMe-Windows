@@ -69,7 +69,8 @@
                     <Label x:Name="OSLabel" Content="OS:" HorizontalAlignment="Left" Margin="29,63,0,0" VerticalAlignment="Top" FontSize="21.333" Width="397"/>
                     <Image x:Name="OSPic" HorizontalAlignment="Left" Height="226" Margin="574,39,0,0" VerticalAlignment="Top" Width="354" Source="Images/Win8.jpg"/>
                     <Label x:Name="CPULabel" Content="CPU: AMD FX 8510 8-Core" HorizontalAlignment="Left" Margin="29,133,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.237,0.615" FontSize="18.667"/>
-                    <Label x:Name="RAMLabel" Content="RAM: 4060 MB" HorizontalAlignment="Left" Margin="29,189,0,0" VerticalAlignment="Top" FontSize="18.667"/>
+                    <Label x:Name="RAMLabel" Content="RAM: 4060 MB" HorizontalAlignment="Left" Margin="29,256,0,0" VerticalAlignment="Top" FontSize="18.667"/>
+                    <Label x:Name="ArchLabel" Content="Architecture:" HorizontalAlignment="Left" Margin="29,196,0,0" VerticalAlignment="Top" FontSize="18.667" Width="228"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="Settings" Header="Settings" Margin="-34,0,34,-2">
