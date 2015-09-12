@@ -21,7 +21,7 @@
                     <Label x:Name="FullSecureLabel" Content="Full Secure" Grid.Column="1" HorizontalAlignment="Left" Margin="117,417,0,0" VerticalAlignment="Top" FontSize="24"/>
                     <Label x:Name="BasicSecureLabel" HorizontalContentAlignment="Center" Content="Basic Secure" Grid.Column="1" HorizontalAlignment="Left" Margin="412,417,0,0" VerticalAlignment="Top" FontSize="24" Width="158"/>
                     <Label x:Name="MaualSelectLabel" Content="Manual Secure" Grid.Column="1" HorizontalAlignment="Left" Margin="736,417,0,0" VerticalAlignment="Top" FontSize="24"/>
-                    <Label x:Name="HeyYouLabel" HorizontalContentAlignment="Center" Content="Hey, Dominic!" HorizontalAlignment="Left" Margin="0,23,0,0" VerticalAlignment="Top" FontSize="24" Width="1006" Grid.ColumnSpan="2" FontFamily="Segoe UI Emoji"/>
+                    <Label x:Name="HeyYouLabel" HorizontalContentAlignment="Center" Content="Hey, Dominic!" HorizontalAlignment="Left" Margin="0,23,0,0" VerticalAlignment="Top" FontSize="26.667" Width="1006" Grid.ColumnSpan="2" FontFamily="Source Sans Pro" FontStyle="Italic"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Users">
@@ -43,7 +43,7 @@
                     <Image x:Name="DisableServiceBtn" HorizontalAlignment="Left" Height="91" Margin="727,495,0,0" VerticalAlignment="Top" Width="100" Source="Images/Disable-Icon-D1.png" MouseEnter="DisableServiceBtn_MouseEnter" MouseLeave="DisableServiceBtn_MouseLeave" Cursor="Hand" MouseDown="DisableServiceBtn_MouseDown"/>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="About" Header="About" Margin="129,0,-134,-1" RenderTransformOrigin="3.14,0.571">
+            <TabItem x:Name="About" Header="About" Margin="203,0,-208,-1" RenderTransformOrigin="3.14,0.571">
                 <Grid Background="#FFE5E5E5" Margin="0,-1,0,1">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="116*"/>
@@ -64,7 +64,15 @@
                     </Grid.ColumnDefinitions>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="Settings" Header="Settings" Margin="-38,0,0,-2" HorizontalAlignment="Left" Width="59">
+            <TabItem x:Name="SysInfo" Header="System Info" Margin="-37,0,33,-2">
+                <Grid Background="#FFE5E5E5">
+                    <Label x:Name="OSLabel" Content="OS:" HorizontalAlignment="Left" Margin="29,63,0,0" VerticalAlignment="Top" FontSize="21.333" Width="397"/>
+                    <Image x:Name="OSPic" HorizontalAlignment="Left" Height="226" Margin="574,39,0,0" VerticalAlignment="Top" Width="354" Source="Images/Win8.jpg"/>
+                    <Label x:Name="CPULabel" Content="CPU: AMD FX 8510 8-Core" HorizontalAlignment="Left" Margin="29,133,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.237,0.615" FontSize="18.667"/>
+                    <Label x:Name="RAMLabel" Content="RAM: 4060 MB" HorizontalAlignment="Left" Margin="29,189,0,0" VerticalAlignment="Top" FontSize="18.667"/>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="Settings" Header="Settings" Margin="-34,0,34,-2">
                 <Grid Background="#FFE5E5E5">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="221*"/>

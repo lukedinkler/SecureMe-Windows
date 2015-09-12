@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 using System.IO;
 using Microsoft.Win32;
+using Microsoft.VisualBasic.Devices;
+using System.Management;
 
 namespace SecureMe
 {
@@ -144,6 +146,24 @@ namespace SecureMe
             Random rnd = new Random();
             string choosen = cmds[rnd.Next(cmds.Length)];
             return choosen;
+        }
+
+        public static string GetRAM()
+        {
+            ComputerInfo CI = new ComputerInfo();
+            ulong mb = CI.TotalPhysicalMemory / 1024 / 1024;
+            return  mb.ToString() + " MB";
+            
+        }
+
+        public static string GetCPUName()
+        {
+            var cpu =
+            new ManagementObjectSearcher("select * from Win32_Processor")
+                .Get()
+                .Cast<ManagementObject>()
+                .First();
+            return (string)cpu["name"];
         }
 
 

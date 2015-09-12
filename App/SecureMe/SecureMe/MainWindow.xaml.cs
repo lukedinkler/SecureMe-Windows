@@ -30,6 +30,8 @@ namespace SecureMe
         public string SelectedService = "";
         public string Config = "";
         public string ServiceSettingValue = "";
+        public string WinVer = "";
+        public string AbbWinVer = "";
 
         public MainWindow()
         {
@@ -39,6 +41,52 @@ namespace SecureMe
 
             string[] frontlabelchoices = { "Hey, " + username + "!", "What's up, " + username + "?", "Yo, " + username + "!" };
             HeyYouLabel.Content = funclib.RandomChoice(frontlabelchoices);
+
+            var RawWinVer = (from x in new ManagementObjectSearcher("SELECT * FROM Win32_OperatingSystem").Get().OfType<ManagementObject>()
+                             select x.GetPropertyValue("Caption")).FirstOrDefault();
+
+            if (RawWinVer == null)
+            {
+                WinVer = "UNKNOWN";
+            }
+            else
+            {
+                WinVer = RawWinVer.ToString();
+            }
+
+            Uri OSPicURI = new Uri(@"pack://application:,,,/Images/Win8.png");
+
+            if (WinVer.StartsWith("Microsoft Windows 10"))
+            {
+                AbbWinVer = "10";
+                OSPicURI = new Uri(@"pack://application:,,,/Images/Win10.png");
+            }
+            if (WinVer.StartsWith("Microsoft Windows 8"))
+            {
+                AbbWinVer = "8";
+                OSPicURI = new Uri(@"pack://application:,,,/Images/Win8.png");
+            }
+            if (WinVer.StartsWith("Microsoft Windows 7"))
+            {
+                AbbWinVer = "7";
+                OSPicURI = new Uri(@"pack://application:,,,/Images/Win7.png");
+            }
+            if (WinVer.StartsWith("Microsoft Windows Vista"))
+            {
+                AbbWinVer = "Vista";
+                OSPicURI = new Uri(@"pack://application:,,,/Images/WinVista.png");
+            }
+            if(WinVer.StartsWith("Microsoft Windows XP"))
+            {
+                AbbWinVer = "XP";
+                OSPicURI = new Uri(@"pack://application:,,,/Images/WinXP.png");
+            }
+
+
+            OSLabel.Content = "OS: " + WinVer;
+            OSPic.Source = new BitmapImage(OSPicURI);
+            CPULabel.Content = "CPU: " + funclib.GetCPUName();
+            RAMLabel.Content = "Total RAM: " + funclib.GetRAM();
 
             if (!System.IO.File.Exists("config.dat"))
             {

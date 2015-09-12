@@ -66,6 +66,7 @@
       <HintPath>..\packages\EntLib.3.1.0.0\lib\net20\Microsoft.Practices.ObjectBuilder.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Management" />
@@ -200,6 +201,21 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Save-Icon-D1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Win10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Win7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Win8.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\WinVista.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\WinXP.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
