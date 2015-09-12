@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Management;
 using System.ServiceProcess;
+using System.Diagnostics;
 
 namespace SecureMe
 {
@@ -32,6 +33,8 @@ namespace SecureMe
         public string ServiceSettingValue = "";
         public string WinVer = "";
         public string AbbWinVer = "";
+        public List<string> ProcessList = new List<string>();
+        public Dictionary<Process, string> ProcessFileDict = new Dictionary<Process, string>();
 
         public MainWindow()
         {
@@ -144,9 +147,22 @@ namespace SecureMe
                 AddService(svc);
             }
 
+            var ProcessTimer = new System.Windows.Threading.DispatcherTimer();
+            ProcessTimer.Tick += ProcessTimer_Tick;
+            ProcessTimer.Interval = new TimeSpan(0, 0, 10);
+            ProcessTimer.Start();
+
+            UpdateProcesses();
+
+
             //string fsd = funclib.ServiceStatus("CDPSvc");
             //MessageBox.Show(fsd);
 
+        }
+
+        private void ProcessTimer_Tick(object sender, EventArgs e)
+        {
+            UpdateProcesses();
         }
 
         public void AddUser(string name)
@@ -165,6 +181,34 @@ namespace SecureMe
             svc.FontSize = 17;
             svc.Foreground = Brushes.White;
             ServicesBox.Items.Add(svc);
+        }
+
+        public void AddProcess(string procname)
+        {
+            ListBoxItem proc = new ListBoxItem();
+            proc.Content = procname;
+            proc.FontSize = 17;
+            proc.Foreground = Brushes.White;
+            ProcessBox.Items.Add(proc);
+        }
+
+        public void UpdateProcesses()
+        {
+            ProcessList = new List<string>();
+            Process[] processes = Process.GetProcesses();
+
+
+            foreach (Process proc in processes)
+            {
+                ProcessList.Add(proc.ProcessName);
+            }
+
+            ProcessBox.Items.Clear();
+
+            foreach(string proc in ProcessList)
+            {
+                AddProcess(proc);
+            }
         }
 
         private void FullSecureButton_MouseEnter(object sender, MouseEventArgs e)
@@ -505,6 +549,30 @@ namespace SecureMe
             ServiceDict.Remove(servicename);
             ServiceController svc_controller = new ServiceController(servicename);
             ServiceDict.Add(servicename, svc_controller);
+        }
+
+        private void KillProcessBtn_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Uri KPBTNURI = new Uri(@"pack://application:,,,/Images/Kill-Icon-D1-Glow.png");
+            KillProcessBtn.Source = new BitmapImage(KPBTNURI);
+        }
+
+        private void KillProcessBtn_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Uri KPBTNURI = new Uri(@"pack://application:,,,/Images/Kill-Icon-D1.png");
+            KillProcessBtn.Source = new BitmapImage(KPBTNURI);
+        }
+
+        private void RefreshProcessBtn_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Uri RPBTNURI = new Uri(@"pack://application:,,,/Images/Refresh-Icon-D1-Glow.png");
+            RefreshProcessBtn.Source = new BitmapImage(RPBTNURI);
+        }
+
+        private void RefreshProcessBtn_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Uri RPBTNURI = new Uri(@"pack://application:,,,/Images/Refresh-Icon-D1.png");
+            RefreshProcessBtn.Source = new BitmapImage(RPBTNURI);
         }
     }
     

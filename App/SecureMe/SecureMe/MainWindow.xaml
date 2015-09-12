@@ -62,6 +62,10 @@
                         <ColumnDefinition Width="169*"/>
                         <ColumnDefinition Width="848*"/>
                     </Grid.ColumnDefinitions>
+                    <Label x:Name="ProcessesLabel" HorizontalContentAlignment="Center" Content="Processes:" HorizontalAlignment="Left" Margin="0,38,0,0" VerticalAlignment="Top" FontSize="24" Grid.ColumnSpan="2" Width="1006"/>
+                    <ListBox x:Name="ProcessBox" HorizontalAlignment="Left" Height="366" Margin="0,94,0,0" VerticalAlignment="Top" Width="1006" Grid.ColumnSpan="2" Background="Black" Foreground="White" Opacity="0.68"/>
+                    <Image x:Name="RefreshProcessBtn" Grid.Column="1" HorizontalAlignment="Left" Height="103" Margin="527,474,0,0" VerticalAlignment="Top" Width="104" Source="Images/Refresh-Icon-D1.png" RenderTransformOrigin="3.365,0.563" Cursor="Hand" MouseEnter="RefreshProcessBtn_MouseEnter" MouseLeave="RefreshProcessBtn_MouseLeave"/>
+                    <Image x:Name="KillProcessBtn" Grid.Column="1" HorizontalAlignment="Left" Height="112" Margin="233,474,0,0" VerticalAlignment="Top" Width="122" Source="Images/Kill-Icon-D1.png" MouseEnter="KillProcessBtn_MouseEnter" MouseLeave="KillProcessBtn_MouseLeave" Cursor="Hand"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="SysInfo" Header="System Info" Margin="-37,0,33,-2">
