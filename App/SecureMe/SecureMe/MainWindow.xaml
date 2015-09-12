@@ -58,10 +58,10 @@
                         <ColumnDefinition Width="116*"/>
                         <ColumnDefinition Width="901*"/>
                     </Grid.ColumnDefinitions>
-                    <Label x:Name="AboutMainLabel" Content="SecureMe:" HorizontalAlignment="Left" Margin="48,74,0,0" VerticalAlignment="Top" FontSize="26.667" Grid.ColumnSpan="2" Width="143"/>
-                    <Label x:Name="AboutVerLabel" Content="Version 1.0 (Beta 1)" HorizontalAlignment="Left" Margin="73,124,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="150" FontSize="16" FontStyle="Italic"/>
-                    <Image x:Name="image" Grid.Column="1" HorizontalAlignment="Left" Height="269" Margin="153,20,0,0" VerticalAlignment="Top" Width="273" Source="Images/SecureMeLogo-D1.png"/>
-                    <Label x:Name="AboutCreditLabel" Content="Developed by Luke Dinkler" Margin="48,195,754,0" VerticalAlignment="Top" Grid.ColumnSpan="2" FontSize="16"/>
+                    <Label x:Name="AboutMainLabel" Content="SecureMe:" HorizontalAlignment="Left" Margin="124,67,0,0" VerticalAlignment="Top" FontSize="26.667" Width="143" Grid.Column="1"/>
+                    <Label x:Name="AboutVerLabel" Content="Version 1.0 (Beta 1)" HorizontalAlignment="Left" Margin="157,117,0,0" VerticalAlignment="Top" Width="150" FontSize="16" FontStyle="Italic" Grid.Column="1"/>
+                    <Image x:Name="image" Grid.Column="1" HorizontalAlignment="Left" Height="269" Margin="383,10,0,0" VerticalAlignment="Top" Width="273" Source="Images/SecureMeLogo-D1.png"/>
+                    <Label x:Name="AboutCreditLabel" Content="Developed by Luke Dinkler" Margin="157,185,530,0" VerticalAlignment="Top" FontSize="16" Grid.Column="1"/>
                     <Label x:Name="AboutYearLabel" Content="" HorizontalAlignment="Left" Margin="100,231,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" FontSize="21.333"/>
                 </Grid>
             </TabItem>
@@ -81,7 +81,7 @@
                     <TextBlock x:Name="ProcessFileLabel" HorizontalAlignment="Left" Margin="10,446,0,0" TextWrapping="Wrap" Text="File:" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="0.822,0.517" Grid.ColumnSpan="2" Width="547" Height="72"/>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="SysInfo" Header="System Info" Margin="-37,0,33,-2">
+            <TabItem x:Name="SysInfo" Header="System Info" Margin="-37,0,33,0">
                 <Grid Background="#FFE5E5E5">
                     <Label x:Name="OSLabel" Content="OS:" HorizontalAlignment="Left" Margin="29,63,0,0" VerticalAlignment="Top" FontSize="21.333" Width="397"/>
                     <Image x:Name="OSPic" HorizontalAlignment="Left" Height="226" Margin="574,39,0,0" VerticalAlignment="Top" Width="354" Source="Images/Win8.jpg"/>
@@ -90,7 +90,7 @@
                     <Label x:Name="ArchLabel" Content="Architecture:" HorizontalAlignment="Left" Margin="29,196,0,0" VerticalAlignment="Top" FontSize="18.667" Width="228"/>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="Settings" Header="Settings" Margin="-34,0,34,-2">
+            <TabItem x:Name="Settings" Header="Settings" Margin="-34,0,34,-1">
                 <Grid Background="#FFE5E5E5">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="221*"/>
