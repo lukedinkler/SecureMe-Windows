@@ -104,7 +104,7 @@ namespace SecureMe
 
         public static void DisableIPv6()
         {
-            Registry.LocalMachine.CreateSubKey(@"")
+            AdminEx(@"reg add HKLM\SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters\ /v DisabledComponents /t REG_DWORD /d 0x11 /f");
         }
 
         public static string GetServiceStartupType(string svcname)
