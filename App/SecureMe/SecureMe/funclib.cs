@@ -102,6 +102,11 @@ namespace SecureMe
             return retval;
         }
 
+        public static void DisableIPv6()
+        {
+            Registry.LocalMachine.CreateSubKey(@"")
+        }
+
         public static string GetServiceStartupType(string svcname)
         {
             var reg = Registry.LocalMachine.OpenSubKey(@"SYSTEM\CurrentControlSet\services\" + svcname);

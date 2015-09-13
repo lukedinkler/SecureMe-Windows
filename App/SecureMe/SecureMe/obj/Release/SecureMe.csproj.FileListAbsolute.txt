@@ -20,3 +20,4 @@ C:\Users\Luke\Documents\SecureMe-Windows\App\SecureMe\SecureMe\obj\Release\Secur
 C:\Users\Luke\Documents\SecureMe-Windows\App\SecureMe\SecureMe\obj\Release\SecureMe.csproj.GenerateResource.Cache
 C:\Users\Luke\Documents\SecureMe-Windows\App\SecureMe\SecureMe\obj\Release\SecureMe.exe
 C:\Users\Luke\Documents\SecureMe-Windows\App\SecureMe\SecureMe\obj\Release\SecureMe.pdb
+C:\Users\Luke\Documents\SecureMe-Windows\App\SecureMe\SecureMe\obj\Release\SecureMe.csprojResolveAssemblyReference.cache
