@@ -124,7 +124,7 @@ namespace SecureMe
                 }
             }
 
-            if (dotcount >= 3 || EndCount == 5)
+            if (dotcount >= 3 || EndCount == 4)
             {
                 rt.BeginAnimation(RotateTransform.AngleProperty, null);
                 Uri CheckUri = new Uri(@"pack://application:,,,/Images/Security_Approved.png");
