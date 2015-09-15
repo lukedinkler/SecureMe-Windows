@@ -30,6 +30,7 @@ namespace SecureMe
         public DoubleAnimation da = new DoubleAnimation
                 (360, 0, new Duration(TimeSpan.FromSeconds(2)));
         public bool done = false;
+        public System.Windows.Threading.DispatcherTimer Securing_Timer = new System.Windows.Threading.DispatcherTimer();
 
         public Loader()
         {
@@ -41,7 +42,7 @@ namespace SecureMe
 
             rt.BeginAnimation(RotateTransform.AngleProperty, da);
 
-            System.Windows.Threading.DispatcherTimer Securing_Timer = new System.Windows.Threading.DispatcherTimer();
+            
             
             Securing_Timer.Interval = new TimeSpan(0, 0, 1);
             Securing_Timer.Tick += Securing_Timer_Tick;
@@ -130,6 +131,7 @@ namespace SecureMe
                 Uri CheckUri = new Uri(@"pack://application:,,,/Images/Security_Approved.png");
                 LoadingIMG.Source = new BitmapImage(CheckUri);
                 LoadingLabel.Content = "System Secure!";
+                Securing_Timer.Stop();
                 CompletionTimer.Start();
             }
         }
