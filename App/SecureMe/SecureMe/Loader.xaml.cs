@@ -13,6 +13,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using WpfAnimatedGif;
+using System.Threading;
 
 namespace SecureMe
 {
@@ -48,23 +49,13 @@ namespace SecureMe
 
             if (Public.LoadSecureMode == "Full")
             {
-                funclib.SetPasswdPolicies();
-                funclib.SetAuditPolicies();
-                funclib.DisableIPv6();
-                funclib.DisableGuest();
-                funclib.EnableFirewall();
-                funclib.AutoUpdates();
-                done = true;
+                Thread securethd = new Thread(FullSecure);
+                securethd.Start();
             }
-            else if(Public.LoadSecureMode == "Basic")
+            else if (Public.LoadSecureMode == "Basic")
             {
-                funclib.SetPasswdPolicies();
-                funclib.SetAuditPolicies();
-                funclib.DisableIPv6();
-                funclib.DisableGuest();
-                funclib.EnableFirewall();
-                funclib.AutoUpdates();
-                done = true;     
+                Thread securethd = new Thread(BasicSecure);
+                securethd.Start();
             }
 
             CompletionTimer.Interval = new TimeSpan(0, 0, 2);
@@ -72,15 +63,29 @@ namespace SecureMe
             
         }
 
-        public void Finish_Up()
+        public void BasicSecure()
         {
-            rt.BeginAnimation(RotateTransform.AngleProperty, null);
-            Uri CheckUri = new Uri(@"pack://application:,,,/Images/Security_Approved.png");
-            LoadingIMG.Source = new BitmapImage(CheckUri);
-            LoadingLabel.Content = "System Secure!";
-            CompletionTimer.Start();
+            funclib.SetPasswdPolicies();
+            funclib.SetAuditPolicies();
+            funclib.DisableIPv6();
+            funclib.DisableGuest();
+            funclib.EnableFirewall();
+            funclib.AutoUpdates();
+            done = true;
         }
 
+        public void FullSecure()
+        {
+            funclib.SetPasswdPolicies();
+            funclib.SetAuditPolicies();
+            funclib.DisableIPv6();
+            funclib.DisableGuest();
+            funclib.EnableFirewall();
+            funclib.AutoUpdates();
+            done = true;
+        }
+
+       
         private void CompletionTimer_Tick(object sender, EventArgs e)
         {
             this.Close();
@@ -92,13 +97,21 @@ namespace SecureMe
             {
                 LoadingLabel.Content = "Securing System..";
                 dotnum = 2;
-                
+                if (done == true)
+                {
+                    EndCount++;
+                }
+
             }
             else if (dotnum == 2)
             {
                 LoadingLabel.Content = "Securing System...";
                 dotnum = 3;
-                
+                if (done == true)
+                {
+                    EndCount++;
+                }
+
             }
             else if (dotnum == 3)
             {
@@ -111,7 +124,7 @@ namespace SecureMe
                 }
             }
 
-            if (dotcount >= 3 || EndCount == 2)
+            if (dotcount >= 3 || EndCount == 5)
             {
                 rt.BeginAnimation(RotateTransform.AngleProperty, null);
                 Uri CheckUri = new Uri(@"pack://application:,,,/Images/Security_Approved.png");
@@ -125,7 +138,7 @@ namespace SecureMe
         {
             Closing -= LoadingWindow_Closing;
             e.Cancel = true;
-            var anim = new DoubleAnimation(0, (Duration)TimeSpan.FromSeconds(0.7));
+            var anim = new DoubleAnimation(0, (Duration)TimeSpan.FromSeconds(0.5));
             anim.Completed += (s, _) => this.Close();
             this.BeginAnimation(UIElement.OpacityProperty, anim);
         }
