@@ -70,7 +70,7 @@
                     </Rectangle>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="Processes" Header="Processes" Margin="-49,0,37,0" RenderTransformOrigin="0.896,0.682" Height="19" VerticalAlignment="Top">
+            <TabItem x:Name="Processes" Header="Processes" Margin="-49,0,37,-1" RenderTransformOrigin="0.896,0.682" Height="21" VerticalAlignment="Top">
                 <Grid Background="#FFE5E5E5">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="169*"/>
