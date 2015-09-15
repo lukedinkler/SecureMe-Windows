@@ -63,6 +63,11 @@
                     <Image x:Name="image" Grid.Column="1" HorizontalAlignment="Left" Height="269" Margin="389,117,0,0" VerticalAlignment="Top" Width="273" Source="Images/SecureMeLogo-D1.png"/>
                     <Label x:Name="AboutCreditLabel" Content="Developed by Luke Dinkler" Margin="130,316,557,0" VerticalAlignment="Top" FontSize="16" Grid.Column="1"/>
                     <Label x:Name="AboutYearLabel" Content="" HorizontalAlignment="Left" Margin="100,231,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" FontSize="21.333"/>
+                    <Rectangle x:Name="AboutRectangle" Grid.Column="1" HorizontalAlignment="Left" Height="354" Margin="89,85,0,0" Stroke="#FF2D9CEA" StrokeThickness="4" VerticalAlignment="Top" Width="598" RadiusX="13.5" RadiusY="13.5">
+                        <Rectangle.Fill>
+                            <ImageBrush/>
+                        </Rectangle.Fill>
+                    </Rectangle>
                 </Grid>
             </TabItem>
             <TabItem x:Name="Processes" Header="Processes" Margin="-49,0,37,0" RenderTransformOrigin="0.896,0.682" Height="19" VerticalAlignment="Top">

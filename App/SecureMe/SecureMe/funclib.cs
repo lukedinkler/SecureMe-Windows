@@ -27,7 +27,7 @@ namespace SecureMe
 
         public static void DisableGuest() //Diables guest account
         {
-            string cmd = "net user guest /active:no >NUL";
+            string cmd = "net user guest /active:no";
             AdminEx(cmd);
         }
 

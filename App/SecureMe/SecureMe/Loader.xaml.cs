@@ -23,10 +23,12 @@ namespace SecureMe
     {
         public int dotnum = 1;
         public int dotcount = 0;
+        public int EndCount = 0;
         public System.Windows.Threading.DispatcherTimer CompletionTimer = new System.Windows.Threading.DispatcherTimer();
         public RotateTransform rt = new RotateTransform();
         public DoubleAnimation da = new DoubleAnimation
                 (360, 0, new Duration(TimeSpan.FromSeconds(2)));
+        public bool done = false;
 
         public Loader()
         {
@@ -52,6 +54,7 @@ namespace SecureMe
                 funclib.DisableGuest();
                 funclib.EnableFirewall();
                 funclib.AutoUpdates();
+                done = true;
             }
             else if(Public.LoadSecureMode == "Basic")
             {
@@ -61,11 +64,21 @@ namespace SecureMe
                 funclib.DisableGuest();
                 funclib.EnableFirewall();
                 funclib.AutoUpdates();
+                done = true;     
             }
 
             CompletionTimer.Interval = new TimeSpan(0, 0, 2);
             CompletionTimer.Tick += CompletionTimer_Tick;
             
+        }
+
+        public void Finish_Up()
+        {
+            rt.BeginAnimation(RotateTransform.AngleProperty, null);
+            Uri CheckUri = new Uri(@"pack://application:,,,/Images/Security_Approved.png");
+            LoadingIMG.Source = new BitmapImage(CheckUri);
+            LoadingLabel.Content = "System Secure!";
+            CompletionTimer.Start();
         }
 
         private void CompletionTimer_Tick(object sender, EventArgs e)
@@ -79,20 +92,26 @@ namespace SecureMe
             {
                 LoadingLabel.Content = "Securing System..";
                 dotnum = 2;
+                
             }
             else if (dotnum == 2)
             {
                 LoadingLabel.Content = "Securing System...";
                 dotnum = 3;
+                
             }
             else if (dotnum == 3)
             {
                 LoadingLabel.Content = "Securing System.";
                 dotnum = 1;
                 dotcount++;
+                if (done == true)
+                {
+                    EndCount++;
+                }
             }
 
-            if (dotcount >= 3)
+            if (dotcount >= 3 || EndCount == 2)
             {
                 rt.BeginAnimation(RotateTransform.AngleProperty, null);
                 Uri CheckUri = new Uri(@"pack://application:,,,/Images/Security_Approved.png");
