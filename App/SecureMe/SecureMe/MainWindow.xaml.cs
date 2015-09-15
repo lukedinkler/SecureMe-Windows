@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.Management;
 using System.ServiceProcess;
 using System.Diagnostics;
+using WpfAnimatedGif;
 
 namespace SecureMe
 {
@@ -240,7 +241,11 @@ namespace SecureMe
 
         private void FullSecureButton_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            //Full Secure Code here
+
+            Public.LoadSecureMode = "Full";
+            Loader FullSecure = new Loader();
+            FullSecure.ShowDialog();
+
         }
 
         private void BasicSecureButton_MouseEnter(object sender, MouseEventArgs e)
@@ -257,7 +262,9 @@ namespace SecureMe
 
         private void BasicSecureButton_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            //Basic Secure Code here
+            Loader BasicSecure = new Loader();
+            Public.LoadSecureMode = "Basic";
+            BasicSecure.ShowDialog();
         }
 
         private void ManualSelectButton_MouseEnter(object sender, MouseEventArgs e)

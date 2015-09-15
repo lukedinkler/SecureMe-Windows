@@ -21,3 +21,7 @@ C:\Users\Luke\Documents\SecureMe-Windows\App\SecureMe\SecureMe\obj\Release\Secur
 C:\Users\Luke\Documents\SecureMe-Windows\App\SecureMe\SecureMe\obj\Release\SecureMe.exe
 C:\Users\Luke\Documents\SecureMe-Windows\App\SecureMe\SecureMe\obj\Release\SecureMe.pdb
 C:\Users\Luke\Documents\SecureMe-Windows\App\SecureMe\SecureMe\obj\Release\SecureMe.csprojResolveAssemblyReference.cache
+C:\Users\Luke\Documents\SecureMe-Windows\App\SecureMe\SecureMe\obj\Release\Loader.g.cs
+C:\Users\Luke\Documents\SecureMe-Windows\App\SecureMe\SecureMe\obj\Release\Loader.baml
+C:\Users\Luke\Documents\SecureMe-Windows\App\SecureMe\SecureMe\bin\Release\WpfAnimatedGif.dll
+C:\Users\Luke\Documents\SecureMe-Windows\App\SecureMe\SecureMe\bin\Release\WpfAnimatedGif.xml

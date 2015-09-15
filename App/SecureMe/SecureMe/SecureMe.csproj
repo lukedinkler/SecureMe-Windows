@@ -83,14 +83,24 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WpfAnimatedGif">
+      <HintPath>..\..\..\..\WpfAnimatedGif-1.4.13\WpfAnimatedGif.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Loader.xaml.cs">
+      <DependentUpon>Loader.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Public.cs" />
     <Page Include="AddUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Loader.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -234,6 +244,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Enable-Icon-D1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Security_Approved.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Loading_Circle.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Loading_Circle.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

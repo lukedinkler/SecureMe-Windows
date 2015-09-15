@@ -11,5 +11,6 @@ namespace SecureMe
         public static List<string> UserNames = new List<string>();
         public static bool UserAdded = false;
         public static string NewUserName = "";
+        public static string LoadSecureMode = "";
     }
 }
