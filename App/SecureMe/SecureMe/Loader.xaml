@@ -17,9 +17,9 @@
 
     </Window.Triggers>
     <Grid>
-        <Image x:Name="LoadingIMG" HorizontalAlignment="Left" Height="258" Margin="263,95,0,0" VerticalAlignment="Top" Width="257" Source="Images/Loading_Circle.png"/>
+        <Image x:Name="LoadingIMG" HorizontalAlignment="Left" Height="272" Margin="255,92,0,0" VerticalAlignment="Top" Width="282" Source="Images/Loading_Circle3.png"/>
         <Label x:Name="LoadingLabel" HorizontalContentAlignment="Center" Content="Securing System." HorizontalAlignment="Left" Margin="0,30,0,0" VerticalAlignment="Top" FontSize="26.667" Width="783"/>
-        
+
 
     </Grid>
 </Window>
