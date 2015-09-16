@@ -22,6 +22,7 @@ namespace SecureMe
             proc.Verb = "runas";
             proc.Arguments = "/c " + command;
             proc.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
+            
             System.Diagnostics.Process.Start(proc);
         }
 

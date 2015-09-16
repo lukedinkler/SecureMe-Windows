@@ -29,8 +29,11 @@ namespace SecureMe
         public RotateTransform rt = new RotateTransform();
         public DoubleAnimation da = new DoubleAnimation
                 (360, 0, new Duration(TimeSpan.FromSeconds(2)));
-        public bool done = false;
+        public static bool done = false;
         public System.Windows.Threading.DispatcherTimer Securing_Timer = new System.Windows.Threading.DispatcherTimer();
+        public Thread FullSecureThd = new Thread(FullSecure);
+        public Thread BasicSecureThd = new Thread(BasicSecure);
+
 
         public Loader()
         {
@@ -50,13 +53,12 @@ namespace SecureMe
 
             if (Public.LoadSecureMode == "Full")
             {
-                Thread securethd = new Thread(FullSecure);
-                securethd.Start();
+                FullSecureThd.Start();
             }
             else if (Public.LoadSecureMode == "Basic")
             {
-                Thread securethd = new Thread(BasicSecure);
-                securethd.Start();
+                BasicSecureThd.Start();
+                
             }
 
             CompletionTimer.Interval = new TimeSpan(0, 0, 2);
@@ -64,7 +66,7 @@ namespace SecureMe
             
         }
 
-        public void BasicSecure()
+        public static void BasicSecure()
         {
             funclib.SetPasswdPolicies();
             funclib.SetAuditPolicies();
@@ -75,7 +77,7 @@ namespace SecureMe
             done = true;
         }
 
-        public void FullSecure()
+        public static void FullSecure()
         {
             funclib.SetPasswdPolicies();
             funclib.SetAuditPolicies();
@@ -138,6 +140,16 @@ namespace SecureMe
 
         private void LoadingWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            if (BasicSecureThd.IsAlive)
+            {
+                BasicSecureThd.Join();
+            }
+            if (FullSecureThd.IsAlive)
+            {
+                FullSecureThd.Join();
+            }
+            
+            
             Closing -= LoadingWindow_Closing;
             e.Cancel = true;
             var anim = new DoubleAnimation(0, (Duration)TimeSpan.FromSeconds(0.5));
