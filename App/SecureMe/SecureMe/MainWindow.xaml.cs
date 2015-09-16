@@ -17,6 +17,9 @@ using System.ServiceProcess;
 using System.Diagnostics;
 using WpfAnimatedGif;
 
+//SecureMe 1.0 (Beta 1)
+//Developed in 2015 by Luke Dinkler
+
 namespace SecureMe
 {
     /// <summary>
