@@ -22,8 +22,8 @@ namespace SecureMe
             proc.Verb = "runas";
             proc.Arguments = "/c " + command;
             proc.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
-            
-            System.Diagnostics.Process.Start(proc);
+            var p = System.Diagnostics.Process.Start(proc);
+            p.WaitForExit();
         }
 
         public static void DisableGuest() //Diables guest account
