@@ -163,7 +163,7 @@ namespace SecureMe
 
             UpdateProcesses();
 
-
+        
             
 
         }
@@ -245,7 +245,7 @@ namespace SecureMe
             Public.LoadSecureMode = "Full";
             Loader FullSecure = new Loader();
             FullSecure.ShowDialog();
-
+            UpdateProcesses();
         }
 
         private void BasicSecureButton_MouseEnter(object sender, MouseEventArgs e)
@@ -262,9 +262,10 @@ namespace SecureMe
 
         private void BasicSecureButton_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            Loader BasicSecure = new Loader();
             Public.LoadSecureMode = "Basic";
+            Loader BasicSecure = new Loader();
             BasicSecure.ShowDialog();
+            UpdateProcesses();
         }
 
         private void ManualSelectButton_MouseEnter(object sender, MouseEventArgs e)

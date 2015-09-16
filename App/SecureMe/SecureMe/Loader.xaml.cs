@@ -86,11 +86,20 @@ namespace SecureMe
             funclib.EnableFirewall();
             funclib.AutoUpdates();
             done = true;
+            
         }
 
        
         private void CompletionTimer_Tick(object sender, EventArgs e)
         {
+            if (BasicSecureThd.IsAlive)
+            {
+                BasicSecureThd.Join();
+            }
+            if (FullSecureThd.IsAlive)
+            {
+                FullSecureThd.Join();
+            }
             this.Close();
         }
 
@@ -127,7 +136,7 @@ namespace SecureMe
                 }
             }
 
-            if (dotcount >= 3 || EndCount == 4)
+            if (EndCount == 2)
             {
                 rt.BeginAnimation(RotateTransform.AngleProperty, null);
                 Uri CheckUri = new Uri(@"pack://application:,,,/Images/Security_Approved.png");
@@ -140,14 +149,7 @@ namespace SecureMe
 
         private void LoadingWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if (BasicSecureThd.IsAlive)
-            {
-                BasicSecureThd.Join();
-            }
-            if (FullSecureThd.IsAlive)
-            {
-                FullSecureThd.Join();
-            }
+            
             
             
             Closing -= LoadingWindow_Closing;

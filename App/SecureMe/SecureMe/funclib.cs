@@ -57,8 +57,13 @@ namespace SecureMe
 
         public static void AutoUpdates()
         {
-            AdminEx(@"reg add HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU /v AUOptions /t REG_DWORD /d 5");
+            AdminEx(@"reg add HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU /v AUOptions /t REG_DWORD /d 5 /f");
 
+        }
+
+        public static void DisableWifi()
+        {
+            AdminEx("netsh interface set interface \"Wi-Fi\" admin=disabled");
         }
 
         public static string GetCmdOutput(string cmd)
