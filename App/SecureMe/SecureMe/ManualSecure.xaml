@@ -4,14 +4,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SecureMe"
-        mc:Ignorable="d" Height="766" Width="876" Icon="SecureMeIcon-D1.ico" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
-    <Grid>
+        mc:Ignorable="d" Height="821" Width="876" Icon="SecureMeIcon-D1.ico" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid Margin="0,0,-15,0">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="155*"/>
-            <ColumnDefinition Width="137*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
-        <ListBox x:Name="ManSecureBox" HorizontalAlignment="Left" Height="530" Margin="62,66,0,0" VerticalAlignment="Top" Width="775" Grid.ColumnSpan="2" FontSize="21.333" Background="Black" Opacity="0.8"/>
-        <Label x:Name="ManualSecureLabel" HorizontalContentAlignment="Center" Content="Manual Security Options:" Margin="4,12,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="861" Grid.ColumnSpan="2" FontSize="29.333" RenderTransformOrigin="0.5,0.5">
+        <ListBox x:Name="ManSecureBox" HorizontalAlignment="Left" Height="530" Margin="10,66,0,0" VerticalAlignment="Top" Width="841" FontSize="21.333" Background="Black" Opacity="0.8" Grid.Column="1" Foreground="White" FontFamily="Lucida Console" SelectionChanged="ManSecureBox_SelectionChanged"/>
+        <Label x:Name="ManualSecureLabel" HorizontalContentAlignment="Center" Content="Manual Security Options:" Margin="0,12,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="861" FontSize="29.333" RenderTransformOrigin="0.5,0.5" Height="49" Grid.Column="1">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -21,6 +22,8 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
+        <Image x:Name="ApplyOptionBtn" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="124" Margin="370,603,0,0" VerticalAlignment="Top" Width="168" Source="Images/Console-Icon-D1.png" MouseEnter="ApplyOptionBtn_MouseEnter" MouseDown="ApplyOptionBtn_MouseDown" MouseLeave="ApplyOptionBtn_MouseLeave" Cursor="Hand"/>
+        <Label x:Name="ApplyOptionLabel" Grid.ColumnSpan="2" Content="Apply Security Option" HorizontalAlignment="Left" Margin="341,732,0,0" VerticalAlignment="Top" FontSize="21.333"/>
 
     </Grid>
 </Window>

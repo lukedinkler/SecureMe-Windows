@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/loading_circle3.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/console-icon-d1.png")]
 
 

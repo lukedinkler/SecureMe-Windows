@@ -37,6 +37,11 @@ namespace SecureMe
             AdminEx("netsh advfirewall set allprofiles state on");
         }
 
+        public static void DisableFirewall()
+        {
+            AdminEx("netsh advfirewall set allprofiles state off");
+        }
+
         public static void SetPasswdPolicies()
         {
             AdminEx("net accounts /minpwlen:08");

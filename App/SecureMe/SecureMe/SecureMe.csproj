@@ -95,6 +95,9 @@
     <Compile Include="Loader.xaml.cs">
       <DependentUpon>Loader.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ManualSecure.xaml.cs">
+      <DependentUpon>ManualSecure.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Public.cs" />
     <Page Include="AddUser.xaml">
       <SubType>Designer</SubType>
@@ -120,6 +123,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="ManualSecure.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -150,6 +157,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\Console-Icon-D1-Glow.png" />
+    <Resource Include="Images\Console-Icon-D1.png" />
     <Resource Include="Images\SecureMeLogo-D1.png" />
   </ItemGroup>
   <ItemGroup>
