@@ -285,7 +285,8 @@ namespace SecureMe
 
         private void ManualSelectButton_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            //Manual Select code here
+            ManualSecure MS = new ManualSecure();
+            MS.ShowDialog();
         }
 
         private void UsersBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
