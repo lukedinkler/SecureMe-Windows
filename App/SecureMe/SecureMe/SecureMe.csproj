@@ -269,6 +269,12 @@
   <ItemGroup>
     <Resource Include="Images\Loading_Circle3.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Terminal-Icon-D1-Glow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Terminal-Icon-D1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

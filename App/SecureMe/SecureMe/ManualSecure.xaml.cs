@@ -35,14 +35,14 @@ namespace SecureMe
         {
             ListBoxItem itm = new ListBoxItem();
             itm.Content = otp;
-            itm.FontSize = 14;
+            itm.FontSize = 19;
             itm.Foreground = Brushes.LightGreen;
             ManSecureBox.Items.Add(itm);
         }
 
         private void ApplyOptionBtn_MouseEnter(object sender, MouseEventArgs e)
         {
-            Uri AOBTNURI = new Uri(@"pack://application:,,,/Images/Console-Icon-D1-Glow.png");
+            Uri AOBTNURI = new Uri(@"pack://application:,,,/Images/Terminal-Icon-D1-Glow.png");
             ApplyOptionBtn.Source = new BitmapImage(AOBTNURI);
         }
 
@@ -74,7 +74,7 @@ namespace SecureMe
 
         private void ApplyOptionBtn_MouseLeave(object sender, MouseEventArgs e)
         {
-            Uri AOBTNURI = new Uri(@"pack://application:,,,/Images/Console-Icon-D1.png");
+            Uri AOBTNURI = new Uri(@"pack://application:,,,/Images/Terminal-Icon-D1.png");
             ApplyOptionBtn.Source = new BitmapImage(AOBTNURI);
         }
 
