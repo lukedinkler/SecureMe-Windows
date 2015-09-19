@@ -24,7 +24,7 @@ namespace SecureMe
         public ManualSecure()
         {
             InitializeComponent();
-            string[] security_options = { "Enable Firewall", "Disable Firewall", "Disable IPv6" };
+            string[] security_options = { "Enable Firewall", "Disable Firewall", "Disable IPv6", "Disable Guest Account", "Enable Automatic Windows Updates" };
             foreach(string opt in security_options)
             {
                 AddSecurityOption(opt);
@@ -64,6 +64,16 @@ namespace SecureMe
                 {
                     funclib.DisableIPv6();
                     MessageBox.Show("IPv6 disabled!");
+                }
+                else if(SelectedOption == "Disable Guest Account")
+                {
+                    funclib.DisableGuest();
+                    MessageBox.Show("Guest Account Disabled!");
+                }
+                else if(SelectedOption == "Enable Automatic Windows Updates")
+                {
+                    funclib.AutoUpdates();
+                    MessageBox.Show("Automatic Windows updates are enabled!");
                 }
             }
             else
