@@ -641,6 +641,10 @@ namespace SecureMe
                 
                 UpdateProcesses();
             }
+            else
+            {
+                MessageBox.Show("Please select a process to terminate!");
+            }
         }
 
         private void ProcessBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
