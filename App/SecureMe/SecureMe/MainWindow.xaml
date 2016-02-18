@@ -29,10 +29,12 @@
                     <ListBox x:Name="UsersBox" Margin="198,57,202,131" Opacity="0.74" Background="Black" Foreground="#FFFBFBFB" SelectionChanged="UsersBox_SelectionChanged"/>
                     <Label x:Name="UsersLabel" Content="Users:" Margin="466,10,467,0" VerticalAlignment="Top" FontSize="24" FontFamily="Segoe UI Semilight"/>
                     <Label x:Name="SelectedUserLabel" Content="Selected User: " HorizontalAlignment="Left" Margin="215,515,0,0" VerticalAlignment="Top" FontSize="16"/>
-                    <Image x:Name="AddUserBtn" HorizontalAlignment="Left" Height="68" Margin="506,478,0,0" VerticalAlignment="Top" Width="72" Source="Images/Add-Icon-D1.png" Cursor="Hand" MouseEnter="AddUserBtn_MouseEnter" MouseLeave="AddUserBtn_MouseLeave" MouseDown="AddUserBtn_MouseDown"/>
-                    <Image x:Name="RemoveUserBtn" HorizontalAlignment="Left" Height="68" Margin="608,478,0,0" VerticalAlignment="Top" Width="72" Source="Images/Remove-Icon-D1.png" Cursor="Hand" MouseEnter="RemoveUserBtn_MouseEnter" MouseLeave="RemoveUserBtn_MouseLeave" MouseDown="RemoveUserBtn_MouseDown"/>
-                    <Label x:Name="AddUserLabel" Content="Add" HorizontalAlignment="Left" Margin="521,555,0,0" VerticalAlignment="Top" FontSize="16"/>
-                    <Label x:Name="DeleteUserLabel" HorizontalContentAlignment="Center" Content="Delete" HorizontalAlignment="Left" Margin="608,555,0,0" VerticalAlignment="Top" FontSize="16" Width="72"/>
+                    <Image x:Name="AddUserBtn" HorizontalAlignment="Left" Height="68" Margin="491,478,0,0" VerticalAlignment="Top" Width="72" Source="Images/Add-Icon-D1.png" Cursor="Hand" MouseEnter="AddUserBtn_MouseEnter" MouseLeave="AddUserBtn_MouseLeave" MouseDown="AddUserBtn_MouseDown"/>
+                    <Image x:Name="RemoveUserBtn" HorizontalAlignment="Left" Height="68" Margin="587,479,0,0" VerticalAlignment="Top" Width="72" Source="Images/Remove-Icon-D1.png" Cursor="Hand" MouseEnter="RemoveUserBtn_MouseEnter" MouseLeave="RemoveUserBtn_MouseLeave" MouseDown="RemoveUserBtn_MouseDown"/>
+                    <Label x:Name="AddUserLabel" Content="Add" HorizontalAlignment="Left" Margin="506,555,0,0" VerticalAlignment="Top" FontSize="16"/>
+                    <Label x:Name="DeleteUserLabel" HorizontalContentAlignment="Center" Content="Delete" HorizontalAlignment="Left" Margin="584,555,0,0" VerticalAlignment="Top" FontSize="16" Width="72"/>
+                    <Image x:Name="ChangePasswordBtn" HorizontalAlignment="Left" Height="72" Margin="712,478,0,0" VerticalAlignment="Top" Width="73" Source="Images/ChangePasword-Icon.png" MouseEnter="ChangePasswordBtn_MouseEnter" MouseDown="ChangePasswordBtn_MouseDown" MouseLeave="ChangePasswordBtn_MouseLeave" Cursor="Hand"/>
+                    <Label x:Name="ChangePasswdLabel" Content="Change Password:" HorizontalAlignment="Left" Margin="683,555,0,0" VerticalAlignment="Top" FontSize="16"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="Services" Header="Services" Margin="-2,0,3,0">

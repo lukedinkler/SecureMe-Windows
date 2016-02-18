@@ -100,6 +100,9 @@
     <Compile Include="ManualSecure.xaml.cs">
       <DependentUpon>ManualSecure.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PasswdChange.xaml.cs">
+      <DependentUpon>PasswdChange.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Public.cs" />
     <Page Include="AddUser.xaml">
       <SubType>Designer</SubType>
@@ -126,6 +129,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="ManualSecure.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PasswdChange.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -276,6 +283,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Terminal-Icon-D1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\PassChangeIMG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ChangePasword-Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ChangePasword-Icon-Glow.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

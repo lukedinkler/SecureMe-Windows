@@ -41,6 +41,7 @@ namespace SecureMe
         public Dictionary<string, string> ProcessFileDict = new Dictionary<string, string>();
         public string SelectedProcess = "";
         public Dictionary<string, Process> ProcessDict = new Dictionary<string, Process>();
+        public static string PasswordChangeUser = "";
 
         public MainWindow()
         {
@@ -710,6 +711,30 @@ namespace SecureMe
             {
                 MessageBox.Show("Please select a service to enable a startup mode for.");
             }
+        }
+
+        private void ChangePasswordBtn_MouseEnter(object sender, MouseEventArgs e)
+        {
+            ChangePasswordBtn.Source = new BitmapImage(new Uri(@"pack://application:,,,/Images/ChangePasword-Icon-Glow.png"));
+        }
+
+        private void ChangePasswordBtn_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (UsersBox.SelectedIndex > -1)
+            {
+                PasswordChangeUser = SelectedUser;
+                PasswdChange PC = new PasswdChange();
+                PC.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Please select a user to change a password! :)");
+            }
+        }
+
+        private void ChangePasswordBtn_MouseLeave(object sender, MouseEventArgs e)
+        {
+            ChangePasswordBtn.Source = new BitmapImage(new Uri(@"pack://application:,,,/Images/ChangePasword-Icon.png"));
         }
     }
     
