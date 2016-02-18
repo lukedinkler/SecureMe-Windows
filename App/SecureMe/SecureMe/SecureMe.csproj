@@ -103,6 +103,7 @@
     <Compile Include="PasswdChange.xaml.cs">
       <DependentUpon>PasswdChange.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Port.cs" />
     <Compile Include="Public.cs" />
     <Page Include="AddUser.xaml">
       <SubType>Designer</SubType>

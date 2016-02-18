@@ -24,7 +24,7 @@
                     <Label x:Name="HeyYouLabel" HorizontalContentAlignment="Center" Content="Hey, Dominic!" HorizontalAlignment="Left" Margin="0,23,0,0" VerticalAlignment="Top" FontSize="26.667" Width="1006" Grid.ColumnSpan="2" FontFamily="Source Sans Pro" FontStyle="Italic"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="Users">
+            <TabItem Header="Users" Margin="-2,0,0,-1">
                 <Grid Background="#FFE5E5E5">
                     <ListBox x:Name="UsersBox" Margin="198,57,202,131" Opacity="0.74" Background="Black" Foreground="#FFFBFBFB" SelectionChanged="UsersBox_SelectionChanged"/>
                     <Label x:Name="UsersLabel" Content="Users:" Margin="466,10,467,0" VerticalAlignment="Top" FontSize="24" FontFamily="Segoe UI Semilight"/>
@@ -54,7 +54,7 @@
                     <Label x:Name="ServiceStartupModeLabel" Content="Startup Mode:" HorizontalAlignment="Left" Margin="893,436,0,0" VerticalAlignment="Top"/>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="About" Header="About" Margin="210,0,-215,0" RenderTransformOrigin="3.14,0.571">
+            <TabItem x:Name="About" Header="About" Margin="267,0,-272,0" RenderTransformOrigin="3.14,0.571">
                 <Grid Background="#FFE5E5E5" Margin="0,-1,0,1">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="116*"/>
@@ -72,7 +72,7 @@
                     </Rectangle>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="Processes" Header="Processes" Margin="-49,0,37,-1" RenderTransformOrigin="0.896,0.682" Height="21" VerticalAlignment="Top">
+            <TabItem x:Name="Processes" Header="Processes" Margin="-51,0,37,0" RenderTransformOrigin="0.896,0.682" Height="21" VerticalAlignment="Top">
                 <Grid Background="#FFE5E5E5">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="169*"/>
@@ -97,7 +97,7 @@
                     <Label x:Name="ArchLabel" Content="Architecture:" HorizontalAlignment="Left" Margin="29,196,0,0" VerticalAlignment="Top" FontSize="18.667" Width="228"/>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="Settings" Header="Settings" Margin="-34,0,34,0">
+            <TabItem x:Name="Settings" Header="Settings" Margin="22,0,-22,0">
                 <Grid Background="#FFE5E5E5">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="221*"/>
@@ -108,6 +108,11 @@
                     <Label x:Name="ServicesSettingLabel" Content="Services Start/Stop/Disable Mode:" HorizontalAlignment="Left" Margin="58,88,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="289" FontSize="18.667"/>
                     <RadioButton x:Name="ServicesSettingsSafeBtn" VerticalContentAlignment="Center" Content="Standard (Safe)" Grid.Column="1" HorizontalAlignment="Left" Margin="168,97,0,0" VerticalAlignment="Top" Width="133" FontSize="16"/>
                     <RadioButton x:Name="ServicesSettingAdminBtn" VerticalContentAlignment="Center" Content="Admin" Grid.Column="1" HorizontalAlignment="Left" Margin="347,97,0,0" VerticalAlignment="Top" Width="70" FontSize="16" RenderTransformOrigin="0.243,0.9"/>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="PortsTab" Header="Ports" HorizontalAlignment="Left" Height="21" VerticalAlignment="Top" Width="57" Margin="-91,0,0,0">
+                <Grid Background="#FFE5E5E5">
+                    <ListBox x:Name="PortsBox" HorizontalAlignment="Left" Height="452" Margin="10,68,0,0" VerticalAlignment="Top" Width="982" Background="Black" Opacity="0.8" Foreground="White"/>
                 </Grid>
             </TabItem>
         </TabControl>
