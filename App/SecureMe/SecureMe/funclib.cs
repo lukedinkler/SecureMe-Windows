@@ -44,9 +44,15 @@ namespace SecureMe
 
         public static void SetPasswdPolicies()
         {
-            AdminEx("net accounts /minpwlen:08");
-            AdminEx("net accounts /maxpwage:90");
-            AdminEx("net accounts /uniquepw:05");
+            
+            AdminEx("net accounts /lockoutthreshold:3");
+            AdminEx("wmic path Win32_UserAccount where PasswordExpires=false set PasswordExpires=true");
+            AdminEx("wmic path Win32_UserAccount where Name=\"Guest\" set PasswordExpires=false");
+            AdminEx("powercfg -SETDCVALUEINDEX SCHEME_BALANCED SUB_NONE CONSOLELOCK 1");
+            AdminEx("powercfg -SETACVALUEINDEX SCHEME_BALANCED SUB_NONE CONSOLELOCK 1");
+            AdminEx("powercfg -SETDCVALUEINDEX SCHEME_MIN SUB_NONE CONSOLELOCK 1");
+            AdminEx("powercfg -SETDCVALUEINDEX SCHEME_MAX SUB_NONE CONSOLELOCK 1");
+            AdminEx("net accounts /FORCELOGOFF:30 /MINPWLEN:8 /MAXPWAGE:30 /MINPWAGE:10 /UNIQUEPW:5 ");
         }
 
         public static void SetAuditPolicies()
@@ -58,6 +64,40 @@ namespace SecureMe
             AdminEx("auditpol /set /category:\"Object Access\" /success:enable /failure:enable");
             AdminEx("auditpol /set /category:\"Policy Change\" /success:enable /failure:enable");
             AdminEx("auditpol /set /category:\"Privilege Use\" /success:enable /failure:enable");
+        }
+
+        public static void DoVariousTasks()
+        {
+            AdminEx("schtasks /Delete /TN * /f > NUL");
+            AdminEx("ipconfig /flushdns > NUL");
+            AdminEx("reg ADD \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\" /v Hidden /t REG_DWORD /d 1 /f > NUL");
+            AdminEx("reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\" /v HideFileExt /t REG_DWORD /d 0 /f > NUL");
+            AdminEx("reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\" /v HideDrivesWithNoMedia /t REG_DWORD /d 0 /f > NUL");
+            AdminEx("reg ADD \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\" /v ShowSuperHidden /t REG_DWORD /d 1 /f > NUL");
+        }
+        public static void DisableVulnerableServices()
+        {
+            AdminEx("net stop RemoteRegistry");
+            AdminEx("sc config RemoteRegistry start= disabled");
+            AdminEx("net stop RemoteAccess");
+            AdminEx("sc config RemoteAccess start= disabled");
+            AdminEx("net stop Telephony");
+            AdminEx("sc config Telephony start= disabled");
+            AdminEx("net stop tlntsvr");
+            AdminEx("sc config tlntsvr start= disabled");
+            AdminEx("net stop p2pimsvc");
+            AdminEx("sc config p2pimsvc start= disabled");
+            AdminEx("net stop simptcp");
+            AdminEx("sc config simptcp start= disabled");
+            AdminEx("net stop fax");
+            AdminEx("sc config fax start= disabled");
+            AdminEx("net stop msftpsvc");
+            AdminEx("sc config msftpsvc start= disabled");
+            AdminEx("net stop telnet");
+            AdminEx("sc config telnet start= disabled");
+            AdminEx("net stop termservice");
+            AdminEx("sc config termservice start= disabled");
+            
         }
 
         public static void AutoUpdates()
@@ -186,6 +226,71 @@ namespace SecureMe
         {
             var s = System.Environment.GetEnvironmentVariable("PROCESSOR_ARCHITECTURE");
             return s;
+        }
+
+        public static void AdvFirewallSet(){
+            AdminEx("netsh advfirewall set allprofiles state on");
+            AdminEx("netsh advfirewall reset");
+            AdminEx("netsh advfirewall set allprofiles state on");
+            AdminEx("netsh advfirewall firewall set rule name=\"Remote Assistance (DCOM-In)\" new enable=no");
+            AdminEx("netsh advfirewall firewall set rule name=\"Remote Assistance (PNRP-In)\" new enable=no");
+            AdminEx("netsh advfirewall firewall set rule name=\"Remote Assistance (RA Server TCP-In)\" new enable=no");
+            AdminEx("netsh advfirewall firewall set rule name=\"Remote Assistance (SSDP TCP-In)\" new enable=no");
+            AdminEx("netsh advfirewall firewall set rule name=\"Remote Assistance (SSDP UDP-In)\" new enable=no");
+            AdminEx("netsh advfirewall firewall set rule name=\"Remote Assistance (TCP-In)\" new enable=no");
+            AdminEx("netsh advfirewall firewall set rule name=\"Telnet Server\" new enable=no");
+            AdminEx("netsh advfirewall firewall set rule name=\"Telnet\" new enable=no");
+            AdminEx("netsh advfirewall firewall set rule name=\"netcat\" new enable=no ");
+        }
+
+        public static void SetSecurityPol()
+        {
+            AdminEx("reg ADD \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\\\" /v AllocateCDRoms /t REG_DWORD /d 1 /f");
+            AdminEx("reg ADD \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\" /v AutoAdminLogon /t REG_DWORD /d 0 /f");
+            AdminEx("reg ADD \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Memory Management\" /v ClearPageFileAtShutdown /t REG_DWORD /d 1 /f");
+            AdminEx("reg ADD \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\" /v AllocateFloppies /t REG_DWORD /d 1 /f");
+            AdminEx("reg ADD \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Print\\Providers\\LanMan Print Services\\Servers\" /v AddPrinterDrivers /t REG_DWORD /d 1 /f");
+            AdminEx("reg ADD \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Lsa\" /v LimitBlankPasswordUse /t REG_DWORD /d 1 /f");
+            AdminEx("reg ADD \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Lsa\" /v auditbaseobjects /t REG_DWORD /d 1 /f");
+            AdminEx("reg ADD \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Lsa\" /v fullprivilegeauditing /t REG_DWORD /d 1 /f");
+            AdminEx("reg ADD HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System /v dontdisplaylastusername /t REG_DWORD /d 1 /f");
+            AdminEx("reg ADD HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System /v PromptOnSecureDesktop /t REG_DWORD /d 1 /f");
+            AdminEx("reg ADD HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System /v EnableInstallerDetection /t REG_DWORD /d 1 /f");
+            AdminEx("reg ADD HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System /v undockwithoutlogon /t REG_DWORD /d 0 /f");
+            AdminEx("reg ADD HKLM\\SYSTEM\\CurrentControlSet\\services\\Netlogon\\Parameters /v MaximumPasswordAge /t REG_DWORD /d 15 /f");
+            AdminEx("reg ADD HKLM\\SYSTEM\\CurrentControlSet\\services\\Netlogon\\Parameters /v DisablePasswordChange /t REG_DWORD /d 1 /f");
+            AdminEx("reg ADD HKLM\\SYSTEM\\CurrentControlSet\\services\\Netlogon\\Parameters /v RequireStrongKey /t REG_DWORD /d 1 /f");
+            AdminEx("reg ADD HKLM\\SYSTEM\\CurrentControlSet\\services\\Netlogon\\Parameters /v RequireSignOrSeal /t REG_DWORD /d 1 /f");
+            AdminEx("reg ADD HKLM\\SYSTEM\\CurrentControlSet\\services\\Netlogon\\Parameters /v SignSecureChannel /t REG_DWORD /d 1 /f");
+            AdminEx("reg ADD HKLM\\SYSTEM\\CurrentControlSet\\services\\Netlogon\\Parameters /v SealSecureChannel /t REG_DWORD /d 1 /f");
+            AdminEx("reg ADD HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System /v DisableCAD /t REG_DWORD /d 0 /f");
+            AdminEx("reg ADD HKLM\\SYSTEM\\CurrentControlSet\\Control\\Lsa /v restrictanonymous /t REG_DWORD /d 1 /f");
+            AdminEx("reg ADD HKLM\\SYSTEM\\CurrentControlSet\\Control\\Lsa /v restrictanonymoussam /t REG_DWORD /d 1 /f");
+            AdminEx("reg ADD HKLM\\SYSTEM\\CurrentControlSet\\services\\LanmanServer\\Parameters /v autodisconnect /t REG_DWORD /d 45 /f");
+            AdminEx("reg ADD HKLM\\SYSTEM\\CurrentControlSet\\services\\LanmanServer\\Parameters /v enablesecuritysignature /t REG_DWORD /d 0 /f");
+            AdminEx("reg ADD HKLM\\SYSTEM\\CurrentControlSet\\services\\LanmanServer\\Parameters /v requiresecuritysignature /t REG_DWORD /d 0 /f");
+            AdminEx("reg ADD HKLM\\SYSTEM\\CurrentControlSet\\Control\\Lsa /v disabledomaincreds /t REG_DWORD /d 1 /f");
+            AdminEx("reg ADD HKLM\\SYSTEM\\CurrentControlSet\\Control\\Lsa /v everyoneincludesanonymous /t REG_DWORD /d 0 /f");
+            AdminEx("reg ADD HKLM\\SYSTEM\\CurrentControlSet\\services\\LanmanWorkstation\\Parameters /v EnablePlainTextPassword /t REG_DWORD /d 0 /f");
+            AdminEx("reg ADD HKLM\\SYSTEM\\CurrentControlSet\\services\\LanmanServer\\Parameters /v NullSessionPipes /t REG_MULTI_SZ /d \"\" /f");
+            AdminEx("reg ADD HKLM\\SYSTEM\\CurrentControlSet\\Control\\SecurePipeServers\\winreg\\AllowedExactPaths /v Machine /t REG_MULTI_SZ /d \"\" /f");
+            AdminEx("reg ADD HKLM\\SYSTEM\\CurrentControlSet\\Control\\SecurePipeServers\\winreg\\AllowedPaths /v Machine /t REG_MULTI_SZ /d \"\" /f");
+            AdminEx("reg ADD HKLM\\SYSTEM\\CurrentControlSet\\services\\LanmanServer\\Parameters /v NullSessionShares /t REG_MULTI_SZ /d \"\" /f");
+            AdminEx("reg ADD HKLM\\SYSTEM\\CurrentControlSet\\Control\\Lsa /v UseMachineId /t REG_DWORD /d 0 /f");
+            AdminEx("reg ADD \"HKCU\\Software\\Microsoft\\Internet Explorer\\PhishingFilter\" /v EnabledV8 /t REG_DWORD /d 1 /f");
+            AdminEx("reg ADD \"HKCU\\Software\\Microsoft\\Internet Explorer\\PhishingFilter\" /v EnabledV9 /t REG_DWORD /d 1 /f");
+            AdminEx("reg ADD HKLM\\SYSTEM\\CurrentControlSet\\Control\\CrashControl /v CrashDumpEnabled /t REG_DWORD /d 0 /f");
+            AdminEx("reg ADD HKCU\\SYSTEM\\CurrentControlSet\\Services\\CDROM /v AutoRun /t REG_DWORD /d 1 /f");
+            AdminEx("reg ADD \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\" /v DisablePasswordCaching /t REG_DWORD /d 1 /f");
+            AdminEx("reg ADD \"HKCU\\Software\\Microsoft\\Internet Explorer\\Main\" /v DoNotTrack /t REG_DWORD /d 1 /f");
+            AdminEx("reg ADD \"HKCU\\Software\\Microsoft\\Internet Explorer\\Download\" /v RunInvalidSignatures /t REG_DWORD /d 1 /f");
+            AdminEx("reg ADD \"HKCU\\Software\\Microsoft\\Internet Explorer\\Main\\FeatureControl\\FEATURE_LOCALMACHINE_LOCKDOWN\\Settings\" /v LOCALMACHINE_CD_UNLOCK /t REG_DWORD /d 1 /t");
+            AdminEx("reg ADD \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\" /v WarnonBadCertRecving /t REG_DWORD /d /1 /f");
+            AdminEx("reg ADD \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\" /v WarnOnPostRedirect /t REG_DWORD /d 1 /f");
+            AdminEx("reg ADD \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\" /v WarnonZoneCrossing /t REG_DWORD /d 1 /f");
+            AdminEx("auditpol /set /category:* /success:enable ");
+            AdminEx("auditpol /set /category:* /failure:enable");
+
         }
 
 

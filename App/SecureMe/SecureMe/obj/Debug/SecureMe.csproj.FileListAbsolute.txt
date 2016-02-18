@@ -21,3 +21,5 @@ C:\Users\Luke\Documents\SecureMe-Windows\App\SecureMe\SecureMe\bin\Debug\Microso
 C:\Users\Luke\Documents\SecureMe-Windows\App\SecureMe\SecureMe\bin\Debug\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging.dll
 C:\Users\Luke\Documents\SecureMe-Windows\App\SecureMe\SecureMe\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.dll
 C:\Users\Luke\Documents\SecureMe-Windows\App\SecureMe\SecureMe\bin\Debug\Microsoft.Practices.ObjectBuilder.dll
+C:\Users\Luke\Documents\SecureMe-Windows\App\SecureMe\SecureMe\obj\Debug\Loader.g.cs
+C:\Users\Luke\Documents\SecureMe-Windows\App\SecureMe\SecureMe\obj\Debug\ManualSecure.g.cs

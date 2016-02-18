@@ -81,10 +81,15 @@ namespace SecureMe
         {
             funclib.SetPasswdPolicies();
             funclib.SetAuditPolicies();
+            funclib.AdvFirewallSet();
             funclib.DisableIPv6();
             funclib.DisableGuest();
             funclib.EnableFirewall();
             funclib.AutoUpdates();
+            funclib.SetSecurityPol();
+            funclib.DoVariousTasks();
+            funclib.DisableVulnerableServices();
+            
             done = true;
             
         }
