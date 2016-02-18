@@ -33,6 +33,7 @@ namespace SecureMe
         public System.Windows.Threading.DispatcherTimer Securing_Timer = new System.Windows.Threading.DispatcherTimer();
         public Thread FullSecureThd = new Thread(FullSecure);
         public Thread BasicSecureThd = new Thread(BasicSecure);
+        public static string loader_string = "";
 
 
         public Loader()
@@ -89,6 +90,7 @@ namespace SecureMe
             funclib.SetSecurityPol();
             funclib.DoVariousTasks();
             funclib.DisableVulnerableServices();
+            funclib.GrabSysInfo();
             
             done = true;
             
@@ -112,7 +114,7 @@ namespace SecureMe
         {
             if (dotnum == 1)
             {
-                LoadingLabel.Content = "Securing System..";
+                LoadingLabel.Content = loader_string + "..";
                 dotnum = 2;
                 if (done == true)
                 {
@@ -122,7 +124,7 @@ namespace SecureMe
             }
             else if (dotnum == 2)
             {
-                LoadingLabel.Content = "Securing System...";
+                LoadingLabel.Content = loader_string + "...";
                 dotnum = 3;
                 if (done == true)
                 {
@@ -132,7 +134,7 @@ namespace SecureMe
             }
             else if (dotnum == 3)
             {
-                LoadingLabel.Content = "Securing System.";
+                LoadingLabel.Content = loader_string + ".";
                 dotnum = 1;
                 dotcount++;
                 if (done == true)

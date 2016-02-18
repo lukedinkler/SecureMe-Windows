@@ -8,6 +8,20 @@ using System.IO;
 using Microsoft.Win32;
 using Microsoft.VisualBasic.Devices;
 using System.Management;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+using System.Management;
+using System.ServiceProcess;
+using System.Diagnostics;
+using WpfAnimatedGif;
 
 namespace SecureMe
 {
@@ -28,6 +42,7 @@ namespace SecureMe
 
         public static void DisableGuest() //Diables guest account
         {
+            Loader.loader_string = "Disabling guest";
             string cmd = "net user guest /active:no";
             AdminEx(cmd);
         }
@@ -44,7 +59,7 @@ namespace SecureMe
 
         public static void SetPasswdPolicies()
         {
-            
+            Loader.loader_string = "Setting password policies";
             AdminEx("net accounts /lockoutthreshold:3");
             AdminEx("wmic path Win32_UserAccount where PasswordExpires=false set PasswordExpires=true");
             AdminEx("wmic path Win32_UserAccount where Name=\"Guest\" set PasswordExpires=false");
@@ -53,10 +68,12 @@ namespace SecureMe
             AdminEx("powercfg -SETDCVALUEINDEX SCHEME_MIN SUB_NONE CONSOLELOCK 1");
             AdminEx("powercfg -SETDCVALUEINDEX SCHEME_MAX SUB_NONE CONSOLELOCK 1");
             AdminEx("net accounts /FORCELOGOFF:30 /MINPWLEN:8 /MAXPWAGE:30 /MINPWAGE:10 /UNIQUEPW:5 ");
+         
         }
 
         public static void SetAuditPolicies()
         {
+            Loader.loader_string = "Setting Audit policies";
             AdminEx("auditpol /set /category:\"Account Logon\" /success:enable /failure:enable");
             AdminEx("auditpol /set /category:\"Account Management\" /success:enable /failure:enable");
             AdminEx("auditpol /set /category:\"DS Access\" /success:enable /failure:enable");
@@ -64,10 +81,12 @@ namespace SecureMe
             AdminEx("auditpol /set /category:\"Object Access\" /success:enable /failure:enable");
             AdminEx("auditpol /set /category:\"Policy Change\" /success:enable /failure:enable");
             AdminEx("auditpol /set /category:\"Privilege Use\" /success:enable /failure:enable");
+     
         }
 
         public static void DoVariousTasks()
         {
+            Loader.loader_string = "Preforming various tasks";
             AdminEx("schtasks /Delete /TN * /f > NUL");
             AdminEx("ipconfig /flushdns > NUL");
             AdminEx("reg ADD \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\" /v Hidden /t REG_DWORD /d 1 /f > NUL");
@@ -77,6 +96,7 @@ namespace SecureMe
         }
         public static void DisableVulnerableServices()
         {
+            Loader.loader_string = "Disabling vulnerable services";
             AdminEx("net stop RemoteRegistry");
             AdminEx("sc config RemoteRegistry start= disabled");
             AdminEx("net stop RemoteAccess");
@@ -98,6 +118,21 @@ namespace SecureMe
             AdminEx("net stop termservice");
             AdminEx("sc config termservice start= disabled");
             
+        }
+
+        public static void GrabSysInfo()
+        {
+            Loader.loader_string = "Getting system information";
+            AdminEx("mkdir %userprofile%\\Desktop\\reports");
+            //AdminEx("set basedpath=%userprofile%\\Desktop\\reports");
+            //AdminEx("del /q %basedpath%\\*.*");
+            AdminEx("net start >> %userprofile%\\Desktop\\reports\\services.txt");
+            AdminEx("tasklist /svc >> %userprofile%\\Desktop\\reports\\processes.txt");
+            AdminEx("driverquery >> %userprofile%\\Desktop\\reports\\driverinfo.txt");
+            AdminEx("net users >> %userprofile%\\Desktop\\reports\\usersreport.txt");
+            AdminEx("net localgroup Administrators >> %userprofile%\\Desktop\\reports\\usersreport.txt");
+           
+
         }
 
         public static void AutoUpdates()
@@ -229,6 +264,7 @@ namespace SecureMe
         }
 
         public static void AdvFirewallSet(){
+            Loader.loader_string = "Setting up firewall";
             AdminEx("netsh advfirewall set allprofiles state on");
             AdminEx("netsh advfirewall reset");
             AdminEx("netsh advfirewall set allprofiles state on");
@@ -241,18 +277,22 @@ namespace SecureMe
             AdminEx("netsh advfirewall firewall set rule name=\"Telnet Server\" new enable=no");
             AdminEx("netsh advfirewall firewall set rule name=\"Telnet\" new enable=no");
             AdminEx("netsh advfirewall firewall set rule name=\"netcat\" new enable=no ");
+          
         }
 
         public static void SetSecurityPol()
         {
-            AdminEx("reg ADD \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\\\" /v AllocateCDRoms /t REG_DWORD /d 1 /f");
+            Loader.loader_string = "Setting security policies";
+            AdminEx("reg ADD \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\" /v AllocateCDRoms /t REG_DWORD /d 1 /f");
             AdminEx("reg ADD \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\" /v AutoAdminLogon /t REG_DWORD /d 0 /f");
             AdminEx("reg ADD \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Memory Management\" /v ClearPageFileAtShutdown /t REG_DWORD /d 1 /f");
             AdminEx("reg ADD \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\" /v AllocateFloppies /t REG_DWORD /d 1 /f");
+           
             AdminEx("reg ADD \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Print\\Providers\\LanMan Print Services\\Servers\" /v AddPrinterDrivers /t REG_DWORD /d 1 /f");
             AdminEx("reg ADD \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Lsa\" /v LimitBlankPasswordUse /t REG_DWORD /d 1 /f");
             AdminEx("reg ADD \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Lsa\" /v auditbaseobjects /t REG_DWORD /d 1 /f");
             AdminEx("reg ADD \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Lsa\" /v fullprivilegeauditing /t REG_DWORD /d 1 /f");
+           
             AdminEx("reg ADD HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System /v dontdisplaylastusername /t REG_DWORD /d 1 /f");
             AdminEx("reg ADD HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System /v PromptOnSecureDesktop /t REG_DWORD /d 1 /f");
             AdminEx("reg ADD HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System /v EnableInstallerDetection /t REG_DWORD /d 1 /f");
@@ -263,6 +303,7 @@ namespace SecureMe
             AdminEx("reg ADD HKLM\\SYSTEM\\CurrentControlSet\\services\\Netlogon\\Parameters /v RequireSignOrSeal /t REG_DWORD /d 1 /f");
             AdminEx("reg ADD HKLM\\SYSTEM\\CurrentControlSet\\services\\Netlogon\\Parameters /v SignSecureChannel /t REG_DWORD /d 1 /f");
             AdminEx("reg ADD HKLM\\SYSTEM\\CurrentControlSet\\services\\Netlogon\\Parameters /v SealSecureChannel /t REG_DWORD /d 1 /f");
+        
             AdminEx("reg ADD HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System /v DisableCAD /t REG_DWORD /d 0 /f");
             AdminEx("reg ADD HKLM\\SYSTEM\\CurrentControlSet\\Control\\Lsa /v restrictanonymous /t REG_DWORD /d 1 /f");
             AdminEx("reg ADD HKLM\\SYSTEM\\CurrentControlSet\\Control\\Lsa /v restrictanonymoussam /t REG_DWORD /d 1 /f");
@@ -274,6 +315,7 @@ namespace SecureMe
             AdminEx("reg ADD HKLM\\SYSTEM\\CurrentControlSet\\services\\LanmanWorkstation\\Parameters /v EnablePlainTextPassword /t REG_DWORD /d 0 /f");
             AdminEx("reg ADD HKLM\\SYSTEM\\CurrentControlSet\\services\\LanmanServer\\Parameters /v NullSessionPipes /t REG_MULTI_SZ /d \"\" /f");
             AdminEx("reg ADD HKLM\\SYSTEM\\CurrentControlSet\\Control\\SecurePipeServers\\winreg\\AllowedExactPaths /v Machine /t REG_MULTI_SZ /d \"\" /f");
+         
             AdminEx("reg ADD HKLM\\SYSTEM\\CurrentControlSet\\Control\\SecurePipeServers\\winreg\\AllowedPaths /v Machine /t REG_MULTI_SZ /d \"\" /f");
             AdminEx("reg ADD HKLM\\SYSTEM\\CurrentControlSet\\services\\LanmanServer\\Parameters /v NullSessionShares /t REG_MULTI_SZ /d \"\" /f");
             AdminEx("reg ADD HKLM\\SYSTEM\\CurrentControlSet\\Control\\Lsa /v UseMachineId /t REG_DWORD /d 0 /f");
@@ -290,6 +332,7 @@ namespace SecureMe
             AdminEx("reg ADD \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\" /v WarnonZoneCrossing /t REG_DWORD /d 1 /f");
             AdminEx("auditpol /set /category:* /success:enable ");
             AdminEx("auditpol /set /category:* /failure:enable");
+           
 
         }
 
