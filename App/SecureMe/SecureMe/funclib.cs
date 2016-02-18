@@ -39,6 +39,18 @@ namespace SecureMe
             p.WaitForExit();
         }
 
+        public static void Exec(string cmd)
+        {
+            var proc = new System.Diagnostics.ProcessStartInfo();
+            proc.UseShellExecute = true;
+            proc.WorkingDirectory = @"C:\Windows\System32";
+            proc.FileName = @"C:\Windows\System32\cmd.exe";
+            proc.Verb = "runas";
+            proc.Arguments = "/c " + cmd;
+            var p = System.Diagnostics.Process.Start(proc);
+            p.WaitForExit();
+        }
+
         public static void DisableGuest() //Diables guest account
         {
             Loader.loader_string = "Disabling guest";
@@ -430,6 +442,14 @@ namespace SecureMe
                         catch
                         {
                             prog.ProgramVersion = "Unknown";
+                        }
+                        try
+                        {
+                            prog.UninstallPckg = subkey.GetValue("UninstallString").ToString();
+                        }
+                        catch
+                        {
+                            prog.UninstallPckg = "Unknown";
                         }
                        
                         

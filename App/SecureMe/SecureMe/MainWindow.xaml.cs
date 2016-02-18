@@ -44,6 +44,8 @@ namespace SecureMe
         public static string PasswordChangeUser = "";
         public static List<Port> PortsList = funclib.GetNetStatPorts();
         public static List<Software> SoftwareList = funclib.GetSoftware();
+        public static Dictionary<string, Software> SoftwareDict = new Dictionary<string, Software>();
+        public static string SelectedProgram = "";
 
 
         public MainWindow()
@@ -164,7 +166,15 @@ namespace SecureMe
 
             foreach (Software prog in SoftwareList)
             {
-                AddProgram(prog.ProgramName);
+                if (prog.ProgramName != "Unknown")
+                {
+                    if (!SoftwareDict.ContainsKey(prog.ProgramName))
+                    {
+                        SoftwareDict.Add(prog.ProgramName, prog);
+                        AddProgram(prog.ProgramName);
+                    }
+                    
+                }
             }
 
             string[] startupmodes = { "Automatic", "Manual" };
@@ -185,6 +195,26 @@ namespace SecureMe
 
             UpdateProcesses();            
 
+        }
+
+
+        public void UpdateSoftware()
+        {
+            SoftwareList = funclib.GetSoftware();
+            SoftwareDict = new Dictionary<string, Software>();
+            ProgramsBox.Items.Clear();
+            foreach (Software prog in SoftwareList)
+            {
+                if (prog.ProgramName != "Unknown")
+                {
+                    if (!SoftwareDict.ContainsKey(prog.ProgramName))
+                    {
+                        SoftwareDict.Add(prog.ProgramName, prog);
+                        AddProgram(prog.ProgramName);
+                    }
+
+                }
+            }
         }
 
         void PortsTimer_Tick(object sender, EventArgs e)
@@ -222,7 +252,7 @@ namespace SecureMe
         {
             ListBoxItem prog = new ListBoxItem();
             prog.Content = name;
-            prog.FontSize = 25;
+            prog.FontSize = 16;
             prog.Foreground = Brushes.White;
             ProgramsBox.Items.Add(prog);
         }
@@ -796,6 +826,96 @@ namespace SecureMe
             foreach (Port p in PortsList)
             {
                 AddPort(p.name);
+            }
+        }
+
+        private void UninstallBtn_MouseEnter(object sender, MouseEventArgs e)
+        {
+            UninstallBtn.Source = new BitmapImage(new Uri(@"pack://application:,,,/Images/Remove-Icon-D1-Glow.png"));
+        }
+
+        private void UninstallBtn_MouseLeave(object sender, MouseEventArgs e)
+        {
+            UninstallBtn.Source = new BitmapImage(new Uri(@"pack://application:,,,/Images/Remove-Icon-D1.png"));
+
+        }
+
+        private void UninstallBtn_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (ProgramsBox.SelectedIndex > -1)
+            {
+                Software Pckg = SoftwareDict[SelectedProgram];
+                string UninstallString = Pckg.UninstallPckg;
+                if (UninstallString == "Unknown")
+                {
+                    MessageBox.Show("This package is unable to be uninstalled at this level!");
+                }
+                else
+                {
+                    //MessageBox.Show(UninstallString);
+                    if (System.IO.File.Exists(UninstallString))
+                    {
+                        Process.Start(@UninstallString);
+                    }
+                    else
+                    {
+                        funclib.Exec(UninstallString);
+                    }
+                    UpdateSoftware();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a package to uninstall first!");
+            }
+            
+        }
+
+        private void StartProgramBtn_MouseEnter(object sender, MouseEventArgs e)
+        {
+            StartProgramBtn.Source = new BitmapImage(new Uri(@"pack://application:,,,/Images/Start-Icon-D1-Glow.png"));
+        }
+
+        private void StartProgramBtn_MouseLeave(object sender, MouseEventArgs e)
+        {
+            StartProgramBtn.Source = new BitmapImage(new Uri(@"pack://application:,,,/Images/Start-Icon-D1.png"));
+        }
+
+        private void StartProgramBtn_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (ProgramsBox.SelectedIndex > -1)
+            {
+                Software Pckg = SoftwareDict[SelectedProgram];
+                string ProgPath = Pckg.ProgramPath;
+                if (ProgPath == "Unknown")
+                {
+                    MessageBox.Show("This package cannot be started!");
+                }
+                else
+                {
+                   
+                    Process.Start(@"ProgPath");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a package to load first!");
+            }
+        }
+
+        private void ProgramsBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (ProgramsBox.SelectedIndex > -1)
+            {
+                SelectedProgram = ((ListBoxItem)ProgramsBox.SelectedValue).Content.ToString();
+                Software SS = SoftwareDict[SelectedProgram];
+                PckgNameLabel.Text = "Name: " + SS.ProgramName;
+                ProgramVersionLabel.Content = "Version: " + SS.ProgramVersion;
+                ProgramLocationText.Text = "Location: " + SS.ProgramPath;
+            }
+            else
+            {
+                ;
             }
         }
     }

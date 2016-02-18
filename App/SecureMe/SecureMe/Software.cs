@@ -11,5 +11,6 @@ namespace SecureMe
         public string ProgramName { get; set; }
         public string ProgramVersion { get; set; }
         public string ProgramPath { get; set; }
+        public string UninstallPckg { get; set; }
     }
 }

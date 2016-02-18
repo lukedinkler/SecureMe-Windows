@@ -119,9 +119,16 @@
                     <Label x:Name="RefreshPortsLabel" Content="Refresh" HorizontalAlignment="Left" Margin="702,538,0,0" VerticalAlignment="Top" FontSize="23"/>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="ProgramsTab" Header="Programs" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="70" Margin="-125,1,0,-1">
+            <TabItem x:Name="ProgramsTab" Header="Packages" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="70" Margin="-125,1,0,-1">
                 <Grid Background="#FFE5E5E5">
-                    <ListBox x:Name="ProgramsBox" HorizontalAlignment="Left" Height="360" Margin="10,26,0,0" VerticalAlignment="Top" Width="993" Background="#FF040000" Opacity="0.8" Foreground="White"/>
+                    <ListBox x:Name="ProgramsBox" HorizontalAlignment="Left" Height="414" Margin="10,26,0,0" VerticalAlignment="Top" Width="993" Background="#FF040000" Opacity="0.8" Foreground="White" SelectionChanged="ProgramsBox_SelectionChanged"/>
+                    <Image x:Name="UninstallBtn" HorizontalAlignment="Left" Height="85" Margin="513,455,0,0" VerticalAlignment="Top" Width="86" Source="Images/Remove-Icon-D1.png" MouseEnter="UninstallBtn_MouseEnter" MouseLeave="UninstallBtn_MouseLeave" MouseDown="UninstallBtn_MouseDown" Cursor="Hand"/>
+                    <Label x:Name="UninstallLabel" Content="Uninstall" HorizontalAlignment="Left" Margin="513,540,0,0" VerticalAlignment="Top" Height="32" Width="86" FontSize="20"/>
+                    <Image x:Name="StartProgramBtn" HorizontalAlignment="Left" Height="85" Margin="656,455,0,0" VerticalAlignment="Top" Width="85" Source="Images/Start-Icon-D1.png" MouseEnter="StartProgramBtn_MouseEnter" MouseLeave="StartProgramBtn_MouseLeave" MouseDown="StartProgramBtn_MouseDown" Cursor="Hand"/>
+                    <Label x:Name="StartProgramLabel" Content="Launch" HorizontalAlignment="Left" Margin="666,539,0,0" VerticalAlignment="Top" Width="81" FontSize="20"/>
+                    <Label x:Name="ProgramVersionLabel" Content="Version:" HorizontalAlignment="Left" Margin="10,501,0,0" VerticalAlignment="Top" Width="454" FontSize="16"/>
+                    <TextBlock x:Name="ProgramLocationText" HorizontalAlignment="Left" Margin="14,535,0,0" TextWrapping="Wrap" Text="Location:" VerticalAlignment="Top" Height="45" Width="482" FontSize="16"/>
+                    <TextBlock x:Name="PckgNameLabel" HorizontalAlignment="Left" Margin="14,455,0,0" TextWrapping="Wrap" Text="Name:" VerticalAlignment="Top" Height="41" Width="450" FontSize="14"/>
                 </Grid>
             </TabItem>
         </TabControl>
