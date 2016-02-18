@@ -112,7 +112,9 @@
             </TabItem>
             <TabItem x:Name="PortsTab" Header="Ports" HorizontalAlignment="Left" Height="21" VerticalAlignment="Top" Width="57" Margin="-91,0,0,0">
                 <Grid Background="#FFE5E5E5">
-                    <ListBox x:Name="PortsBox" HorizontalAlignment="Left" Height="452" Margin="10,68,0,0" VerticalAlignment="Top" Width="982" Background="Black" Opacity="0.8" Foreground="White"/>
+                    <ListBox x:Name="PortsBox" HorizontalAlignment="Left" Height="417" Margin="10,83,0,0" VerticalAlignment="Top" Width="982" Background="Black" Opacity="0.8" Foreground="White"/>
+                    <Image x:Name="PortsImage" HorizontalAlignment="Left" Height="78" Margin="709,0,0,0" VerticalAlignment="Top" Width="107" Source="Images/Ports-Icon.png"/>
+                    <Label x:Name="PortsLabel" HorizontalContentAlignment="Center" Content="Listening Ports:" HorizontalAlignment="Left" Margin="25,10,0,0" VerticalAlignment="Top" Width="643" Height="52" FontSize="32"/>
                 </Grid>
             </TabItem>
         </TabControl>

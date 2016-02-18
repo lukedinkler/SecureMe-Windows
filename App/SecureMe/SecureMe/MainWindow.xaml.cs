@@ -172,14 +172,23 @@ namespace SecureMe
             ProcessTimer.Interval = new TimeSpan(0, 0, 10);
             ProcessTimer.Start();
 
-            UpdateProcesses();
-            
+            var PortsTimer = new System.Windows.Threading.DispatcherTimer();
+            PortsTimer.Tick += PortsTimer_Tick;
+            PortsTimer.Interval = new TimeSpan(0, 0, 10);
+            PortsTimer.Start();
 
+            UpdateProcesses();            
 
+        }
 
-        
-            
-
+        void PortsTimer_Tick(object sender, EventArgs e)
+        {
+            PortsList = funclib.GetNetStatPorts();
+            PortsBox.Items.Clear();
+            foreach (Port p in PortsList)
+            {
+                AddPort(p.name);
+            }
         }
 
         private void ProcessTimer_Tick(object sender, EventArgs e)

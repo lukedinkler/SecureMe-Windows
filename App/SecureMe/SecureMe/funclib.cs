@@ -346,9 +346,11 @@ namespace SecureMe
                 ps.FileName = "netstat.exe";
                 ps.UseShellExecute = false;
                 ps.WindowStyle = ProcessWindowStyle.Hidden;
+                ps.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
                 ps.RedirectStandardInput = true;
                 ps.RedirectStandardOutput = true;
                 ps.RedirectStandardError = true;
+                ps.CreateNoWindow = true;
   
                 p.StartInfo = ps;
                 p.Start();
