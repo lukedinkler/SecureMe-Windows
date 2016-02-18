@@ -764,6 +764,26 @@ namespace SecureMe
         {
             ChangePasswordBtn.Source = new BitmapImage(new Uri(@"pack://application:,,,/Images/ChangePasword-Icon.png"));
         }
+
+        private void RefreshPortsBtn_MouseEnter(object sender, MouseEventArgs e)
+        {
+            RefreshPortsBtn.Source = new BitmapImage(new Uri(@"pack://application:,,,/Images/Refresh-Icon-D1-Glow.png"));
+        }
+
+        private void RefreshPortsBtn_MouseLeave(object sender, MouseEventArgs e)
+        {
+            RefreshPortsBtn.Source = new BitmapImage(new Uri(@"pack://application:,,,/Images/Refresh-Icon-D1.png"));
+        }
+
+        private void RefreshPortsBtn_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            PortsList = funclib.GetNetStatPorts();
+            PortsBox.Items.Clear();
+            foreach (Port p in PortsList)
+            {
+                AddPort(p.name);
+            }
+        }
     }
     
 }
