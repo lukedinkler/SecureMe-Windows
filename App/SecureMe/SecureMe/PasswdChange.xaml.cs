@@ -24,7 +24,17 @@ namespace SecureMe
             InitializeComponent();
         }
 
-        private void SetPasswdButton_Click(object sender, RoutedEventArgs e)
+        private void SetPasswdBtn_MouseEnter(object sender, MouseEventArgs e)
+        {
+            SetPasswdBtn.Source = new BitmapImage(new Uri(@"pack://application:,,,/Images/Green_Arrow_Glow.png"));
+        }
+
+        private void SetPasswdBtn_MouseLeave(object sender, MouseEventArgs e)
+        {
+            SetPasswdBtn.Source = new BitmapImage(new Uri(@"pack://application:,,,/Images/Green_Arrow.png"));
+        }
+
+        private void SetPasswdBtn_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (SetPasswdBox.Password == "" || SetPasswdBox.Password == " ")
             {
@@ -36,6 +46,28 @@ namespace SecureMe
                 funclib.AdminEx("net user " + usr + " " + SetPasswdBox.Password);
                 MessageBox.Show("Password set!");
                 this.Close();
+            }
+        }
+
+        private void SetPasswdBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                if (SetPasswdBox.Password == "" || SetPasswdBox.Password == " ")
+                {
+                    MessageBox.Show("Please enter a password first!");
+                }
+                else
+                {
+                    string usr = MainWindow.PasswordChangeUser;
+                    funclib.AdminEx("net user " + usr + " " + SetPasswdBox.Password);
+                    MessageBox.Show("Password set!");
+                    this.Close();
+                }
+            }
+            else
+            {
+                ;
             }
         }
     }

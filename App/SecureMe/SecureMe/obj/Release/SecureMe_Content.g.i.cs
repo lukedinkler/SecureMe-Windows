@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/changepasword-icon-glow.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/green_arrow_glow.png")]
 
 

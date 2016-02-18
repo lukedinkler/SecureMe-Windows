@@ -293,6 +293,12 @@
   <ItemGroup>
     <Resource Include="Images\ChangePasword-Icon-Glow.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Green_Arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Green_Arrow_Glow.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
