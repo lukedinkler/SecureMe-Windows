@@ -26,14 +26,14 @@ namespace SecureMe
 
         private void SetPasswdButton_Click(object sender, RoutedEventArgs e)
         {
-            if (SetPasswdBox.Text == "" || SetPasswdBox.Text == " ")
+            if (SetPasswdBox.Password == "" || SetPasswdBox.Password == " ")
             {
                 MessageBox.Show("Please enter a password first!");
             }
             else
             {
                 string usr = MainWindow.PasswordChangeUser;
-                funclib.AdminEx("net user " + usr + " " + SetPasswdBox.Text);
+                funclib.AdminEx("net user " + usr + " " + SetPasswdBox.Password);
                 MessageBox.Show("Password set!");
                 this.Close();
             }
