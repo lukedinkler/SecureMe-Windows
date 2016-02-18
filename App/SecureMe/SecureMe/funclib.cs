@@ -395,6 +395,52 @@ namespace SecureMe
             catch (Exception) { procName = "-"; }
             return procName;
         }
+
+        public static List<Software> GetSoftware()
+        {
+            List<Software> dalist = new List<Software>();
+            string registry_key = @"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall";
+            using (Microsoft.Win32.RegistryKey key = Registry.LocalMachine.OpenSubKey(registry_key))
+            {
+                foreach (string subkey_name in key.GetSubKeyNames())
+                {
+                    using (RegistryKey subkey = key.OpenSubKey(subkey_name))
+                    {
+                        Software prog = new Software();
+                        try
+                        {
+                            prog.ProgramName = subkey.GetValue("DisplayName").ToString();
+                        }
+                        catch
+                        {
+                            prog.ProgramName = "Unknown";
+                        }
+                        try
+                        {
+                            prog.ProgramPath = subkey.GetValue("InstallLocation").ToString();
+                        }
+                        catch
+                        {
+                            prog.ProgramPath = "Unknown";
+                        }
+                        try
+                        {
+                            prog.ProgramVersion = subkey.GetValue("DisplayVersion").ToString();
+                        }
+                        catch
+                        {
+                            prog.ProgramVersion = "Unknown";
+                        }
+                       
+                        
+                        
+                        dalist.Add(prog);
+                    }
+                }
+                
+            }
+            return dalist;
+        }
     }
 
 

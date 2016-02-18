@@ -54,7 +54,7 @@
                     <Label x:Name="ServiceStartupModeLabel" Content="Startup Mode:" HorizontalAlignment="Left" Margin="893,436,0,0" VerticalAlignment="Top"/>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="About" Header="About" Margin="266,0,-271,-1" RenderTransformOrigin="3.14,0.571">
+            <TabItem x:Name="About" Header="About" Margin="338,0,-343,-1" RenderTransformOrigin="3.14,0.571">
                 <Grid Background="#FFE5E5E5" Margin="0,-1,0,1">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="116*"/>
@@ -97,7 +97,7 @@
                     <Label x:Name="ArchLabel" Content="Architecture:" HorizontalAlignment="Left" Margin="29,196,0,0" VerticalAlignment="Top" FontSize="18.667" Width="228"/>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="Settings" Header="Settings" Margin="22,0,-22,-1">
+            <TabItem x:Name="Settings" Header="Settings" Margin="93,0,-93,-1">
                 <Grid Background="#FFE5E5E5">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="221*"/>
@@ -117,6 +117,11 @@
                     <Label x:Name="PortsLabel" HorizontalContentAlignment="Center" Content="Listening Ports:" HorizontalAlignment="Left" Margin="25,10,0,0" VerticalAlignment="Top" Width="643" Height="52" FontSize="32"/>
                     <Image x:Name="RefreshPortsBtn" HorizontalAlignment="Left" Height="72" Margin="709,473,0,0" VerticalAlignment="Top" Width="74" Source="Images/Refresh-Icon-D1.png" MouseEnter="RefreshPortsBtn_MouseEnter" MouseLeave="RefreshPortsBtn_MouseLeave" MouseDown="RefreshPortsBtn_MouseDown" Cursor="Hand"/>
                     <Label x:Name="RefreshPortsLabel" Content="Refresh" HorizontalAlignment="Left" Margin="702,538,0,0" VerticalAlignment="Top" FontSize="23"/>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="ProgramsTab" Header="Programs" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="70" Margin="-125,1,0,-1">
+                <Grid Background="#FFE5E5E5">
+                    <ListBox x:Name="ProgramsBox" HorizontalAlignment="Left" Height="360" Margin="10,26,0,0" VerticalAlignment="Top" Width="993" Background="#FF040000" Opacity="0.8" Foreground="White"/>
                 </Grid>
             </TabItem>
         </TabControl>

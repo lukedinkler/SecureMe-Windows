@@ -105,6 +105,7 @@
     </Compile>
     <Compile Include="Port.cs" />
     <Compile Include="Public.cs" />
+    <Compile Include="Software.cs" />
     <Page Include="AddUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

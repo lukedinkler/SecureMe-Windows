@@ -43,7 +43,8 @@ namespace SecureMe
         public Dictionary<string, Process> ProcessDict = new Dictionary<string, Process>();
         public static string PasswordChangeUser = "";
         public static List<Port> PortsList = funclib.GetNetStatPorts();
-       
+        public static List<Software> SoftwareList = funclib.GetSoftware();
+
 
         public MainWindow()
         {
@@ -161,6 +162,11 @@ namespace SecureMe
                 AddService(svc);
             }
 
+            foreach (Software prog in SoftwareList)
+            {
+                AddProgram(prog.ProgramName);
+            }
+
             string[] startupmodes = { "Automatic", "Manual" };
             foreach(string m in startupmodes)
             {
@@ -211,6 +217,14 @@ namespace SecureMe
             port.FontSize = 18;
             port.Foreground = Brushes.White;
             PortsBox.Items.Add(port);
+        }
+        public void AddProgram(string name)
+        {
+            ListBoxItem prog = new ListBoxItem();
+            prog.Content = name;
+            prog.FontSize = 25;
+            prog.Foreground = Brushes.White;
+            ProgramsBox.Items.Add(prog);
         }
 
 
