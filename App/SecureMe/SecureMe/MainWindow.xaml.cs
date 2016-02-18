@@ -873,12 +873,12 @@ namespace SecureMe
 
         private void StartProgramBtn_MouseEnter(object sender, MouseEventArgs e)
         {
-            StartProgramBtn.Source = new BitmapImage(new Uri(@"pack://application:,,,/Images/Start-Icon-D1-Glow.png"));
+            OpenPathBtn.Source = new BitmapImage(new Uri(@"pack://application:,,,/Images/Folder-Icon-Glow.png"));
         }
 
         private void StartProgramBtn_MouseLeave(object sender, MouseEventArgs e)
         {
-            StartProgramBtn.Source = new BitmapImage(new Uri(@"pack://application:,,,/Images/Start-Icon-D1.png"));
+            OpenPathBtn.Source = new BitmapImage(new Uri(@"pack://application:,,,/Images/Folder-Icon.png"));
         }
 
         private void StartProgramBtn_MouseDown(object sender, MouseButtonEventArgs e)
@@ -889,12 +889,12 @@ namespace SecureMe
                 string ProgPath = Pckg.ProgramPath;
                 if (ProgPath == "Unknown")
                 {
-                    MessageBox.Show("This package cannot be started!");
+                    MessageBox.Show("This package's root directory cannot be started!");
                 }
                 else
                 {
                    
-                    Process.Start(@"ProgPath");
+                    Process.Start("explorer.exe", ProgPath);
                 }
             }
             else
