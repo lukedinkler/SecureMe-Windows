@@ -52,7 +52,7 @@
                     <Label x:Name="ServiceStartupModeLabel" Content="Startup Mode:" HorizontalAlignment="Left" Margin="893,436,0,0" VerticalAlignment="Top"/>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="About" Header="About" Margin="202,0,-207,1" RenderTransformOrigin="3.14,0.571">
+            <TabItem x:Name="About" Header="About" Margin="210,0,-215,0" RenderTransformOrigin="3.14,0.571">
                 <Grid Background="#FFE5E5E5" Margin="0,-1,0,1">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="116*"/>

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>EntLib</id>
+    <version>3.1.0.0</version>
+    <authors>Perry Marchant</authors>
+    <owners>Perry Marchant</owners>
+    <iconUrl>http://www.spreadtrends.com/images/graph_goingup.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Contains the core Microsoft Enterprise Library 3.1 application blocks: Caching; Data; Logging; and Exception Handling</description>
+    <copyright>Copyright 2012</copyright>
+    <tags>EntLib Enterprise Library Caching Data Logging Exception Handling</tags>
+  </metadata>
+</package>
