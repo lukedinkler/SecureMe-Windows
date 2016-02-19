@@ -1,0 +1,21 @@
+﻿<Window x:Name="Confirmation" x:Class="SecureMe.ConfirmationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ConfirmationWindow" Height="361" Width="667" Opacity="0.75" AllowsTransparency="True" WindowStyle="None" Background="#FFFF6161" Closing="Confirmation_Closing" ResizeMode="NoResize" ShowInTaskbar="False" WindowStartupLocation="CenterScreen">
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="Window.Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation Duration="00:00:00.5" Storyboard.TargetProperty="Opacity" From="0" To="0.78" />
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+
+    </Window.Triggers>
+    
+    <Grid>
+        <TextBlock x:Name="AreYouSure" Margin="97,41,97,0" TextWrapping="Wrap" Text="Are you sure you want to continue, n00b?" VerticalAlignment="Top" Height="41" FontSize="25"/>
+        <Image x:Name="NoBtn" HorizontalAlignment="Left" Height="100" Margin="406,170,0,0" VerticalAlignment="Top" Width="100" Source="Images/Remove-Icon-D1.png" Cursor="Hand" MouseEnter="NoBtn_MouseEnter" MouseLeave="NoBtn_MouseLeave" MouseDown="NoBtn_MouseDown"/>
+        <Image x:Name="YesBtn" Height="100" Margin="125,170,442,0" VerticalAlignment="Top" Source="Images/Enable-Icon-D1.png" Cursor="Hand" MouseEnter="YesBtn_MouseEnter" MouseLeave="YesBtn_MouseLeave" MouseDown="YesBtn_MouseDown"/>
+    </Grid>
+</Window>

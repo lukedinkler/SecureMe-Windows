@@ -156,9 +156,7 @@ namespace SecureMe
 
         private void LoadingWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            
-            
-            
+           
             Closing -= LoadingWindow_Closing;
             e.Cancel = true;
             var anim = new DoubleAnimation(0, (Duration)TimeSpan.FromSeconds(0.5));

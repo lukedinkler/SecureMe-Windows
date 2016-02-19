@@ -28,3 +28,5 @@ C:\Users\Luke\Documents\SecureMe-Windows\App\SecureMe\SecureMe\obj\Release\Manua
 C:\Users\Luke\Documents\SecureMe-Windows\App\SecureMe\SecureMe\obj\Release\ManualSecure.baml
 C:\Users\Luke\Documents\SecureMe-Windows\App\SecureMe\SecureMe\obj\Release\PasswdChange.baml
 C:\Users\Luke\Documents\SecureMe-Windows\App\SecureMe\SecureMe\obj\Release\PasswdChange.g.cs
+C:\Users\Luke\Documents\SecureMe-Windows\App\SecureMe\SecureMe\obj\Release\ConfirmationWindow.baml
+C:\Users\Luke\Documents\SecureMe-Windows\App\SecureMe\SecureMe\obj\Release\ConfirmationWindow.g.cs

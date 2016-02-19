@@ -319,9 +319,15 @@ namespace SecureMe
         {
 
             Public.LoadSecureMode = "Full";
-            Loader FullSecure = new Loader();
-            FullSecure.ShowDialog();
-            UpdateProcesses();
+            ConfirmationWindow CW = new ConfirmationWindow();
+            CW.ShowDialog();
+            if (Public.Confirm)
+            {
+                Loader FullSecure = new Loader();
+                FullSecure.ShowDialog();
+                UpdateProcesses();
+            }
+            
         }
 
         private void BasicSecureButton_MouseEnter(object sender, MouseEventArgs e)

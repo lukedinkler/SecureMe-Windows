@@ -10,11 +10,11 @@ none
 false
 TRACE
 C:\Users\Luke\Documents\SecureMe-Windows\App\SecureMe\SecureMe\App.xaml
-5105902087
+61819894296
 
-17-1199521529
+18-79047496
 24858786623
-AddUser.xaml;Loader.xaml;MainWindow.xaml;ManualSecure.xaml;PasswdChange.xaml;
+AddUser.xaml;ConfirmationWindow.xaml;Loader.xaml;MainWindow.xaml;ManualSecure.xaml;PasswdChange.xaml;
 
-True
+False
 

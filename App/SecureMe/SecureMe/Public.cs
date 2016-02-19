@@ -12,5 +12,6 @@ namespace SecureMe
         public static bool UserAdded = false;
         public static string NewUserName = "";
         public static string LoadSecureMode = "";
+        public static bool Confirm = false;
     }
 }
