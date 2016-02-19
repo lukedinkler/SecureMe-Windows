@@ -7,8 +7,8 @@
         mc:Ignorable="d"
         Title="SecureMe" Height="763.345" Width="1048.622" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" Icon="Images/SecureMeIcon-D1.ico">
     <Grid>
-        <TabControl x:Name="MenuTabControl" HorizontalAlignment="Left" Height="634" Margin="10,101,0,0" VerticalAlignment="Top" Width="1023">
-            <TabItem x:Name="MainTab" Header="Main" Margin="-2,4,0,-1">
+        <TabControl x:Name="MenuTabControl" HorizontalAlignment="Left" Height="634" Margin="0,101,0,0" VerticalAlignment="Top" Width="1043">
+            <TabItem x:Name="MainTab" Header="Main" Margin="-1,4,-1,-1">
                 <Grid Background="#FFE5E5E5">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="22*"/>
@@ -37,7 +37,7 @@
                     <Label x:Name="ChangePasswdLabel" Content="Change Password:" HorizontalAlignment="Left" Margin="683,555,0,0" VerticalAlignment="Top" FontSize="16"/>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="Services" Header="Services" Margin="-2,4,3,-1">
+            <TabItem x:Name="Services" Header="Services" Margin="0,4,1,-1">
                 <Grid Background="#FFE5E5E5">
                     <Label x:Name="label" Content="Services:" Margin="452,10,450,0" VerticalAlignment="Top" RenderTransformOrigin="1.237,0.769" FontSize="24"/>
                     <ListBox x:Name="ServicesBox" HorizontalAlignment="Left" Height="365" Margin="10,57,0,0" VerticalAlignment="Top" Width="992" Opacity="0.805" Background="Black" Foreground="#FFFFFEFE" SelectionChanged="ServicesBox_SelectionChanged"/>
@@ -54,14 +54,14 @@
                     <Label x:Name="ServiceStartupModeLabel" Content="Startup Mode:" HorizontalAlignment="Left" Margin="893,436,0,0" VerticalAlignment="Top"/>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="About" Header="About" Margin="336,5,-343,-1" RenderTransformOrigin="3.14,0.571">
+            <TabItem x:Name="About" Header="About" Margin="339,5,-346,-1" RenderTransformOrigin="3.14,0.571">
                 <Grid Background="#FFE5E5E5" Margin="0,-1,0,1">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="116*"/>
                         <ColumnDefinition Width="901*"/>
                     </Grid.ColumnDefinitions>
                     <Label x:Name="AboutMainLabel" Content="SecureMe:" HorizontalAlignment="Left" Margin="130,181,0,0" VerticalAlignment="Top" FontSize="26.667" Width="143" Grid.Column="1"/>
-                    <Label x:Name="AboutVerLabel" Content="Version 1.0 (Beta 1)" HorizontalAlignment="Left" Margin="168,247,0,0" VerticalAlignment="Top" Width="150" FontSize="16" FontStyle="Italic" Grid.Column="1"/>
+                    <Label x:Name="AboutVerLabel" Content="Version 1.1 (Beta 4)" HorizontalAlignment="Left" Margin="168,247,0,0" VerticalAlignment="Top" Width="150" FontSize="16" FontStyle="Italic" Grid.Column="1"/>
                     <Image x:Name="image" Grid.Column="1" HorizontalAlignment="Left" Height="269" Margin="389,117,0,0" VerticalAlignment="Top" Width="273" Source="Images/SecureMeLogo-D1.png"/>
                     <Label x:Name="AboutCreditLabel" Content="Developed by Luke Dinkler" Margin="130,316,557,0" VerticalAlignment="Top" FontSize="16" Grid.Column="1"/>
                     <Label x:Name="AboutYearLabel" Content="" HorizontalAlignment="Left" Margin="100,231,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" FontSize="21.333"/>
@@ -72,7 +72,7 @@
                     </Rectangle>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="Processes" Header="Processes" Margin="-50,4,37,-1" RenderTransformOrigin="0.896,0.682" Height="25" VerticalAlignment="Top">
+            <TabItem x:Name="Processes" Header="Processes" Margin="-48,3,35,-3" RenderTransformOrigin="0.896,0.682" Height="25" VerticalAlignment="Top">
                 <Grid Background="#FFE5E5E5" Margin="0,0,-4,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="169*"/>
@@ -88,7 +88,7 @@
                     <TextBlock x:Name="ProcessFileLabel" HorizontalAlignment="Left" Margin="10,446,0,0" TextWrapping="Wrap" Text="File:" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="0.822,0.517" Grid.ColumnSpan="2" Width="547" Height="72"/>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="SysInfo" Header="System Info" Margin="-37,4,33,-1">
+            <TabItem x:Name="SysInfo" Header="System Info" Margin="-35,4,31,-1">
                 <Grid Background="#FFE5E5E5">
                     <Label x:Name="OSLabel" Content="OS:" HorizontalAlignment="Left" Margin="29,63,0,0" VerticalAlignment="Top" FontSize="21.333" Width="397"/>
                     <Image x:Name="OSPic" HorizontalAlignment="Left" Height="226" Margin="574,39,0,0" VerticalAlignment="Top" Width="354" Source="Images/Win8.jpg"/>
@@ -97,7 +97,7 @@
                     <Label x:Name="ArchLabel" Content="Architecture:" HorizontalAlignment="Left" Margin="29,196,0,0" VerticalAlignment="Top" FontSize="18.667" Width="228"/>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="Settings" Header="Settings" Margin="92,5,-93,-1">
+            <TabItem x:Name="Settings" Header="Settings" Margin="94,5,-95,-1">
                 <Grid Background="#FFE5E5E5">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="221*"/>
@@ -110,7 +110,7 @@
                     <RadioButton x:Name="ServicesSettingAdminBtn" VerticalContentAlignment="Center" Content="Admin" Grid.Column="1" HorizontalAlignment="Left" Margin="347,97,0,0" VerticalAlignment="Top" Width="70" FontSize="16" RenderTransformOrigin="0.243,0.9"/>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="PortsTab" Header="Ports" HorizontalAlignment="Left" Height="21" VerticalAlignment="Top" Width="57" Margin="-91,5,0,-1">
+            <TabItem x:Name="PortsTab" Header="Ports" HorizontalAlignment="Left" Height="21" VerticalAlignment="Top" Width="57" Margin="-89,5,0,-1">
                 <Grid Background="#FFE5E5E5">
                     <ListBox x:Name="PortsBox" HorizontalAlignment="Left" Height="385" Margin="10,83,0,0" VerticalAlignment="Top" Width="982" Background="Black" Opacity="0.8" Foreground="White"/>
                     <Image x:Name="PortsImage" HorizontalAlignment="Left" Height="78" Margin="709,0,0,0" VerticalAlignment="Top" Width="107" Source="Images/Ports-Icon.png"/>
@@ -119,7 +119,7 @@
                     <Label x:Name="RefreshPortsLabel" Content="Refresh" HorizontalAlignment="Left" Margin="702,538,0,0" VerticalAlignment="Top" FontSize="23"/>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="ProgramsTab" Header="Packages" HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" Width="71" Margin="-126,3,0,-2">
+            <TabItem x:Name="ProgramsTab" Header="Packages" HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" Width="71" Margin="-122,3,0,-2">
                 <Grid Background="#FFE5E5E5">
                     <ListBox x:Name="ProgramsBox" HorizontalAlignment="Left" Height="414" Margin="10,26,0,0" VerticalAlignment="Top" Width="993" Background="#FF040000" Opacity="0.8" Foreground="White" SelectionChanged="ProgramsBox_SelectionChanged"/>
                     <Image x:Name="UninstallBtn" HorizontalAlignment="Left" Height="85" Margin="513,455,0,0" VerticalAlignment="Top" Width="86" Source="Images/Remove-Icon-D1.png" MouseEnter="UninstallBtn_MouseEnter" MouseLeave="UninstallBtn_MouseLeave" MouseDown="UninstallBtn_MouseDown" Cursor="Hand"/>
