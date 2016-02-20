@@ -286,16 +286,14 @@ namespace SecureMe
             ListBoxItem proc = new ListBoxItem();
             proc.Content = procname;
             proc.FontSize = 17;
-            if (procname == "nc" || procname == "netcat" || procname == "nmap" || procname == "medusa" || procname == "rainbowcrack" || procname == "aircrack" || procname == "Abel" || procname == "John" || procname == "telnet" || procname == "nemesis" || procname == "hping")
+            if (procname == "nc" || procname == "netcat" || procname == "nmap" || procname == "medusa" || procname == "rainbowcrack" || procname == "aircrack" || procname == "Abel" || procname == "John" || procname == "telnet" || procname == "nemesis" || procname == "hping" || procname == "jusched" || procname == "VistaDrive" || procname == "services" || procname == "SearchSettings" || procname == "qttask" || procname == "Nix" || procname == "GiantSavings")
             {
                 proc.Foreground = Brushes.Red; //Highlights potentially bad processes
             }
             else
             {
                 proc.Foreground = Brushes.White;
-
-            }
-            
+            }            
             ProcessBox.Items.Add(proc);
         }
 
