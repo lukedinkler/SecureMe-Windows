@@ -245,7 +245,14 @@ namespace SecureMe
             ListBoxItem port = new ListBoxItem();
             port.Content = name;
             port.FontSize = 18;
-            port.Foreground = Brushes.White;
+            if (name.StartsWith("nc ") || name.StartsWith("netcat") || name.StartsWith("nmap") || name.StartsWith("nemesis") || name.StartsWith("hping"))
+            {
+                port.Foreground = Brushes.Red;
+            }
+            else
+            {
+                port.Foreground = Brushes.White;
+            }
             PortsBox.Items.Add(port);
         }
         public void AddProgram(string name)
@@ -279,7 +286,16 @@ namespace SecureMe
             ListBoxItem proc = new ListBoxItem();
             proc.Content = procname;
             proc.FontSize = 17;
-            proc.Foreground = Brushes.White;
+            if (procname == "nc" || procname == "netcat" || procname == "nmap" || procname == "medusa" || procname == "rainbowcrack" || procname == "aircrack" || procname == "Abel" || procname == "John" || procname == "telnet" || procname == "nemesis" || procname == "hping")
+            {
+                proc.Foreground = Brushes.Red; //Highlights potentially bad processes
+            }
+            else
+            {
+                proc.Foreground = Brushes.White;
+
+            }
+            
             ProcessBox.Items.Add(proc);
         }
 
