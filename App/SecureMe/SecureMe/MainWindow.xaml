@@ -8,7 +8,7 @@
         Title="SecureMe" Height="763.345" Width="1048.622" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" Icon="Images/SecureMeIcon-D1.ico">
     <Grid>
         <TabControl x:Name="MenuTabControl" HorizontalAlignment="Left" Height="634" Margin="0,101,0,0" VerticalAlignment="Top" Width="1043">
-            <TabItem x:Name="MainTab" Header="Main" Margin="-1,4,-1,-1">
+            <TabItem x:Name="MainTab" Header="Main" Margin="-1,5,-1,-1">
                 <Grid Background="#FFE5E5E5">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="22*"/>
@@ -24,7 +24,7 @@
                     <Label x:Name="HeyYouLabel" HorizontalContentAlignment="Center" Content="Hey, Dominic!" HorizontalAlignment="Left" Margin="0,23,0,0" VerticalAlignment="Top" FontSize="26.667" Width="1006" Grid.ColumnSpan="2" FontFamily="Source Sans Pro" FontStyle="Italic"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="Users" Margin="-2,4,0,-1">
+            <TabItem Header="Users" Margin="-2,5,0,-1">
                 <Grid Background="#FFE5E5E5">
                     <ListBox x:Name="UsersBox" Margin="198,57,202,131" Opacity="0.74" Background="Black" Foreground="#FFFBFBFB" SelectionChanged="UsersBox_SelectionChanged"/>
                     <Label x:Name="UsersLabel" Content="Users:" Margin="466,10,467,0" VerticalAlignment="Top" FontSize="24" FontFamily="Segoe UI Semilight"/>
@@ -37,7 +37,7 @@
                     <Label x:Name="ChangePasswdLabel" Content="Change Password:" HorizontalAlignment="Left" Margin="683,555,0,0" VerticalAlignment="Top" FontSize="16"/>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="Services" Header="Services" Margin="0,4,1,-1">
+            <TabItem x:Name="Services" Header="Services" Margin="0,5,1,-1">
                 <Grid Background="#FFE5E5E5">
                     <Label x:Name="label" Content="Services:" Margin="452,10,450,0" VerticalAlignment="Top" RenderTransformOrigin="1.237,0.769" FontSize="24"/>
                     <ListBox x:Name="ServicesBox" HorizontalAlignment="Left" Height="365" Margin="10,57,0,0" VerticalAlignment="Top" Width="992" Opacity="0.805" Background="Black" Foreground="#FFFFFEFE" SelectionChanged="ServicesBox_SelectionChanged"/>
@@ -72,7 +72,7 @@
                     </Rectangle>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="Processes" Header="Processes" Margin="-48,3,35,-3" RenderTransformOrigin="0.896,0.682" Height="25" VerticalAlignment="Top">
+            <TabItem x:Name="Processes" Header="Processes" Margin="-48,5,35,-1" RenderTransformOrigin="0.896,0.682" Height="17" VerticalAlignment="Top">
                 <Grid Background="#FFE5E5E5" Margin="0,0,-4,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="169*"/>
@@ -88,7 +88,7 @@
                     <TextBlock x:Name="ProcessFileLabel" HorizontalAlignment="Left" Margin="10,446,0,0" TextWrapping="Wrap" Text="File:" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="0.822,0.517" Grid.ColumnSpan="2" Width="547" Height="72"/>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="SysInfo" Header="System Info" Margin="-35,4,31,-1">
+            <TabItem x:Name="SysInfo" Header="System Info" Margin="-35,5,31,-1">
                 <Grid Background="#FFE5E5E5">
                     <Label x:Name="OSLabel" Content="OS:" HorizontalAlignment="Left" Margin="29,63,0,0" VerticalAlignment="Top" FontSize="21.333" Width="397"/>
                     <Image x:Name="OSPic" HorizontalAlignment="Left" Height="226" Margin="574,39,0,0" VerticalAlignment="Top" Width="354" Source="Images/Win8.jpg"/>
@@ -119,9 +119,9 @@
                     <Label x:Name="RefreshPortsLabel" Content="Refresh" HorizontalAlignment="Left" Margin="702,538,0,0" VerticalAlignment="Top" FontSize="23"/>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="ProgramsTab" Header="Packages" HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" Width="71" Margin="-122,3,0,-2">
+            <TabItem x:Name="ProgramsTab" Header="Packages" HorizontalAlignment="Left" Height="17" VerticalAlignment="Top" Width="71" Margin="-122,5,0,-1">
                 <Grid Background="#FFE5E5E5">
-                    <ListBox x:Name="ProgramsBox" HorizontalAlignment="Left" Height="414" Margin="10,26,0,0" VerticalAlignment="Top" Width="993" Background="#FF040000" Opacity="0.8" Foreground="White" SelectionChanged="ProgramsBox_SelectionChanged"/>
+                    <ListBox x:Name="ProgramsBox" HorizontalAlignment="Left" Height="363" Margin="10,77,0,0" VerticalAlignment="Top" Width="993" Background="#FF040000" Opacity="0.8" Foreground="White" SelectionChanged="ProgramsBox_SelectionChanged"/>
                     <Image x:Name="UninstallBtn" HorizontalAlignment="Left" Height="85" Margin="513,455,0,0" VerticalAlignment="Top" Width="86" Source="Images/Remove-Icon-D1.png" MouseEnter="UninstallBtn_MouseEnter" MouseLeave="UninstallBtn_MouseLeave" MouseDown="UninstallBtn_MouseDown" Cursor="Hand"/>
                     <Label x:Name="UninstallLabel" Content="Uninstall" HorizontalAlignment="Left" Margin="513,540,0,0" VerticalAlignment="Top" Height="32" Width="86" FontSize="20"/>
                     <Image x:Name="OpenPathBtn" HorizontalAlignment="Left" Height="85" Margin="660,455,0,0" VerticalAlignment="Top" Width="85" Source="Images/Folder-Icon.png" MouseEnter="StartProgramBtn_MouseEnter" MouseLeave="StartProgramBtn_MouseLeave" MouseDown="StartProgramBtn_MouseDown" Cursor="Hand"/>
@@ -129,6 +129,8 @@
                     <Label x:Name="ProgramVersionLabel" Content="Version:" HorizontalAlignment="Left" Margin="10,501,0,0" VerticalAlignment="Top" Width="454" FontSize="16"/>
                     <TextBlock x:Name="ProgramLocationText" HorizontalAlignment="Left" Margin="14,535,0,0" TextWrapping="Wrap" Text="Location:" VerticalAlignment="Top" Height="45" Width="482" FontSize="16"/>
                     <TextBlock x:Name="PckgNameLabel" HorizontalAlignment="Left" Margin="14,455,0,0" TextWrapping="Wrap" Text="Name:" VerticalAlignment="Top" Height="41" Width="450" FontSize="14"/>
+                    <Image x:Name="PckgIcon" HorizontalAlignment="Left" Height="72" Margin="809,0,0,0" VerticalAlignment="Top" Width="77" Source="Images/Package-Icon.png"/>
+                    <Label x:Name="PckgLabel" HorizontalContentAlignment="Center" Content="Installed Packages:" HorizontalAlignment="Left" Margin="266,8,0,0" VerticalAlignment="Top" Width="509" Height="57" FontSize="30"/>
                 </Grid>
             </TabItem>
         </TabControl>
