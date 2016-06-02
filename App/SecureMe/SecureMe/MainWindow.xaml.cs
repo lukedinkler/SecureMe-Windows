@@ -15,10 +15,9 @@ using System.Windows.Shapes;
 using System.Management;
 using System.ServiceProcess;
 using System.Diagnostics;
-using WpfAnimatedGif;
 
 //SecureMe 1.1 (Beta 4)
-//Developed in 2015 by Luke Dinkler
+//Developed in 2015-2016 by Luke Dinkler
 
 namespace SecureMe
 {

@@ -92,7 +92,21 @@ namespace SecureMe
             AdminEx("auditpol /set /category:\"Object Access\" /success:enable /failure:enable");
             AdminEx("auditpol /set /category:\"Policy Change\" /success:enable /failure:enable");
             AdminEx("auditpol /set /category:\"Privilege Use\" /success:enable /failure:enable");
-     
+        }
+
+        public static string ScanSys()
+        {
+            Loader.loader_string = "Performing full system scan";
+            string[] badones = { "nc.exe", };
+            string scanout = "";
+            foreach (string f in Directory.GetFiles("C:/"))
+            {  
+                if (badones.Contains(f))
+                {
+                    scanout = scanout + f;
+                }
+            }
+            return scanout;
         }
 
         public static void DoVariousTasks()

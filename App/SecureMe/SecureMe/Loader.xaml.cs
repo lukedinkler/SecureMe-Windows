@@ -90,6 +90,11 @@ namespace SecureMe
             funclib.SetSecurityPol();
             funclib.DoVariousTasks();
             funclib.DisableVulnerableServices();
+            string scan = funclib.ScanSys();
+            if(scan != "")
+            {
+                //Report possible viruses
+            }
             funclib.GrabSysInfo();
             
             done = true;
