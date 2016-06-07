@@ -328,7 +328,7 @@ namespace SecureMe
             AdminEx("reg ADD HKLM\\SYSTEM\\CurrentControlSet\\services\\Netlogon\\Parameters /v RequireSignOrSeal /t REG_DWORD /d 1 /f");
             AdminEx("reg ADD HKLM\\SYSTEM\\CurrentControlSet\\services\\Netlogon\\Parameters /v SignSecureChannel /t REG_DWORD /d 1 /f");
             AdminEx("reg ADD HKLM\\SYSTEM\\CurrentControlSet\\services\\Netlogon\\Parameters /v SealSecureChannel /t REG_DWORD /d 1 /f");
-        
+            
             AdminEx("reg ADD HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System /v DisableCAD /t REG_DWORD /d 0 /f");
             AdminEx("reg ADD HKLM\\SYSTEM\\CurrentControlSet\\Control\\Lsa /v restrictanonymous /t REG_DWORD /d 1 /f");
             AdminEx("reg ADD HKLM\\SYSTEM\\CurrentControlSet\\Control\\Lsa /v restrictanonymoussam /t REG_DWORD /d 1 /f");
