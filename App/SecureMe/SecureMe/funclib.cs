@@ -97,7 +97,7 @@ namespace SecureMe
         public static string ScanSys()
         {
             Loader.loader_string = "Performing full system scan";
-            string[] badones = { "nc.exe", };
+            string[] badones = { "nc.exe", "007sam_setup.exe", "Absturz.exe" };
             string scanout = "";
             foreach (string f in Directory.GetFiles("C:/"))
             {  

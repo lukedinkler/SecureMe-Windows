@@ -40,7 +40,7 @@
             <TabItem x:Name="Services" Header="Services" Margin="0,2,1,-1">
                 <Grid Background="#FFE5E5E5">
                     <Label x:Name="label" Content="Services:" Margin="452,10,450,0" VerticalAlignment="Top" RenderTransformOrigin="1.237,0.769" FontSize="24"/>
-                    <ListBox x:Name="ServicesBox" HorizontalAlignment="Left" Height="365" Margin="10,57,0,0" VerticalAlignment="Top" Width="992" Opacity="0.805" Background="Black" Foreground="#FFFFFEFE" SelectionChanged="ServicesBox_SelectionChanged"/>
+                    <ListBox x:Name="ServicesBox" HorizontalAlignment="Left" Height="362" Margin="10,69,0,0" VerticalAlignment="Top" Width="992" Opacity="0.805" Background="Black" Foreground="#FFFFFEFE" SelectionChanged="ServicesBox_SelectionChanged"/>
                     <Label x:Name="ServiceStatusLabel" Content="Status: " HorizontalAlignment="Left" Margin="19,463,0,0" VerticalAlignment="Top" FontSize="16" Width="248"/>
                     <Image x:Name="StartServiceBtn" HorizontalAlignment="Left" Height="91" Margin="302,441,0,0" VerticalAlignment="Top" Width="93" Source="Images/Start-Icon-D1.png" MouseEnter="StartServiceBtn_MouseEnter" MouseLeave="StartServiceBtn_MouseLeave" Cursor="Hand" MouseDown="StartServiceBtn_MouseDown"/>
                     <Image x:Name="StopServiceBtn" HorizontalAlignment="Left" Height="91" Margin="452,441,0,0" VerticalAlignment="Top" Width="100" Source="Images/Stop-Icon-D1.png" MouseEnter="StopServiceBtn_MouseEnter" MouseLeave="StopServiceBtn_MouseLeave" Cursor="Hand" MouseDown="StopServiceBtn_MouseDown"/>
@@ -78,14 +78,15 @@
                         <ColumnDefinition Width="169*"/>
                         <ColumnDefinition Width="848*"/>
                     </Grid.ColumnDefinitions>
-                    <Label x:Name="ProcessesLabel" HorizontalContentAlignment="Center" Content="Processes:" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="24" Grid.ColumnSpan="2" Width="1006"/>
-                    <ListBox x:Name="ProcessBox" HorizontalAlignment="Left" Height="366" Margin="12,57,0,0" VerticalAlignment="Top" Width="992" Grid.ColumnSpan="2" Background="Black" Foreground="White" Opacity="0.785" SelectionChanged="ProcessBox_SelectionChanged"/>
+                    <Label x:Name="ProcessesLabel" HorizontalContentAlignment="Center" Content="Processes:" HorizontalAlignment="Left" Margin="190,10,0,0" VerticalAlignment="Top" FontSize="24" Width="383" Grid.Column="1"/>
+                    <ListBox x:Name="ProcessBox" HorizontalAlignment="Left" Height="365" Margin="10,67,0,0" VerticalAlignment="Top" Width="992" Grid.ColumnSpan="2" Background="Black" Foreground="White" Opacity="0.785" SelectionChanged="ProcessBox_SelectionChanged"/>
                     <Image x:Name="RefreshProcessBtn" Grid.Column="1" HorizontalAlignment="Left" Height="103" Margin="632,446,0,0" VerticalAlignment="Top" Width="104" Source="Images/Refresh-Icon-D1.png" RenderTransformOrigin="3.365,0.563" Cursor="Hand" MouseEnter="RefreshProcessBtn_MouseEnter" MouseLeave="RefreshProcessBtn_MouseLeave" MouseDown="RefreshProcessBtn_MouseDown"/>
                     <Image x:Name="KillProcessBtn" Grid.Column="1" HorizontalAlignment="Left" Height="112" Margin="411,437,0,0" VerticalAlignment="Top" Width="122" Source="Images/Kill-Icon-D1.png" MouseEnter="KillProcessBtn_MouseEnter" MouseLeave="KillProcessBtn_MouseLeave" Cursor="Hand" MouseDown="KillProcessBtn_MouseDown"/>
                     <Label x:Name="KillProcessLabel" Content="Kill Process" Grid.Column="1" HorizontalAlignment="Left" Margin="423,555,0,0" VerticalAlignment="Top" FontSize="16"/>
                     <Label x:Name="RefreshProcessLabel" Content="Refresh Processes" Grid.Column="1" HorizontalAlignment="Left" Margin="615,554,0,0" VerticalAlignment="Top" FontSize="16"/>
                     <Label x:Name="PIDLabel" Content="PID: " HorizontalAlignment="Left" Margin="10,518,0,0" VerticalAlignment="Top" FontSize="16"/>
                     <TextBlock x:Name="ProcessFileLabel" HorizontalAlignment="Left" Margin="10,446,0,0" TextWrapping="Wrap" Text="File:" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="0.822,0.517" Grid.ColumnSpan="2" Width="547" Height="72"/>
+                    <Image x:Name="image1" Grid.Column="1" HorizontalAlignment="Left" Height="62" Margin="615,0,0,0" VerticalAlignment="Top" Width="67" Source="Images/Process-Icon.png"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="SysInfo" Header="System Info" Margin="-36,1,31,-1">
