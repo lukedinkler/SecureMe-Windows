@@ -8,6 +8,7 @@ namespace SecureMe
 {
     class Public
     {
+        public static string CurrentUser = "";
         public static List<string> UserNames = new List<string>();
         public static bool UserAdded = false;
         public static string NewUserName = "";

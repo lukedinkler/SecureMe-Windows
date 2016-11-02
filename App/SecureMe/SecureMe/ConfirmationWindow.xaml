@@ -14,7 +14,7 @@
     </Window.Triggers>
 
     <Grid>
-        <TextBlock x:Name="AreYouSure" Margin="97,41,97,0" TextWrapping="Wrap" Text="Are you sure you want to continue, n00b?" VerticalAlignment="Top" Height="41" FontSize="25"/>
+        <TextBlock x:Name="AreYouSure" Margin="97,41,97,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="41" FontSize="25"/>
         <Image x:Name="NoBtn" HorizontalAlignment="Left" Height="100" Margin="405,170,0,0" VerticalAlignment="Top" Width="103" Source="Images/Remove-Icon-D1.png" Cursor="Hand" MouseEnter="NoBtn_MouseEnter" MouseLeave="NoBtn_MouseLeave" MouseDown="NoBtn_MouseDown"/>
         <Image x:Name="YesBtn" Height="100" Margin="125,170,442,0" VerticalAlignment="Top" Source="Images/Enable-Icon-D1.png" Cursor="Hand" MouseEnter="YesBtn_MouseEnter" MouseLeave="YesBtn_MouseLeave" MouseDown="YesBtn_MouseDown"/>
     </Grid>

@@ -48,6 +48,7 @@ namespace SecureMe
             InitializeComponent();
 
             username = Environment.UserName;
+            Public.CurrentUser = username;
 
             string[] frontlabelchoices = { "Hey, " + username + "!", "What's up, " + username + "?", "Yo, " + username + "!" };
             HeyYouLabel.Content = funclib.RandomChoice(frontlabelchoices);
@@ -352,8 +353,13 @@ namespace SecureMe
         private void BasicSecureButton_MouseDown(object sender, MouseButtonEventArgs e)
         {
             Public.LoadSecureMode = "Basic";
-            Loader BasicSecure = new Loader();
-            BasicSecure.ShowDialog();
+            ConfirmationWindow CW = new ConfirmationWindow();
+            CW.ShowDialog();
+            if (Public.Confirm)
+            {
+                Loader BasicSecure = new Loader();
+                BasicSecure.ShowDialog();
+            }
             UpdateProcesses();
         }
 
@@ -410,6 +416,7 @@ namespace SecureMe
             RemoveUserBtn.Source = new BitmapImage(RUBtnIMG);
         }
 
+        //Remove User
         private void RemoveUserBtn_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (UsersBox.SelectedIndex > -1)
@@ -434,7 +441,7 @@ namespace SecureMe
                 MessageBox.Show("Please select a user to remove!");
             }
         }
-
+        //Add User
         private void AddUserBtn_MouseDown(object sender, MouseButtonEventArgs e)
         {
             AddUser AU = new AddUser();

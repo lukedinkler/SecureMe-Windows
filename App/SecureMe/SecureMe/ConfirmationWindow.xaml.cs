@@ -25,6 +25,7 @@ namespace SecureMe
         public ConfirmationWindow()
         {
             InitializeComponent();
+            AreYouSure.Text = "Are you sure you wish to continue, " + Public.CurrentUser + "?";   
         }
 
         private void NoBtn_MouseEnter(object sender, MouseEventArgs e)

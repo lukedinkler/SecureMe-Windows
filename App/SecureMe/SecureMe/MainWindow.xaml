@@ -54,7 +54,7 @@
                     <Label x:Name="ServiceStartupModeLabel" Content="Startup Mode:" HorizontalAlignment="Left" Margin="891,458,0,0" VerticalAlignment="Top"/>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="About" Header="About" Margin="328,2,-335,-2" RenderTransformOrigin="3.14,0.571">
+            <TabItem x:Name="About" Header="About" Margin="328,2,-335,0" RenderTransformOrigin="3.14,0.571">
                 <Grid Background="#FFE5E5E5" Margin="0,-1,0,1">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="116*"/>
@@ -72,7 +72,7 @@
                     </Rectangle>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="Processes" Header="Processes" Margin="-48,0,35,-1" RenderTransformOrigin="0.896,0.682" Height="24" VerticalAlignment="Bottom">
+            <TabItem x:Name="Processes" Header="Processes" Margin="-48,0,35,-1" RenderTransformOrigin="0.896,0.682" Height="25" VerticalAlignment="Bottom">
                 <Grid Background="#FFE5E5E5" Margin="0,0,-4,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="169*"/>
@@ -98,7 +98,7 @@
                     <Label x:Name="ArchLabel" Content="Architecture:" HorizontalAlignment="Left" Margin="29,196,0,0" VerticalAlignment="Top" FontSize="18.667" Width="228"/>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="Settings" Header="Settings" Margin="91,2,-92,-2">
+            <TabItem x:Name="Settings" Header="Settings" Margin="91,2,-92,-1">
                 <Grid Background="#FFE5E5E5">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="221*"/>
@@ -120,7 +120,7 @@
                     <Label x:Name="RefreshPortsLabel" Content="Refresh" HorizontalAlignment="Left" Margin="702,538,0,0" VerticalAlignment="Top" FontSize="23"/>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="ProgramsTab" Header="Packages" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="71" Margin="-121,2,0,-2">
+            <TabItem x:Name="ProgramsTab" Header="Packages" HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" Width="71" Margin="-121,2,0,-1">
                 <Grid Background="#FFE5E5E5">
                     <ListBox x:Name="ProgramsBox" HorizontalAlignment="Left" Height="363" Margin="10,77,0,0" VerticalAlignment="Top" Width="993" Background="#FF040000" Opacity="0.8" Foreground="White" SelectionChanged="ProgramsBox_SelectionChanged"/>
                     <Image x:Name="UninstallBtn" HorizontalAlignment="Left" Height="85" Margin="513,455,0,0" VerticalAlignment="Top" Width="86" Source="Images/Remove-Icon-D1.png" MouseEnter="UninstallBtn_MouseEnter" MouseLeave="UninstallBtn_MouseLeave" MouseDown="UninstallBtn_MouseDown" Cursor="Hand"/>
