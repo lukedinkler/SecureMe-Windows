@@ -21,9 +21,6 @@ using System.Diagnostics;
 
 namespace SecureMe
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public List<string> Users = new List<string>();
@@ -45,7 +42,6 @@ namespace SecureMe
         public static List<Software> SoftwareList = funclib.GetSoftware();
         public static Dictionary<string, Software> SoftwareDict = new Dictionary<string, Software>();
         public static string SelectedProgram = "";
-
 
         public MainWindow()
         {
@@ -96,7 +92,6 @@ namespace SecureMe
                 OSPicURI = new Uri(@"pack://application:,,,/Images/WinXP.png");
             }
 
-
             OSLabel.Content = "OS: " + WinVer;
             OSPic.Source = new BitmapImage(OSPicURI);
             CPULabel.Content = "CPU: " + funclib.GetCPUName();
@@ -121,7 +116,6 @@ namespace SecureMe
                 if (ServiceSettingValue == "Standard")
                 {
                     ServicesSettingsSafeBtn.IsChecked = true;
-
                 }
                 else if (ServiceSettingValue == "Admin")
                 {
@@ -184,7 +178,7 @@ namespace SecureMe
 
             var ProcessTimer = new System.Windows.Threading.DispatcherTimer();
             ProcessTimer.Tick += ProcessTimer_Tick;
-            ProcessTimer.Interval = new TimeSpan(0, 0, 10);
+            ProcessTimer.Interval = new TimeSpan(0, 0, 15);
             ProcessTimer.Start();
 
             var PortsTimer = new System.Windows.Threading.DispatcherTimer();
@@ -471,7 +465,6 @@ namespace SecureMe
             {
                 ServiceStartupModeBox.SelectedIndex = -1;
             }
-
             ServiceStatusLabel.Content = "Status: " + status + " - " + startuptype;
         }
 
@@ -906,13 +899,12 @@ namespace SecureMe
             {
                 Software Pckg = SoftwareDict[SelectedProgram];
                 string ProgPath = Pckg.ProgramPath;
-                if (ProgPath == "Unknown")
+                if (ProgPath == "Unknown" || ProgPath == "" || ProgPath == " ")
                 {
                     MessageBox.Show("This package's root directory cannot be started!");
                 }
                 else
                 {
-                   
                     Process.Start("explorer.exe", ProgPath);
                 }
             }

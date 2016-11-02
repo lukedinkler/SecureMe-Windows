@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Luke\Documents\SecureMe-Windows\App\SecureMe\SecureMe\obj\Release\
+C:\Users\Luke\Documents\GitHub\SecureMe-Windows\App\SecureMe\SecureMe\obj\Release\
 SecureMe
 none
 false
 TRACE
-C:\Users\Luke\Documents\SecureMe-Windows\App\SecureMe\SecureMe\App.xaml
+C:\Users\Luke\Documents\GitHub\SecureMe-Windows\App\SecureMe\SecureMe\App.xaml
 61819894296
 
 18-79047496
-241268066855
+24264461460
 AddUser.xaml;ConfirmationWindow.xaml;Loader.xaml;MainWindow.xaml;ManualSecure.xaml;PasswdChange.xaml;
 
-True
+False
 

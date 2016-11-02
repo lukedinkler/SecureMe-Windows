@@ -13,7 +13,7 @@
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
         <ListBox x:Name="ManSecureBox" HorizontalAlignment="Left" Height="530" Margin="10,66,0,0" VerticalAlignment="Top" Width="939" FontSize="21.333" Background="Black" Opacity="0.8" Grid.Column="1" Foreground="White" FontFamily="Lucida Console" SelectionChanged="ManSecureBox_SelectionChanged" Grid.ColumnSpan="2"/>
-        <Label x:Name="ManualSecureLabel" HorizontalContentAlignment="Center" Content="Manual Security Options:" Margin="0,12,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="963" FontSize="29.333" RenderTransformOrigin="0.5,0.5" Height="49" Grid.Column="1" Grid.ColumnSpan="2">
+        <Label x:Name="ManualSecureLabel" HorizontalContentAlignment="Center" Content="Manual Tasks:" Margin="0,12,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="963" FontSize="29.333" RenderTransformOrigin="0.5,0.5" Height="49" Grid.Column="1" Grid.ColumnSpan="2">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -24,7 +24,7 @@
             </Label.RenderTransform>
         </Label>
         <Image x:Name="ApplyOptionBtn" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="142" Margin="420,597,0,0" VerticalAlignment="Top" Width="146" Source="Images/Terminal-Icon-D1.png" MouseEnter="ApplyOptionBtn_MouseEnter" MouseDown="ApplyOptionBtn_MouseDown" MouseLeave="ApplyOptionBtn_MouseLeave" Cursor="Hand"/>
-        <Label x:Name="ApplyOptionLabel" Grid.ColumnSpan="2" Content="Apply Security Option" HorizontalAlignment="Left" Margin="382,744,0,0" VerticalAlignment="Top" FontSize="21.333"/>
+        <Label x:Name="ApplyOptionLabel" Grid.ColumnSpan="2" Content="Apply Task" HorizontalAlignment="Left" Margin="434,744,0,0" VerticalAlignment="Top" FontSize="21.333"/>
 
     </Grid>
 </Window>
