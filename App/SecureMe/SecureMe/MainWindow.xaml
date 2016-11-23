@@ -41,7 +41,7 @@
                 <Grid Background="#FFE5E5E5">
                     <Label x:Name="label" Content="Services:" Margin="452,10,450,0" VerticalAlignment="Top" RenderTransformOrigin="1.237,0.769" FontSize="24"/>
                     <ListBox x:Name="ServicesBox" HorizontalAlignment="Left" Height="369" Margin="10,69,0,0" VerticalAlignment="Top" Width="992" Opacity="0.805" Background="Black" Foreground="#FFFFFEFE" SelectionChanged="ServicesBox_SelectionChanged"/>
-                    <Label x:Name="ServiceStatusLabel" Content="Status: " HorizontalAlignment="Left" Margin="19,471,0,0" VerticalAlignment="Top" FontSize="16" Width="248"/>
+                    <Label x:Name="ServiceStatusLabel" Content="Status: " HorizontalAlignment="Left" Margin="19,440,0,0" VerticalAlignment="Top" FontSize="16" Width="248"/>
                     <Image x:Name="StartServiceBtn" HorizontalAlignment="Left" Height="91" Margin="302,459,0,0" VerticalAlignment="Top" Width="93" Source="Images/Start-Icon-D1.png" MouseEnter="StartServiceBtn_MouseEnter" MouseLeave="StartServiceBtn_MouseLeave" Cursor="Hand" MouseDown="StartServiceBtn_MouseDown"/>
                     <Image x:Name="StopServiceBtn" HorizontalAlignment="Left" Height="91" Margin="452,461,0,0" VerticalAlignment="Top" Width="100" Source="Images/Stop-Icon-D1.png" MouseEnter="StopServiceBtn_MouseEnter" MouseLeave="StopServiceBtn_MouseLeave" Cursor="Hand" MouseDown="StopServiceBtn_MouseDown"/>
                     <Image x:Name="DisableServiceBtn" HorizontalAlignment="Left" Height="91" Margin="592,463,0,0" VerticalAlignment="Top" Width="100" Source="Images/Disable-Icon-D1.png" MouseEnter="DisableServiceBtn_MouseEnter" MouseLeave="DisableServiceBtn_MouseLeave" Cursor="Hand" MouseDown="DisableServiceBtn_MouseDown"/>
@@ -52,6 +52,10 @@
                     <Label x:Name="EnableServiceLabel" Content="Enable w/ Startup Mode" HorizontalAlignment="Left" Margin="703,557,0,0" VerticalAlignment="Top" FontSize="16"/>
                     <ComboBox x:Name="ServiceStartupModeBox" HorizontalAlignment="Left" Margin="876,491,0,0" VerticalAlignment="Top" Width="120"/>
                     <Label x:Name="ServiceStartupModeLabel" Content="Startup Mode:" HorizontalAlignment="Left" Margin="891,458,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="SvcDescLabel" HorizontalAlignment="Left" Margin="112,469,0,0" VerticalAlignment="Top" Height="27" Width="73" RenderTransformOrigin="0.5,0.5" Content="Description:">
+
+                    </Label>
+                    <TextBox x:Name="SvcDescriptionBox" ScrollViewer.VerticalScrollBarVisibility="Visible" IsReadOnly="True" HorizontalAlignment="Left" Height="95" Margin="10,496,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="274" SpellCheck.IsEnabled="True"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="About" Header="About" Margin="328,2,-335,0" RenderTransformOrigin="3.14,0.571">

@@ -1,17 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Management;
 using System.ServiceProcess;
 using System.Diagnostics;
@@ -28,6 +22,7 @@ namespace SecureMe
         public string username = "";
         public List<string> ServiceList = new List<string>();
         public Dictionary<string, ServiceController> ServiceDict = new Dictionary<string, ServiceController>();
+        public Dictionary<ServiceController, string> ServiceDescriptionDict = new Dictionary<ServiceController, string>();
         public string SelectedService = "";
         public string Config = "";
         public string ServiceSettingValue = "";
@@ -146,8 +141,19 @@ namespace SecureMe
             {
                 ServiceList.Add(SC.ServiceName);
                 ServiceDict.Add(SC.ServiceName, SC);
+                ManagementObject wmiService;
+                try
+                {
+                    wmiService = new ManagementObject("Win32_Service.Name='" + SC.ServiceName + "'");
+                    wmiService.Get();
+                    ServiceDescriptionDict.Add(SC, wmiService["Description"].ToString());
+                }
+                catch
+                {
+                    ServiceDescriptionDict.Add(SC, "Unavailable");
+                }
+                
             }
-
             foreach (Port p in PortsList)
             {
                 AddPort(p.name);
@@ -157,7 +163,6 @@ namespace SecureMe
             {
                 AddService(svc);
             }
-
             foreach (Software prog in SoftwareList)
             {
                 if (prog.ProgramName != "Unknown")
@@ -170,7 +175,6 @@ namespace SecureMe
                     
                 }
             }
-
             string[] startupmodes = { "Automatic", "Manual" };
             foreach(string m in startupmodes)
             {
@@ -181,14 +185,11 @@ namespace SecureMe
             ProcessTimer.Tick += ProcessTimer_Tick;
             ProcessTimer.Interval = new TimeSpan(0, 0, 15);
             ProcessTimer.Start();
-
             var PortsTimer = new System.Windows.Threading.DispatcherTimer();
             PortsTimer.Tick += PortsTimer_Tick;
             PortsTimer.Interval = new TimeSpan(0, 0, 10);
             PortsTimer.Start();
-
-            UpdateProcesses();            
-
+            UpdateProcesses();
         }
 
 
@@ -456,23 +457,30 @@ namespace SecureMe
 
         private void ServicesBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            SelectedService = ((ListBoxItem)ServicesBox.SelectedValue).Content.ToString();
-            ServiceController SelectedController = ServiceDict[SelectedService];
-            string status = SelectedController.Status.ToString();
-            string startuptype = funclib.GetServiceStartupType(SelectedService);
-            if(startuptype == "MANUAL")
+            if(ServicesBox.SelectedIndex >= 0)
             {
-                ServiceStartupModeBox.SelectedIndex = 1;
+                SelectedService = ((ListBoxItem)ServicesBox.SelectedValue).Content.ToString();
+                ServiceController SelectedController = ServiceDict[SelectedService];
+                string status = SelectedController.Status.ToString();
+
+                string desc = ServiceDescriptionDict[SelectedController];
+                SvcDescriptionBox.Text = desc;
+                string startuptype = funclib.GetServiceStartupType(SelectedService);
+                if (startuptype == "MANUAL")
+                {
+                    ServiceStartupModeBox.SelectedIndex = 1;
+                }
+                else if (startuptype == "AUTOMATIC")
+                {
+                    ServiceStartupModeBox.SelectedIndex = 0;
+                }
+                else if (startuptype == "DISABLED")
+                {
+                    ServiceStartupModeBox.SelectedIndex = -1;
+                }
+                ServiceStatusLabel.Content = "Status: " + status + " - " + startuptype;
             }
-            else if(startuptype == "AUTOMATIC")
-            {
-                ServiceStartupModeBox.SelectedIndex = 0;
-            }
-            else if(startuptype == "DISABLED")
-            {
-                ServiceStartupModeBox.SelectedIndex = -1;
-            }
-            ServiceStatusLabel.Content = "Status: " + status + " - " + startuptype;
+            
         }
 
         private void StartServiceBtn_MouseEnter(object sender, MouseEventArgs e)
