@@ -10,8 +10,8 @@ using System.Management;
 using System.ServiceProcess;
 using System.Diagnostics;
 
-//SecureMe 1.1 (Beta 4)
-//Developed in 2015-2016 by Luke Dinkler
+//SecureMe 1.2
+//Developed in 2015-2017 by Luke Dinkler
 
 namespace SecureMe
 {

@@ -65,7 +65,7 @@
                         <ColumnDefinition Width="901*"/>
                     </Grid.ColumnDefinitions>
                     <Label x:Name="AboutMainLabel" Content="SecureMe:" HorizontalAlignment="Left" Margin="130,181,0,0" VerticalAlignment="Top" FontSize="26.667" Width="143" Grid.Column="1"/>
-                    <Label x:Name="AboutVerLabel" Content="Version 1.1 (Beta 4)" HorizontalAlignment="Left" Margin="168,247,0,0" VerticalAlignment="Top" Width="150" FontSize="16" FontStyle="Italic" Grid.Column="1"/>
+                    <Label x:Name="AboutVerLabel" Content="Version 1.2" HorizontalAlignment="Left" Margin="130,238,0,0" VerticalAlignment="Top" Width="150" FontSize="16" FontStyle="Italic" Grid.Column="1"/>
                     <Image x:Name="image" Grid.Column="1" HorizontalAlignment="Left" Height="269" Margin="389,117,0,0" VerticalAlignment="Top" Width="273" Source="Images/SecureMeLogo-D1.png"/>
                     <Label x:Name="AboutCreditLabel" Content="Developed by Luke Dinkler" Margin="130,316,557,0" VerticalAlignment="Top" FontSize="16" Grid.Column="1"/>
                     <Label x:Name="AboutYearLabel" Content="" HorizontalAlignment="Left" Margin="100,231,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" FontSize="21.333"/>
