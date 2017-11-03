@@ -11,7 +11,7 @@ using System.ServiceProcess;
 using System.Diagnostics;
 
 //SecureMe 1.2
-//Developed in 2015-2017 by Luke Dinkler
+//Developed in 2015-2017 by Daydream Software (Luke Dinkler)
 
 namespace SecureMe
 {
