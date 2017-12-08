@@ -1,0 +1,8 @@
+title: SecureMe (Windows)
+description: A User-friendly approach to PC Security & Management.
+google_analytics: 
+show_downloads: true
+theme: jekyll-theme-cayman
+
+gems:
+  - jekyll-mentions
