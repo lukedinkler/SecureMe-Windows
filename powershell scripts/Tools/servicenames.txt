@@ -1,0 +1,30 @@
+Name               DisplayName
+----               -----------
+wcncsvc            Windows Connect Now - Config Registrar
+StorSvc            Storage Service
+SNMPTRAP           SNMP Trap
+SCPolicySvc        Smart Card Removal Policy
+SCardSvr           Smart Card
+RemoteAccess       Routing and Remote Access
+RemoteRegistry     Remote Registry
+RpcLocator         Remote Procedure Call (RPC) Locator
+WPCSvc             Parental Controls
+CscService         Offline Files
+napagent           Network Access Protection Agent
+Netlogon           Netlogon
+MSiSCSI            Microsoft iSCSI Initiator Service
+iphlpsvc           IP Helper
+SharedAccess       Internet Connection Sharing (ICS)
+AppMgmt            Application Management
+bthserv            Bluetooth Support Service
+PeerDistSvc        BranchCache
+CertPropSvc        Certificate Propagation
+winrm              Windows Remote Management
+tlntsvr            Telnet Server
+termservice        Remote Desktop Services
+p2pimsvc           Peer Networking Identity Manager
+simptcp            Simple TCP/IP Services
+Fax                fax
+msftpsvc           Microsoft FTP Service
+tapisrv            Telephony
+----               -----------
