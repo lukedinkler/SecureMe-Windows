@@ -16,7 +16,7 @@ cls
 
 net sessions >NUL
 if %errorlevel%==0 (
-goto :StartupScreen
+goto :Home
 ) else (
 echo You need to run this script as a Administrator!
 pause
