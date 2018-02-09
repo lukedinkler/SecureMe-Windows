@@ -1,6 +1,6 @@
 SecureMe-WinSec is forked from Luke Dinkler's `SecureMe-Windows` http://lukedinkler.github.io/SecureMe-Windows/ 
 
-`All update will be pulled from there and all sugestions should be directed there as well.`
+`All updates will be pulled from there and all sugestions should be directed there as well.`
 #
 
 # SecureMe-WinSec
