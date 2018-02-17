@@ -14,3 +14,5 @@ SecureMe allows anyone to manage all the important aspects of their computer. Ma
 Looking for the latest release? For now, releases are being hosted by GitHub (and I'm open to anyone who would like to contribute), so click here to download the latest & greatest: https://github.com/lukedinkler/SecureMe-Windows/releases 
  ### 
 Support or Contact: Any problems with the software or simply suggestions for new updates? Simply contact Luke at daydreampublic@gmail.com, and we'll be happy to help in any way we can! 
+## 
+Disclaimer * Authors assume no liability and are not responsible for any misuse or damage caused by this program.
