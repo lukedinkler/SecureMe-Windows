@@ -16,6 +16,6 @@ Looking for the latest release? For now, releases are being hosted by GitHub (an
 Support or Contact: Any problems with the software or simply suggestions for new updates? Simply contact Luke at daydreampublic@gmail.com, and we'll be happy to help in any way we can! 
 ## 
 # License
-Secure-Me is licensed under the Apache License 2.0. See [LICENSE](LICENSE) for more information.
+* Secure-Me is licensed under the Apache License 2.0. See [LICENSE](LICENSE) for more information.
 # Disclaimer 
 * Authors assume no liability and are not responsible for any misuse or damage caused by this program.
