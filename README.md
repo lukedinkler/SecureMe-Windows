@@ -17,7 +17,7 @@ Currently SecureMe include:
 * enable/disable ipv6
 * enable/disable automatic updates
 * enable/disable Wi-Fi
-* manage windows services
+* manage Windows services
 * manage users
 * manage open ports
 * manage installed applications
