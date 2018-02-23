@@ -28,7 +28,7 @@ Currently SecureMe include:
 
 Looking for the latest release? For now, releases are being hosted by GitHub, so click [here](https://github.com/lukedinkler/SecureMe-Windows/releases) to download the latest & greatest!
  ### 
-Support or Contact: Any problems with the software or simply suggestions for new updates? Simply [contact us](<daydreampublic@gmail.com>), and we'll be happy to help in any way we can! 
+Support or Contact: Any problems with the software or simply suggestions for new updates? Simply contact us at <daydreampublic@gmail.com), and we'll be happy to help in any way we can! 
 # Contribute
 We would love for you to contribute to SecureMe and help make it even better than it is today! If you would like to contrubite, please head over to our [Developers Page](CONTRIBUTING.md)
 ## 
