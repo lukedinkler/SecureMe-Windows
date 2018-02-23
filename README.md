@@ -11,6 +11,22 @@ SecureMe allows anyone to manage all the important aspects of their computer. Ma
 
  ![Screenshot](https://cloud.githubusercontent.com/assets/11169798/19939116/09b5db88-a0fe-11e6-9e20-68a7fa6c4202.PNG) 
  ### 
+# Features
+Currently SecureMe include:
+* enable/disable Firewall
+* enable/disable ipv6
+* enable/disable automatic updates
+* enable/disable Wi-Fi
+* manage windows services
+* manage users
+* manage open ports
+* manage installed applications
+* Full system auditing 
+* Full export of system information
+* User password policies
+* General security policies
+
+
 Looking for the latest release? For now, releases are being hosted by GitHub (and I'm open to anyone who would like to contribute), so click here to download the latest & greatest: https://github.com/lukedinkler/SecureMe-Windows/releases 
  ### 
 Support or Contact: Any problems with the software or simply suggestions for new updates? Simply contact Luke at daydreampublic@gmail.com, and we'll be happy to help in any way we can! 
