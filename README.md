@@ -26,10 +26,11 @@ Currently SecureMe include:
 * User password policies
 * General security policies
 
-
-Looking for the latest release? For now, releases are being hosted by GitHub (and I'm open to anyone who would like to contribute), so click here to download the latest & greatest: https://github.com/lukedinkler/SecureMe-Windows/releases 
+Looking for the latest release? For now, releases are being hosted by GitHub, so click here to download the latest & greatest: https://github.com/lukedinkler/SecureMe-Windows/releases 
  ### 
-Support or Contact: Any problems with the software or simply suggestions for new updates? Simply contact Luke at daydreampublic@gmail.com, and we'll be happy to help in any way we can! 
+Support or Contact: Any problems with the software or simply suggestions for new updates? Simply contact us at daydreampublic@gmail.com, and we'll be happy to help in any way we can! 
+# Contribute
+We would love for you to contribute to SecureMe and help make it even better than it is today! If you would like to contrubite, please head over to our [Developers Page](CONTRIBUTING.md)
 ## 
 # License
 * Secure-Me is licensed under the Apache License 2.0. See [LICENSE](LICENSE) for more information.
