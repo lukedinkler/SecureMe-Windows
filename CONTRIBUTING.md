@@ -7,17 +7,13 @@ today! As a contributor, here are the guidelines we would like you to follow:
  - [Question or Problem?](#question)
  - [Issues and Bugs](#issue)
  - [Feature Requests](#feature)
- - [Submission Guidelines](#submit)
- - [Coding Rules](#rules)
- - [Commit Message Guidelines](#commit)
- - [Signing the CLA](#cla)
-
+ 
 ## <a name="coc"></a> Code of Conduct
-Help us keep Angular open and inclusive. Please read and follow our [Code of Conduct][coc].
+Help us keep SecureMe open and inclusive. Please read and follow our [Code of Conduct][coc].
 
 ## <a name="question"></a> Got a Question or Problem?
 
-Do not open issues for general support questions as we want to keep GitHub issues for bug reports and feature requests. You've got much better chances of getting your question answered on [Stack Overflow](https://stackoverflow.com/questions/tagged/angular) where the questions should be tagged with tag `angular`.
+Do not open issues for general support questions as we want to keep GitHub issues for bug reports and feature requests. You've got much better chances of getting your question answered on [Stack Overflow](https://stackoverflow.com).
 
 Stack Overflow is a much better place to ask questions since:
 
