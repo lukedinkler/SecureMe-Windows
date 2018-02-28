@@ -1,7 +1,6 @@
 # Contributing to SecureMe
 
-We would love for you to contribute to SecureMe and help make it even better than it is
-today! As a contributor, here are the guidelines we would like you to follow:
+We welcome people to contribute to SecureMe and are open to any ideas for improvement! As a contributor, here are the guidelines we would like you to follow
 
  - [Code of Conduct](#coc)
  - [Question or Problem?](#question)
@@ -22,8 +21,6 @@ Stack Overflow is a much better place to ask questions since:
 - Stack Overflow's voting system assures that the best answers are prominently visible.
 
 To save your and our time, we will systematically close all issues that are requests for general support and redirect people to Stack Overflow.
-
-If you would like to chat about the question in real-time, you can reach out via [our gitter channel][gitter].
 
 ## <a name="issue"></a> Found a Bug?
 If you find a bug in the source code, you can help us by
