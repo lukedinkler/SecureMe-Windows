@@ -8,7 +8,7 @@ We welcome people to contribute to SecureMe and are open to any ideas for improv
  - [Feature Requests](#feature)
  
 ## <a name="coc"></a> Code of Conduct
-Help us keep SecureMe open and inclusive. Please read and follow our [Code of Conduct][coc].
+Help us keep SecureMe open and inclusive. Please read the following Code of Conduct
 
 ## <a name="question"></a> Got a Question or Problem?
 
