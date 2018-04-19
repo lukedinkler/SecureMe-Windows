@@ -1,8 +1,3 @@
-SecureMe-WinSec is forked from Luke Dinkler's `SecureMe-Windows` http://lukedinkler.github.io/SecureMe-Windows/ 
-
-`All updates will be pulled from there and all sugestions should be directed there as well.`
-#
-
 # SecureMe-WinSec
 A User-friendly application that allows users to automatically and fully secure their Windows PC and manage their computer's users, processes, services, applications, monitor their ports, ect.
 
